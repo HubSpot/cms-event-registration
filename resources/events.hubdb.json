@@ -23,12 +23,12 @@
       "width": 206,
       "type": "IMAGE"
     },
+    { "name": "event_capacity", "label": "Event Capacity", "type": "NUMBER" },
     {
-      "name": "space_available",
-      "label": "Event Capacity",
+      "name": "registered_attendee_count",
+      "label": "Registered Attendee Count",
       "type": "NUMBER"
     },
-    { "name": "registered_registered_attendee_count", "label": "Registered Attendee Count", "type": "NUMBER" },
     { "name": "form_guid", "label": "Event Form", "type": "TEXT" }
   ],
   "rows": [
@@ -49,7 +49,7 @@
           "height": 745,
           "type": "image"
         },
-        "event_capacity": 10,
+        "event_capacity": 40,
         "registered_attendee_count": 0,
         "form_guid": "000-000-000"
       }
@@ -71,7 +71,7 @@
           "height": 745,
           "type": "image"
         },
-        "event_capacity": 10,
+        "event_capacity": 40,
         "registered_attendee_count": 0,
         "form_guid": "000-000-000"
       }
@@ -93,7 +93,7 @@
           "height": 745,
           "type": "image"
         },
-        "event_capacity": 10,
+        "event_capacity": 40,
         "registered_attendee_count": 0,
         "form_guid": "000-000-000"
       }

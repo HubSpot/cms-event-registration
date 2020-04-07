@@ -1,3 +1,4 @@
+import 'regenerator-runtime';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { AppContext, AppProvider } from './AppContext';
@@ -22,9 +23,10 @@ function UpcomingEvents() {
 }
 const root = document.getElementById('upcoming-events__module');
 const portalId = Number(root.dataset.portalId);
+const slug = root.dataset.slug;
 
 ReactDOM.render(
-  <AppProvider portalId={portalId}>
+  <AppProvider portalId={portalId} appSlug={slug}>
     <UpcomingEvents />
   </AppProvider>,
   root,

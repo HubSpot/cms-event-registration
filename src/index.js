@@ -19,10 +19,11 @@ const ScrollToTop = () => {
 
 const root = document.getElementById('root');
 const portalId = Number(root.dataset.portalId);
+const slug = root.dataset.slug;
 ReactDOM.render(
   <BrowserRouter>
     <ScrollToTop />
-    <AppProvider portalId={portalId}>
+    <AppProvider portalId={portalId} appSlug={slug}>
       <Switch>
         <Route exact path="/events" component={App} />
         <Route path="/events/:slug" component={EventDetailPage} />

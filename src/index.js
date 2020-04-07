@@ -25,8 +25,8 @@ ReactDOM.render(
     <ScrollToTop />
     <AppProvider portalId={portalId} appSlug={slug}>
       <Switch>
-        <Route exact path="/events" component={App} />
-        <Route path="/events/:slug" component={EventDetailPage} />
+        <Route exact path="/{slug}" component={App} />
+        <Route path="/{slug}/:slug" component={EventDetailPage} />
         <Route exact path="/my-events" component={RegisteredEventsPage} />
         <Route component={App} />
       </Switch>

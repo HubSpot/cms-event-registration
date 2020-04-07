@@ -1,0 +1,161 @@
+@import './_tokens';
+
+.App-header {
+  margin: 75px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.App-hero {
+  background-position: center 75%;
+  height: 350px;
+  background-color: #eee;
+  padding-top: 230px;
+}
+
+.filter-bar {
+  color: white;
+  height: 75px;
+  background-color: $color-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 18px;
+  font-weight: bold;
+  margin-bottom: 80px;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+
+.filter-bar__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+}
+.filter-bar__browse {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.filter-bar__browse--arrow {
+  transform: rotate(-90deg);
+  width: 30px;
+  margin: -5px 10px 0 40px;
+}
+.filter-bar__browse--event-filter {
+  text-transform: capitalize;
+  font-weight: normal;
+}
+.filter-bar__search-input {
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: none;
+  min-width: 360px;
+}
+
+.filter-bar__search-input::placeholder {
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+// Form styles
+.form-error {
+  display: none;
+  color: red;
+}
+
+.form-error.show {
+  display: block;
+}
+
+.event-header {
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+.event-description {
+  margin-bottom: 35px;
+}
+.event-description > p {
+  line-height: 1.5;
+}
+.back-banner {
+  background-color: $color-primary;
+  font-size: 1.25em;
+  padding: 15px 20px;
+  width: 250px;
+  text-align: right;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: #fff;
+  }
+}
+.back-banner__icon {
+  height: 30px;
+  width: 30px;
+}
+
+.event-listings__wrapper {
+  display: flex;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  .App-header {
+    padding: 0;
+  }
+  @media screen and (max-width: 1000px) {
+    flex-direction: column-reverse;
+  }
+}
+
+// Link Fixes
+a.event-button:hover,
+a.event-button:focus {
+  color: white;
+}
+
+.event-button {
+  display: inline-block;
+  background-color: $color-primary;
+  text-decoration: none;
+  color: white;
+  padding: 10px 25px;
+  margin: 30px 0;
+  font-size: 0.875em;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  border: 4px solid $color-primary;
+  border-radius: 6px;
+  box-shadow: unset;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.event-button.disabled {
+  color: gray;
+  border-color: gray;
+  background-color: white;
+}
+.event-button:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+.event-button.disabled:hover {
+  transform: none;
+  color: gray;
+  background-color: white;
+  cursor: not-allowed;
+}

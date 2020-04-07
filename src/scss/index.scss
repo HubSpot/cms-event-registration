@@ -1,0 +1,21 @@
+@import './_tokens';
+
+.App {
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.event-header {
+  font-size: 3em;
+}
+
+.event-card__title {
+  font-size: 2em;
+}

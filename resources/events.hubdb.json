@@ -1,0 +1,102 @@
+{
+  "name": "events",
+  "useForPages": true,
+  "label": "Events",
+  "allowChildTables": false,
+  "allowPublicApiAccess": true,
+  "dynamicMetaTags": {},
+  "enableChildTablePages": false,
+  "columns": [
+    { "name": "name", "label": "Name", "type": "TEXT" },
+    { "name": "start", "label": "Start", "type": "DATETIME" },
+    { "name": "end", "label": "End", "type": "DATETIME" },
+    { "name": "location", "label": "Location", "type": "LOCATION" },
+    { "name": "location_address", "label": "Location Address", "type": "TEXT" },
+    {
+      "name": "event_description",
+      "label": "Event Description",
+      "type": "RICHTEXT"
+    },
+    {
+      "name": "feature_image",
+      "label": "Feature Image",
+      "width": 206,
+      "type": "IMAGE"
+    },
+    {
+      "name": "space_available",
+      "label": "Event Capacity",
+      "type": "NUMBER"
+    },
+    { "name": "registered_registered_attendee_count", "label": "Registered Attendee Count", "type": "NUMBER" },
+    { "name": "form_guid", "label": "Event Form", "type": "TEXT" }
+  ],
+  "rows": [
+    {
+      "path": "my-event",
+      "name": "Event Page Title",
+      "isSoftEditable": false,
+      "values": {
+        "name": "My Event",
+        "start": 1609538400000,
+        "end": 1609549200000,
+        "location": { "lat": 42.369724, "long": -71.07791, "type": "location" },
+        "location_address": "25 First Street, Cambridge MA",
+        "event_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  faucibus elit nec velit tempor, sit amet consequat magna efficitur.  Donec aliquam urna a tortor pretium, ut tincidunt metus fringilla. Sed  maximus molestie tristique.</p>",
+        "feature_image": {
+          "url": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain.png",
+          "width": 1000,
+          "height": 745,
+          "type": "image"
+        },
+        "event_capacity": 10,
+        "registered_attendee_count": 0,
+        "form_guid": "000-000-000"
+      }
+    },
+    {
+      "path": "my-event-2",
+      "name": "Event Page Title",
+      "isSoftEditable": false,
+      "values": {
+        "name": "My Event",
+        "start": 1612216800000,
+        "end": 1612227600000,
+        "location": { "lat": 42.369724, "long": -71.07791, "type": "location" },
+        "location_address": "25 First Street, Cambridge MA",
+        "event_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  faucibus elit nec velit tempor, sit amet consequat magna efficitur.  Donec aliquam urna a tortor pretium, ut tincidunt metus fringilla. Sed  maximus molestie tristique.</p>",
+        "feature_image": {
+          "url": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain.png",
+          "width": 1000,
+          "height": 745,
+          "type": "image"
+        },
+        "event_capacity": 10,
+        "registered_attendee_count": 0,
+        "form_guid": "000-000-000"
+      }
+    },
+    {
+      "path": "my-event-3",
+      "name": "Event Page Title",
+      "isSoftEditable": false,
+      "values": {
+        "name": "My Event",
+        "start": 1617310800000,
+        "end": 1617319800000,
+        "location": { "lat": 42.369724, "long": -71.07791, "type": "location" },
+        "location_address": "25 First Street, Cambridge MA",
+        "event_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  faucibus elit nec velit tempor, sit amet consequat magna efficitur.  Donec aliquam urna a tortor pretium, ut tincidunt metus fringilla. Sed  maximus molestie tristique.</p>",
+        "feature_image": {
+          "url": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain.png",
+          "width": 1000,
+          "height": 745,
+          "type": "image"
+        },
+        "event_capacity": 10,
+        "registered_attendee_count": 0,
+        "form_guid": "000-000-000"
+      }
+    }
+  ]
+}

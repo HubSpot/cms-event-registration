@@ -1,0 +1,15 @@
+{
+  "runtime": "nodejs10.x",
+  "version": "1.0",
+  "secrets": ["APIKEY"],
+  "endpoints": {
+    "registration": {
+      "method": "POST",
+      "file": "membership.js"
+    },
+    "registration/new": {
+      "method": "POST",
+      "file": "eventSignup.js"
+    }
+  }
+}

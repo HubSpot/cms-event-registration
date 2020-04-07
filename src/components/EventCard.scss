@@ -1,0 +1,82 @@
+@import '../scss/_tokens.scss';
+
+.event-card {
+  padding: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 9px 24px -12px rgba(0, 0, 0, 0.3);
+  transition-property: box-shadow, transform;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  height: 100%;
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
+}
+.event-card:hover {
+  box-shadow: 0px 9px 24px -5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  transition-property: box-shadow, transform;
+  transition-duration: 0.4s;
+}
+.event-card__row {
+  display: flex;
+  flex-direction: column;
+}
+.event-card__image {
+  flex: 0 0 47%;
+  height: 0;
+  margin: 0 0 20px;
+  padding-bottom: 42%;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 4px solid $color-primary;
+}
+.event-card__column {
+  flex: 1;
+  padding: 0 20px;
+}
+.event-card__title {
+  text-transform: capitalize;
+  letter-spacing: normal;
+  margin: 0 20px 20px;
+}
+.event-card__title a {
+  color: inherit;
+}
+.event-card__date,
+.event-card__address,
+.event-card__capacity {
+  display: flex;
+  margin: 10px 0;
+  line-height: 1.3;
+  align-items: center;
+}
+.event-card__capacity {
+  line-height: 2;
+}
+
+.event-card__button {
+  display: inline-block;
+  text-transform: uppercase;
+  transform: scale(1);
+  letter-spacing: 1px;
+  margin-top: 20px;
+  padding: 7px 30px;
+  font-size: 0.875em;
+  color: $color-primary;
+  border: 4px solid $color-primary;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  transition: transform 0.4s;
+}
+.event-card__button:hover {
+  transform: scale(1.1);
+  color: white;
+  background-color: $color-primary;
+  transition: 0.4s;
+}

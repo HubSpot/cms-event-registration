@@ -1,0 +1,12 @@
+{
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "js_assets": [],
+  "other_assets": [],
+  "label": "Events app",
+  "icon": "calendar-alt:REGULAR",
+  "smart_type": "NOT_SMART",
+  "is_available_for_new_content": true
+}

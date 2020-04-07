@@ -1,0 +1,98 @@
+.upcoming-events {
+  padding: 45px 10px;
+  /* background: linear-gradient(135deg, #F1F1F1, #B1B1B1); */
+  text-align: center;
+}
+
+.event-card__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 40px 0 0;
+    text-align: left;
+  }
+  @media screen and (max-width: 1000px) {
+    .event-card__wrapper {
+      flex-direction: column;
+      padding-right: 0;
+    }
+  }
+  .event-card__wrapper a {
+    color: inherit;
+  }
+  .event-card__wrapper a:hover {
+    text-decoration: none;
+  }
+  .event-card__wrapper--link {
+    display: flex;
+    margin: 0 0 35px;
+    width: 30%;
+  }
+  @media screen and (max-width: 1000px) {
+    .event-card__wrapper--link {
+      width: 100%;
+    }
+  }
+  .event-card {
+    padding: 20px 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    transition-property: box-shadow, transform;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .event-card:hover {
+    box-shadow: 0px 9px 24px -5px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    transition-property: box-shadow, transform;
+    transition-duration: 0.4s;
+  }
+  .event-card__row {
+    display: flex;
+    flex-direction: column;
+  }
+  .event-card__image {
+    flex: 0 0 47%;
+    height: 0;
+    margin: 0 0 20px;
+    padding-bottom: 42%;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid #e71315;
+  }
+  .event-card__column {
+    flex: 1;
+    padding: 0 20px;
+  }
+  .event-card__title {
+    text-transform: capitalize;
+    letter-spacing: normal;
+    margin: 0 20px 20px;
+  }
+  .event-card__title a {
+    color: inherit;
+  }
+  .event-card__date,
+  .event-card__address,
+  .event-card__capacity {
+    display: flex;
+    margin: 10px 0;
+    line-height: 1.3;
+  }
+  .event-card__capacity {
+    line-height: 2;
+  }
+
+  .time-icon,
+.location-icon,
+.people-icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  overflow: visible;
+}

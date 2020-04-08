@@ -22,7 +22,6 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
 5. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
 6. Create a page in your portal that:
-    - Has the slug `/events/`
     - Uses the `Events app` module in a page template
     - References the `Events` HubDB table, set up for dynamic pages
 

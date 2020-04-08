@@ -20,7 +20,7 @@ const EventCalendar = ({ history }) => {
         return (
           dateMatch(day, event.values.start) &&
           event.path &&
-          history.push(`/events/${event.path}`)
+          history.push(`/${state.appSlug}/${event.path}`)
         );
       });
     }

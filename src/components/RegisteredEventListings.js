@@ -36,7 +36,7 @@ function RegisteredEventListings() {
           {state.events.map(
             (event, i) =>
               submissions.indexOf(event.values.form_guid) != -1 && (
-                <Link to={`/events/${event.path}`} className="event-card__link">
+                <Link to={`/${state.appSlug}/${event.path}`} className="event-card__link">
                   <EventCard key={i} row={event} />
                 </Link>
               ),

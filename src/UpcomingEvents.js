@@ -13,7 +13,7 @@ function UpcomingEvents() {
     <div className="event-card__wrapper">
       {upcomingEvents.map(function(obj, i) {
         return (
-          <a href={`/events/${obj.path}`} className="event-card__wrapper--link">
+          <a href={`/${state.appSlug}/${obj.path}`} className="event-card__wrapper--link">
             <EventCard key={i} row={obj} />
           </a>
         );

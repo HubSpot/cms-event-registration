@@ -3,5 +3,6 @@
 
 <div class="upcoming-events">
     <h2>Upcoming Events</h2>
-    <div id="upcoming-events__module" data-portal-id="{{ portal_id }}" data-slug="{{ module.event_page.slug }}"></div>
+    {% set appSlug = content_by_id(module.event_page).slug %}
+    <div id="upcoming-events__module" data-portal-id="{{ portal_id }}" data-slug="{{ appSlug }}"></div>
 </div>

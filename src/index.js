@@ -1,4 +1,5 @@
-import 'regenerator-runtime';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';

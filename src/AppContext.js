@@ -7,7 +7,7 @@ const AppProvider = props => {
 
   const getEvents = async () => {
     let response = await fetch(
-      `https://api.hubspot.com/cms/v3/hubdb/tables/events/rows?sort=start&portalId=${props.portalId}`,
+      `https://api.hubspot.com/cms/v3/hubdb/tables/events/rows?sort=start&portalId=${APP_CONFIG.portalId}`,
     );
     response = await response.json()
     setState(state => ({ ...state, events: response.results }));

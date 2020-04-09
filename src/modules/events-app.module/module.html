@@ -1,19 +1,23 @@
 {{ require_css(get_asset_url('../../event-registration.css')) }}
 {{ require_js(get_asset_url('../../event-registration.js'), 'footer') }}
 
-{% set IMAGES = {
-  'close': get_asset_url('../../images/close.png'),
-  'map': get_asset_url('../../images/map.png'),
-  'city': get_asset_url('../../images/city.jpg'),
+{% set APP_CONFIG = {
+  'appRoot': slug,
+  'portalId': portal_id,
+  'images': {
+    'close': get_asset_url('../../images/close.png'),
+    'map': get_asset_url('../../images/map.png'),
+    'city': get_asset_url('../../images/city.jpg'),
   }
+}
 %}
+{% require_js position="head" %}
+<script>
+  var APP_CONFIG = {{ APP_CONFIG|tojson }};
+</script>
+{% end_require_js %}
 
 <div class="event-registration">
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root" data-portal-id="{{ portal_id }}" data-slug="{{ slug }}"></div>
-  {% require_js %}
-  <script>
-    var IMAGES = {{ IMAGES|tojson }};
-  </script>
-  {% end_require_js %}
+  <div id="root"></div>
 </div>

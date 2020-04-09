@@ -23,12 +23,10 @@ function UpcomingEvents({appRoot}) {
   );
 }
 const root = document.getElementById('upcoming-events__module');
-const portalId = Number(root.dataset.portalId);
-const appRoot = root.dataset.appRoot;
 
 ReactDOM.render(
-  <AppProvider portalId={portalId}>
-    <UpcomingEvents appRoot={appRoot} />
+  <AppProvider portalId={APP_CONFIG.portalId}>
+    <UpcomingEvents appRoot={APP_CONFIG.appRoot} />
   </AppProvider>,
   root,
 );

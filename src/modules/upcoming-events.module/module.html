@@ -1,8 +1,20 @@
 {{ require_css(get_asset_url('../../upcoming-events.css')) }}
 {{ require_js(get_asset_url('../../upcoming-events.js'), 'footer') }}
 
+{% set APP_CONFIG = {
+  'appRoot': content_by_id(module.event_page).absoluteUrl,
+  'portalId': portal_id,
+}
+%}
+{% require_js position="head" %}
+<script>
+  var APP_CONFIG = {{ APP_CONFIG|tojson }};
+</script>
+{% end_require_js %}
+
+
 <div class="upcoming-events">
     <h2>Upcoming Events</h2>
-    {% set appRoot = content_by_id(module.event_page).absoluteUrl %}
-    <div id="upcoming-events__module" data-portal-id="{{ portal_id }}" data-app-root="{{ appRoot }}"></div>
+    <div id="upcoming-events__module"></div>
 </div>
+

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 import './EventListings.scss';
 
 const EventListings = ({ events, currentSearch }) => {
-  const { appRoot } = useParams();
   let filteredEvents = events;
 
   if (currentSearch) {
@@ -12,7 +11,7 @@ const EventListings = ({ events, currentSearch }) => {
       event.values.name.toLowerCase().includes(currentSearch.toLowerCase()),
     );
   }
-
+console.log(APP_CONFIG.appRoot)
   return (
     <div className="event-listings">
       {currentSearch && filteredEvents.length === 0 ? (
@@ -20,7 +19,7 @@ const EventListings = ({ events, currentSearch }) => {
       ) : (
         filteredEvents.map(function(obj, i) {
           return (
-            <Link to={`/${appRoot}/${obj.path}`} className="event-card__link">
+            <Link to={`${APP_CONFIG.appRoot}/${obj.path}`} className="event-card__link">
               <EventCard key={i} row={obj} />
             </Link>
           );

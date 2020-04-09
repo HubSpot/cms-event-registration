@@ -3,12 +3,11 @@ import DayPicker from 'react-day-picker';
 import { AppContext } from '../AppContext';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
-import { withRouter, useParams } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './EventCalendar.scss';
 
 const EventCalendar = ({ history }) => {
   const [state] = useContext(AppContext);
-  const {appRoot} = useParams();
   dayjs.extend(isBetween);
 
   function dateMatch(date, start) {
@@ -21,7 +20,7 @@ const EventCalendar = ({ history }) => {
         return (
           dateMatch(day, event.values.start) &&
           event.path &&
-          history.push(`${appRoot}/${event.path}`)
+          history.push(`/${APP_CONFIG.appRoot}/${event.path}`)
         );
       });
     }

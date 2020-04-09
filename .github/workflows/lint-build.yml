@@ -15,5 +15,5 @@ jobs:
           npm install
       - name: Lint and build project into dist
         run: |
-          npm run eslint src
+          npm eslint src
           npm run build

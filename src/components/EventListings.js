@@ -11,7 +11,7 @@ const EventListings = ({ events, currentSearch }) => {
       event.values.name.toLowerCase().includes(currentSearch.toLowerCase()),
     );
   }
-console.log(APP_CONFIG.appRoot)
+
   return (
     <div className="event-listings">
       {currentSearch && filteredEvents.length === 0 ? (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 import EventCard from './EventCard';
 import LoadingSpinner from './LoadingSpinner';
@@ -8,6 +8,7 @@ function RegisteredEventListings() {
   const [state] = useContext(AppContext);
   const [submissions, setSubmissions] = useState([]);
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  const {appRoot} = useParams();
 
   const getRegisteredEvents = async () => {
     // This function POSTs in order to pass cookies to the API and recieves a formSubmissions object
@@ -36,7 +37,7 @@ function RegisteredEventListings() {
           {state.events.map(
             (event, i) =>
               submissions.indexOf(event.values.form_guid) != -1 && (
-                <Link to={`/${state.appSlug}/${event.path}`} className="event-card__link">
+                <Link to={`${appRoot}/${event.path}`} className="event-card__link">
                   <EventCard key={i} row={event} />
                 </Link>
               ),

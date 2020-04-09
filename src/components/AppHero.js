@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import left from '../images/left.svg';
-import { Link } from 'react-router-dom';
-import { AppContext } from '../AppContext';
+import { Link, useParams } from 'react-router-dom';
 
 const AppHero = () => {
-  const [state] = useContext(AppContext);
+  const {appRoot} = useParams();
 
   return (
     <header
@@ -13,7 +12,7 @@ const AppHero = () => {
         backgroundImage: `url("{{ get_asset_url('./images/grayscale-mountain-banner.png') }}")`,
       }}
     >
-      <Link to={`/${state.appSlug}`} className="back-banner">
+      <Link to={`/${appRoot}`} className="back-banner">
         <img src={left} className="back-banner__icon" /> Back to Events
       </Link>
     </header>

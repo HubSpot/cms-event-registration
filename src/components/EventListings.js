@@ -1,12 +1,10 @@
-import React, { useContext }  from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import EventCard from './EventCard';
 import './EventListings.scss';
-import { AppContext } from '../AppContext';
-
 
 const EventListings = ({ events, currentSearch }) => {
-  const [state] = useContext(AppContext);
+  const { appRoot } = useParams();
   let filteredEvents = events;
 
   if (currentSearch) {
@@ -22,7 +20,7 @@ const EventListings = ({ events, currentSearch }) => {
       ) : (
         filteredEvents.map(function(obj, i) {
           return (
-            <Link to={`/${state.appSlug}/${obj.path}`} className="event-card__link">
+            <Link to={`/${appRoot}/${obj.path}`} className="event-card__link">
               <EventCard key={i} row={obj} />
             </Link>
           );

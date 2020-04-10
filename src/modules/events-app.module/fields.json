@@ -8,6 +8,14 @@
     "default" : {}
   },
   {
+    "label" : "Event Card Color",
+    "name" : "event_card_color",
+    "type" : "color",
+    "required" : false,
+    "locked" : false,
+    "default" : {}
+  },
+  {
     "label" : "Font Color",
     "name" : "font_color",
     "type" : "color",

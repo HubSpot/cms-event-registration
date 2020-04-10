@@ -10,7 +10,7 @@
 
 {%- macro outputColorIfSet(color) -%}
     {%- if color.color -%}
-      {%- if opacity < 100 -%}
+      {%- if color.opacity < 100 -%}
         rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
       {%- else -%}
         {{color.color}}
@@ -22,16 +22,22 @@
 
 <div class="event-registration"
      style="background-color:{{outputColorIfSet(module.background_color)}};
-            color:{{outputColorIfSet(module.font_color)}};">
-  <style>
-    .event-card {
-      background-color: {{outputColorIfSet(module.event_card_color)}};
-    }
+            color:{{outputColorIfSet(module.text_color)}};">
+  {% require_css %}
+    <style>
+      .event-card {
+        background-color: {{outputColorIfSet(module.event_card_color)}};
+      }
 
-    div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today {
-      background-color: {{outputColorIfSet(module.day_picker_today_color)}};
-    }
-  </style>
+      div .eventCalendar .DayPicker .DayPicker-wrapper {
+        background-color: {{outputColorIfSet(module.calendar_color)}};
+      }
+
+      div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today {
+        background-color: {{outputColorIfSet(module.calendar_highlight_color)}};
+      }
+    </style>
+  {% end_require_css %}
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root" data-portal-id="{{ portal_id }}"></div>
   {% require_js %}

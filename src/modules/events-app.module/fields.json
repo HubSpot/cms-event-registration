@@ -1,6 +1,6 @@
 [
   {
-    "label" : "Background Color",
+    "label" : "Background color",
     "name" : "background_color",
     "type" : "color",
     "required" : false,
@@ -8,7 +8,7 @@
     "default" : {}
   },
   {
-    "label" : "Event Card Color",
+    "label" : "Event card color",
     "name" : "event_card_color",
     "type" : "color",
     "required" : false,
@@ -16,16 +16,24 @@
     "default" : {}
   },
   {
-    "label" : "Font Color",
-    "name" : "font_color",
+    "label" : "Text color",
+    "name" : "text_color",
     "type" : "color",
     "required" : false,
     "locked" : false,
     "default" : {}
   },
   {
-    "label" : "Day Picker Today Color",
-    "name" : "day_picker_today_color",
+    "label" : "Calendar color",
+    "name" : "calendar_color",
+    "type" : "color",
+    "required" : false,
+    "locked" : false,
+    "default" : {}
+  },
+  {
+    "label" : "Calendar highlight color",
+    "name" : "calendar_highlight_color",
     "type" : "color",
     "required" : false,
     "locked" : false,

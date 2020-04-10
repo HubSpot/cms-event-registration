@@ -9,15 +9,11 @@
 %}
 
 {%- macro outputColorIfSet(color) -%}
-    {%- if color.color -%}
-      {%- if color.opacity < 100 -%}
-        rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
-      {%- else -%}
-        {{color.color}}
-      {%- endif -%}
-    {%- else -%}
-      inherit
-    {%- endif -%}
+  {%- if color.color -%}
+    rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
+  {%- else -%}
+    inherit
+  {%- endif -%}
 {%- endmacro -%}
 
 <div class="event-registration"
@@ -25,6 +21,14 @@
             color:{{outputColorIfSet(module.text_color)}};">
   {% require_css %}
     <style>
+      .event-header {
+        color: {{outputColorIfSet(module.title_color)}};
+      }
+
+      .event-card__title {
+        color: {{outputColorIfSet(module.event_title_color)}};
+      }
+
       .event-card {
         background-color: {{outputColorIfSet(module.event_card_color)}};
       }

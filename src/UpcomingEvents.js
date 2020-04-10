@@ -22,12 +22,17 @@ function UpcomingEvents({appRoot}) {
     </div>
   );
 }
-const root = document.getElementById('upcoming-events__module');
-const APP_CONFIG = window[root.dataset.config];
 
-ReactDOM.render(
-  <AppProvider portalId={APP_CONFIG.portalId}>
-    <UpcomingEvents appRoot={APP_CONFIG.appRoot} />
-  </AppProvider>,
-  root,
-);
+const root = document.querySelectorAll('.upcoming-events__module');
+
+root.forEach((el) => {
+  const APP_CONFIG = window[el.dataset.config];
+  ReactDOM.render(
+    <AppProvider portalId={APP_CONFIG.portalId}>
+      <UpcomingEvents appRoot={APP_CONFIG.appRoot} />
+    </AppProvider>,
+    el,
+  );
+})
+
+

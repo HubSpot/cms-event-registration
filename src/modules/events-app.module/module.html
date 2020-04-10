@@ -8,7 +8,26 @@
   }
 %}
 
-<div class="event-registration">
+{%- macro outputColorIfSet(color) -%}
+    {%- if color.color -%}
+      {%- if opacity < 100 -%}
+        rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
+      {%- else -%}
+        {{color.color}}
+      {%- endif -%}
+    {%- else -%}
+      inherit
+    {%- endif -%}
+{%- endmacro -%}
+
+<div class="event-registration"
+     style="background-color:{{outputColorIfSet(module.background_color)}};
+            color:{{outputColorIfSet(module.font_color)}};">
+  <style>
+    div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today {
+      background-color: {{outputColorIfSet(module.day_picker_today_color)}};
+    }
+  </style>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root" data-portal-id="{{ portal_id }}"></div>
   {% require_js %}

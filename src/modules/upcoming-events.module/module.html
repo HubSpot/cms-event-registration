@@ -8,13 +8,13 @@
 %}
 {% require_js position="head" %}
 <script>
-  var APP_CONFIG = {{ APP_CONFIG|tojson }};
+  var APP_CONFIG_{{ name }} = {{ APP_CONFIG|tojson }};
 </script>
 {% end_require_js %}
 
 
 <div class="upcoming-events">
     <h2>Upcoming Events</h2>
-    <div id="upcoming-events__module"></div>
+    <div id="upcoming-events__module" data-config="APP_CONFIG_{{ name }}"></div>
 </div>
 

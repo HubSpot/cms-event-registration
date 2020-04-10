@@ -23,7 +23,7 @@ const root = document.getElementById('root');
 ReactDOM.render(
   <BrowserRouter>
     <ScrollToTop />
-    <AppProvider>
+    <AppProvider portalId={APP_CONFIG.portalId}>
       <Switch>
         <Route exact path={`/${APP_CONFIG.appRoot}`} component={App} />
         <Route path={`/${APP_CONFIG.appRoot}/:slug`} component={EventDetailPage} />

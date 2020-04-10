@@ -23,6 +23,7 @@ function UpcomingEvents({appRoot}) {
   );
 }
 const root = document.getElementById('upcoming-events__module');
+const APP_CONFIG = window[root.dataset.config];
 
 ReactDOM.render(
   <AppProvider portalId={APP_CONFIG.portalId}>

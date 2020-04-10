@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "label" : "Background Color",
+    "name" : "background_color",
+    "type" : "color",
+    "required" : false,
+    "locked" : false,
+    "default" : {}
+  },
+  {
+    "label" : "Font Color",
+    "name" : "font_color",
+    "type" : "color",
+    "required" : false,
+    "locked" : false,
+    "default" : {}
+  },
+  {
+    "label" : "Day Picker Today Color",
+    "name" : "day_picker_today_color",
+    "type" : "color",
+    "required" : false,
+    "locked" : false,
+    "default" : {}
+  }
+]

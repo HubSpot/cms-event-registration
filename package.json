@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "deploy": "hs upload dist event-registration",
     "eslint": "eslint src",
-    "lint": "eslint src && prettier --list-different 'src/**/*.js' 'src/**/*.json'",
+    "lint": "eslint src && prettier --check 'src/**/*.js' 'src/**/*.json'",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'",
     "create-table": "hs hubdb create ./resources/events.hubdb.json"
   },

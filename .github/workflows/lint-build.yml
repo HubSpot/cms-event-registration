@@ -15,5 +15,5 @@ jobs:
           yarn install
       - name: Lint and build project into dist
         run: |
-          yarn eslint
+          yarn lint
           yarn build

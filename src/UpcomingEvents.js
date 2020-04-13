@@ -12,13 +12,17 @@ function UpcomingEvents() {
 
   return (
     <div className="event-card__wrapper">
-      {upcomingEvents.map(function(obj, i) {
-        return (
-          <a href={`/events/${obj.path}`} className="event-card__wrapper--link">
-            <EventCard key={i} row={obj} />
-          </a>
-        );
-      })}
+      {upcomingEvents.length === 0 ? (
+        <h3 class="no-event-message">You have no upcoming events</h3>
+      ) : (
+        upcomingEvents.map(function(obj, i) {
+          return (
+            <a href={`/events/${obj.path}`} className="event-card__wrapper--link">
+              <EventCard key={i} row={obj} />
+            </a>
+          );
+        })
+      )}
     </div>
   );
 }

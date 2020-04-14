@@ -57,4 +57,4 @@ The following commands are available in this project:
 
 `yarn prettier:write` - Reformats `.js` and `.json` files in `src/` with Prettier using the HubSpot style guide.
 
-See the [ESLint](https://eslint.org/docs/user-guide/configuring) and [Prettier]((https://prettier.io/docs/en/configuration.html)) documentation for questions on configuration.
+See the [ESLint](https://eslint.org/docs/user-guide/configuring) and [Prettier](https://prettier.io/docs/en/configuration.html) documentation for questions on configuration.

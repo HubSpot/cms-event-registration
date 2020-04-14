@@ -28,8 +28,7 @@
       "name": "registered_attendee_count",
       "label": "Registered Attendee Count",
       "type": "NUMBER"
-    },
-    { "name": "form_guid", "label": "Event Form", "type": "TEXT" }
+    }
   ],
   "rows": [
     {
@@ -50,8 +49,7 @@
           "type": "image"
         },
         "event_capacity": 40,
-        "registered_attendee_count": 0,
-        "form_guid": "000-000-000"
+        "registered_attendee_count": 0
       }
     },
     {
@@ -72,8 +70,7 @@
           "type": "image"
         },
         "event_capacity": 40,
-        "registered_attendee_count": 0,
-        "form_guid": "000-000-000"
+        "registered_attendee_count": 0
       }
     },
     {
@@ -94,8 +91,7 @@
           "type": "image"
         },
         "event_capacity": 40,
-        "registered_attendee_count": 0,
-        "form_guid": "000-000-000"
+        "registered_attendee_count": 0
       }
     }
   ]

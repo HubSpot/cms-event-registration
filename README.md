@@ -16,17 +16,17 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 
 0. Make sure that you're set up for [local development](https://designers.hubspot.com/tutorials/getting-started) with the [HubSpot CMS CLI](https://designers.hubspot.com/docs/developer-reference/local-development-cms-cli).
 1. Clone this repo to your machine
-1. Install dependencies by running `yarn install`
-1. Run `yarn create-table` to create the HubDB table where you will manage your events
-1. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
-1. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
-1. Create a page in your portal that:
+2. Install dependencies by running `yarn install`
+3. Run `yarn create-table` to create the HubDB table where you will manage your events
+4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
+5. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
+6. Create a page in your portal that:
 
    - Has the slug `/events/`
    - Uses the `Events app` module in a page template
    - References the `Events` HubDB table, set up for dynamic pages
 
-1. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). For each event that you create, you'll need to create a form and add that form ID to the HubDB entry. The form fields needed are:
+7. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). For each event that you create, you'll need to create a form and add that form ID to the HubDB entry. The form fields needed are:
    - First name
    - Last name
    - Email
@@ -51,8 +51,14 @@ The following commands are available in this project:
 
 `yarn deploy` - Uploads the project to your HubSpot account.
 
-`yarn lint` - Checks `src/` against ESLint and prettier with HubSpot's style guidelines.
-
-`yarn prettier:write` - Reformats `src/` with prettier using the HubSpot style guide.
-
 `yarn create-table` - Builds a HubDB table for your events from `resources/events.hubdb.json`, see above.
+
+`yarn lint` - Checks `src/` against ESLint and Prettier (only `.js` and `.json` files) with HubSpot's style guidelines.
+
+`yarn prettier:write` - Reformats `.js` and `.json` files in `src/` with Prettier using the HubSpot style guide.
+
+See the ESLint and Prettier documentation for questions on configuration:
+
+[ESLint](https://eslint.org/docs/user-guide/configuring)
+
+[Prettier](https://prettier.io/docs/en/configuration.html)

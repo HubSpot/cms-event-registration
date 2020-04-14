@@ -37,7 +37,11 @@ function App() {
         </div>
         <header className="App-header">
           <h1 className="event-header">Upcoming Events</h1>
-          {currentSearch ? <p>Searching for &quot;{currentSearch}&quot;</p> : ''}
+          {currentSearch ? (
+            <p>Searching for &quot;{currentSearch}&quot;</p>
+          ) : (
+            ''
+          )}
           <div className="event-description"></div>
         </header>
         <div className="event-listings__wrapper">
@@ -49,7 +53,10 @@ function App() {
                 View my Events
               </Link>
             ) : (
-              <a style={{textDecoration: 'none' }} href="/_hcms/mem/login?redirect_url=/my-events">
+              <a
+                style={{ textDecoration: 'none' }}
+                href="/_hcms/mem/login?redirect_url=/my-events"
+              >
                 Log in to see your events
               </a>
             )}

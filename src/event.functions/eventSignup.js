@@ -31,7 +31,8 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
   fetchRowPromise
     .then(response => {
       const updatedRowCell = {
-        registered_attendee_count: response.body.values.registered_attendee_count + 1,
+        registered_attendee_count:
+          response.body.values.registered_attendee_count + 1,
       };
 
       const updateRowPromise = request({

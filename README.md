@@ -1,5 +1,4 @@
-CMS Event Registration App
-========================
+# CMS Event Registration App
 
 A web app built for pages hosted on the HubSpot CMS.
 
@@ -17,25 +16,43 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 
 0. Make sure that you're set up for [local development](https://designers.hubspot.com/tutorials/getting-started) with the [HubSpot CMS CLI](https://designers.hubspot.com/docs/developer-reference/local-development-cms-cli).
 1. Clone this repo to your machine
-2. Install dependencies by running `yarn install`
-3. Run `yarn create-table` to create the HubDB table where you will manage your events
-4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
-5. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
-6. Create a page in your portal that:
-    - Has the slug `/events/`
-    - Uses the `Events app` module in a page template
-    - References the `Events` HubDB table, set up for dynamic pages
+1. Install dependencies by running `yarn install`
+1. Run `yarn create-table` to create the HubDB table where you will manage your events
+1. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
+1. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
+1. Create a page in your portal that:
 
-7. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). For each event that you create, you'll need to create a form and add that form ID to the HubDB entry. The form fields needed are:
-    - First name
-    - Last name
-    - Email
+   - Has the slug `/events/`
+   - Uses the `Events app` module in a page template
+   - References the `Events` HubDB table, set up for dynamic pages
+
+1. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). For each event that you create, you'll need to create a form and add that form ID to the HubDB entry. The form fields needed are:
+   - First name
+   - Last name
+   - Email
 
 ### Setting up membership
+
 _Note: In order to set up membership, your account will need a [connected domain](https://knowledge.hubspot.com/cos-general/connect-a-domain-to-hubspot)_
 
 8. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
 9. Create a "My Events" page in your portal that:
-    - Has the slug `/my-events/`
-    - Uses the `Events app` module in a page template; the page shouldn't be dynamic
-    - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
+   - Has the slug `/my-events/`
+   - Uses the `Events app` module in a page template; the page shouldn't be dynamic
+   - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
+
+#### Usage
+
+The following commands are available in this project:
+
+`yarn start` - Watches your project. Re-builds and re-uploads to your HubSpot account on save.
+
+`yarn build` - Builds the project into `dist/`.
+
+`yarn deploy` - Uploads the project to your HubSpot account.
+
+`yarn lint` - Checks `src/` against ESLint and prettier with HubSpot's style guidelines.
+
+`yarn prettier:write` - Reformats `src/` with prettier using the HubSpot style guide.
+
+`yarn create-table` - Builds a HubDB table for your events from `resources/events.hubdb.json`, see above.

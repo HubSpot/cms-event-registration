@@ -6,8 +6,10 @@ import LoadingSpinner from './LoadingSpinner';
 
 function RegisteredEventListings() {
   const [state] = useContext(AppContext);
-  const [submissions, setSubmissions] = useState([]);
-  const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  // const [submissions, setSubmissions] = useState([]);
+  // const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  const [registeredEventSlugs, setRegisteredEventSlugs] = useState([]);
+  const [registeredEventSlugsLoaded, setRegisteredEventSlugsLoaded] = useState(false);
 
   const getRegisteredEvents = async () => {
     // This function POSTs in order to pass cookies to the API and recieves a formSubmissions object
@@ -21,21 +23,23 @@ function RegisteredEventListings() {
       body: JSON.stringify({}),
     });
     response = await response.json();
-    setSubmissionsLoaded(true);
-    setSubmissions(response.formSubmissions);
+    // setSubmissionsLoaded(true);
+    // setSubmissions(response.formSubmissions);
+    setRegisteredEventSlugsLoaded(true);
+    setRegisteredEventSlugs(response.slugs);
   };
 
   useEffect(() => {
     getRegisteredEvents();
   }, []);
 
-  return submissionsLoaded ? (
+  return registeredEventSlugsLoaded ? (
     <div className="registered-events">
-      {submissions.length > 0 ? (
+      {registeredEventSlugs.length > 0 ? (
         <>
           {state.events.map(
             (event, i) =>
-              submissions.indexOf(event.values.form_guid) != -1 && (
+              registeredEventSlugs.indexOf(event.path) != -1 && (
                 <Link to={`/events/${event.path}`} className="event-card__link">
                   <EventCard key={i} row={event} />
                 </Link>

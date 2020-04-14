@@ -32,12 +32,16 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
       const submittedForms = contactFormSubmissions.map(submission => {
         return submission['form-id'];
       });
+      const slugs = contactFormSubmissions.map(submission =>
+        submission['page-url'].split('/').pop()
+      );
 
       sendResponse({
         statusCode: 200,
         body: {
           formSubmissions: submittedForms,
           contact,
+          slugs,
         },
       });
     })

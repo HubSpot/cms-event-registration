@@ -28,18 +28,16 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
   })
     .then(response => {
       const contactFormSubmissions = response.body['form-submissions'];
+      const eventFormSubmissions= contactFormSubmissions.filter(submission => submission['form-id'] === secrets.EVENTS_FORM_GUID);
 
-      const submittedForms = contactFormSubmissions.map(submission => {
-        return submission['form-id'];
-      });
-      const slugs = contactFormSubmissions.map(submission =>
+      const slugs = eventFormSubmissions.map(submission =>
         submission['page-url'].split('/').pop()
       );
 
       sendResponse({
         statusCode: 200,
         body: {
-          formSubmissions: submittedForms,
+          eventFormSubmissions,
           contact,
           slugs,
         },

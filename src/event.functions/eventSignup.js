@@ -7,7 +7,6 @@ const BASE_URL = `https://api.hubspot.com`;
 
 exports.main = ({ body, accountId, secrets }, sendResponse) => {
   const {
-    form_guid,
     email,
     firstName,
     lastName,
@@ -43,7 +42,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
         qs: defaultParams,
         body: { values: updatedRowCell },
       });
-      const formApiWithGuid = `${FORMS_API}/${accountId}/${form_guid}`;
+      const formApiWithGuid = `${FORMS_API}/${accountId}/${secrets.EVENTS_FORM_GUID}`;
       const updateContactPromise = request({
         method: 'POST',
         json: true,

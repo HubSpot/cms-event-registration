@@ -29,12 +29,16 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
    - Last name
    - Email
 
+### Using the upcoming events module
+1. Add the `Upcoming Events` module to any page
+2. In the sidebar, under `Options`, select your events page
+
 ### Setting up membership
 
 _Note: In order to set up membership, your account will need a [connected domain](https://knowledge.hubspot.com/cos-general/connect-a-domain-to-hubspot)_
 
-8. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
-9. Create a "My Events" page in your portal that:
+1. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
+2. Create a "My Events" page in your portal that:
    - Has the slug `/my-events/`
    - Uses the `Events app` module in a page template; the page shouldn't be dynamic
    - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step

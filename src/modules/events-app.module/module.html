@@ -8,7 +8,40 @@
   }
 %}
 
-<div class="event-registration">
+{%- macro outputColorIfSet(color) -%}
+  {%- if color.color -%}
+    rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
+  {%- else -%}
+    inherit
+  {%- endif -%}
+{%- endmacro -%}
+
+<div class="event-registration"
+     style="background-color:{{outputColorIfSet(module.background_color)}};
+            color:{{outputColorIfSet(module.text_color)}};">
+  {% require_css %}
+    <style>
+      #hs_cos_wrapper_{{ name }} .event-header {
+        color: {{outputColorIfSet(module.title_color)}};
+      }
+
+      #hs_cos_wrapper_{{ name }} .event-card__title {
+        color: {{outputColorIfSet(module.event_title_color)}};
+      }
+
+      #hs_cos_wrapper_{{ name }} .event-card {
+        background-color: {{outputColorIfSet(module.event_card_color)}};
+      }
+
+      #hs_cos_wrapper_{{ name }} div .eventCalendar .DayPicker .DayPicker-wrapper {
+        background-color: {{outputColorIfSet(module.calendar_color)}};
+      }
+
+      #hs_cos_wrapper_{{ name }} div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today {
+        background-color: {{outputColorIfSet(module.calendar_highlight_color)}};
+      }
+    </style>
+  {% end_require_css %}
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root" data-portal-id="{{ portal_id }}"></div>
   {% require_js %}

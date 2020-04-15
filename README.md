@@ -1,5 +1,4 @@
-CMS Event Registration App
-========================
+# CMS Event Registration App
 
 A web app built for pages hosted on the HubSpot CMS.
 
@@ -26,15 +25,34 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
     - References the `Events` HubDB table, set up for dynamic pages
 
 7. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). For each event that you create, you'll need to create a form and add that form ID to the HubDB entry. The form fields needed are:
-    - First name
-    - Last name
-    - Email
+   - First name
+   - Last name
+   - Email
 
 ### Setting up membership
+
 _Note: In order to set up membership, your account will need a [connected domain](https://knowledge.hubspot.com/cos-general/connect-a-domain-to-hubspot)_
 
 8. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
 9. Create a "My Events" page in your portal that:
-    - Has the slug `/my-events/`
-    - Uses the `Events app` module in a page template; the page shouldn't be dynamic
-    - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
+   - Has the slug `/my-events/`
+   - Uses the `Events app` module in a page template; the page shouldn't be dynamic
+   - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
+
+#### Usage
+
+The following commands are available in this project:
+
+`yarn start` - Watches your project. Re-builds and re-uploads to your HubSpot account on save.
+
+`yarn build` - Builds the project into `dist/`.
+
+`yarn deploy` - Uploads the project to your HubSpot account.
+
+`yarn create-table` - Builds a HubDB table for your events from `resources/events.hubdb.json`, see above.
+
+`yarn lint` - Checks `src/` against ESLint and Prettier (only `.js` and `.json` files) with HubSpot's style guidelines.
+
+`yarn prettier:write` - Reformats `.js` and `.json` files in `src/` with Prettier using the HubSpot style guide.
+
+See the [ESLint](https://eslint.org/docs/user-guide/configuring) and [Prettier](https://prettier.io/docs/en/configuration.html) documentation for questions on configuration.

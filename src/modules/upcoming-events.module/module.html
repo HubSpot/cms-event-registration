@@ -1,14 +1,17 @@
-{{ require_css(get_asset_url('../../upcoming-events.css')) }} {{
-require_js(get_asset_url('../../upcoming-events.js'), 'footer') }} {%- macro
-outputColorIfSet(color) -%} {%- if color.color -%}
-rgba({{color.color|convert_rgb}}, {{color.opacity/100}}) {%- else -%} inherit
-{%- endif -%} {%- endmacro -%}
+{{ require_css(get_asset_url('../../upcoming-events.css')) }}
+{{ require_js(get_asset_url('../../upcoming-events.js'), 'footer') }}
 
-<div
-  class="upcoming-events"
-  style="background-color:{{outputColorIfSet(module.background_color)}};
-            color:{{outputColorIfSet(module.text_color)}};"
->
+{%- macro outputColorIfSet(color) -%}
+  {%- if color.color -%}
+    rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
+  {%- else -%}
+    inherit
+  {%- endif -%}
+{%- endmacro -%}
+
+<div class="upcoming-events"
+     style="background-color:{{outputColorIfSet(module.background_color)}};
+            color:{{outputColorIfSet(module.text_color)}};">
   {% require_css %}
   <style>
 

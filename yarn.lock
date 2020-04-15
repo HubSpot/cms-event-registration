@@ -876,7 +876,7 @@
 
 "@hubspot/cms-lib@^1.1.1-beta.0":
   version "1.1.1-beta.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@hubspot/cms-lib/-/cms-lib-1.1.1-beta.0.tgz#c35cb937ce812a6133b869f3c6e54a3031a2b45b"
+  resolved "https://registry.yarnpkg.com/@hubspot/cms-lib/-/cms-lib-1.1.1-beta.0.tgz#c35cb937ce812a6133b869f3c6e54a3031a2b45b"
   integrity sha512-CKg4/5YOUgpL/ES2K6i+cU4jgzVJiG1PmTUMIkqCRBzYMbkt4UTB8jAYdwC9lp02yvn+I1NlyKjE2K1PN6OdbA==
   dependencies:
     chalk "^2.4.2"

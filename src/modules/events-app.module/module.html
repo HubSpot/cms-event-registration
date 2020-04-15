@@ -21,23 +21,23 @@
             color:{{outputColorIfSet(module.text_color)}};">
   {% require_css %}
     <style>
-      .event-header {
+      #hs_cos_wrapper_{{ name }} .event-header {
         color: {{outputColorIfSet(module.title_color)}};
       }
 
-      .event-card__title {
+      #hs_cos_wrapper_{{ name }} .event-card__title {
         color: {{outputColorIfSet(module.event_title_color)}};
       }
 
-      .event-card {
+      #hs_cos_wrapper_{{ name }} .event-card {
         background-color: {{outputColorIfSet(module.event_card_color)}};
       }
 
-      div .eventCalendar .DayPicker .DayPicker-wrapper {
+      #hs_cos_wrapper_{{ name }} div .eventCalendar .DayPicker .DayPicker-wrapper {
         background-color: {{outputColorIfSet(module.calendar_color)}};
       }
 
-      div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today {
+      #hs_cos_wrapper_{{ name }} div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today {
         background-color: {{outputColorIfSet(module.calendar_highlight_color)}};
       }
     </style>

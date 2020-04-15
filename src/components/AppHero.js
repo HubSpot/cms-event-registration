@@ -3,7 +3,6 @@ import left from '../images/left.svg';
 import { Link } from 'react-router-dom';
 
 const AppHero = () => {
-
   return (
     <header
       className="App-hero"

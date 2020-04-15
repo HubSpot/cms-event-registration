@@ -26,7 +26,10 @@ ReactDOM.render(
     <AppProvider portalId={APP_CONFIG.portalId}>
       <Switch>
         <Route exact path={`/${APP_CONFIG.appRoot}`} component={App} />
-        <Route path={`/${APP_CONFIG.appRoot}/:slug`} component={EventDetailPage} />
+        <Route
+          path={`/${APP_CONFIG.appRoot}/:slug`}
+          component={EventDetailPage}
+        />
         <Route exact path="/my-events" component={RegisteredEventsPage} />
         <Route component={App} />
       </Switch>

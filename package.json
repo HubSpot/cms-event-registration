@@ -18,6 +18,7 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@hubspot/cms-cli": "^1.0.4",
+    "@hubspot/cms-lib": "^1.1.1-beta.0",
     "@hubspot/webpack-cms-plugins": "^1.0.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",

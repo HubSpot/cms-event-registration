@@ -10,7 +10,7 @@ const AppHero = () => {
         backgroundImage: `url("{{ get_asset_url('./images/grayscale-mountain-banner.png') }}")`,
       }}
     >
-      <Link to={`/${APP_CONFIG.appRoot}`} className="back-banner">
+      <Link to={`/${window.APP_CONFIG.appRoot}`} className="back-banner">
         <img src={left} className="back-banner__icon" /> Back to Events
       </Link>
     </header>

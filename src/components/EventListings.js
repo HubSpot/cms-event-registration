@@ -20,7 +20,7 @@ const EventListings = ({ events, currentSearch }) => {
         filteredEvents.map(function(obj, i) {
           return (
             <Link
-              to={`${APP_CONFIG.appRoot}/${obj.path}`}
+              to={`${window.APP_CONFIG.appRoot}/${obj.path}`}
               className="event-card__link"
             >
               <EventCard key={i} row={obj} />

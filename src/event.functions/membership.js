@@ -20,31 +20,38 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
     return;
   }
 
-  request({
-    baseUrl: BASE_URL,
-    json: true,
-    uri: `${CONTACTS_API}/${contact.vid}/profile`,
-    qs: defaultParams,
-  })
-    .then(response => {
-      const contactFormSubmissions = response.body['form-submissions'];
-
-      const submittedForms = contactFormSubmissions.map(submission => {
-        return submission['form-id'];
-      });
-
-      sendResponse({
-        statusCode: 200,
-        body: {
-          formSubmissions: submittedForms,
-          contact,
-        },
-      });
+  if (secrets.APIKEY) {
+    request({
+      baseUrl: BASE_URL,
+      json: true,
+      uri: `${CONTACTS_API}/${contact.vid}/profile`,
+      qs: defaultParams,
     })
-    .catch(error => {
-      sendResponse({
-        statusCode: 500,
-        body: { error },
+      .then(response => {
+        const contactFormSubmissions = response.body['form-submissions'];
+
+        const submittedForms = contactFormSubmissions.map(submission => {
+          return submission['form-id'];
+        });
+
+        sendResponse({
+          statusCode: 200,
+          body: {
+            formSubmissions: submittedForms,
+            contact,
+          },
+        });
+      })
+      .catch(error => {
+        sendResponse({
+          statusCode: 500,
+          body: { error },
+        });
       });
+  } else {
+    sendResponse({
+      statusCode: 403,
+      body: { message: 'API key not present' },
     });
+  }
 };

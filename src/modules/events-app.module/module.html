@@ -13,7 +13,7 @@
 %}
 {% require_js position="head" %}
 <script>
-  var APP_CONFIG = {{ APP_CONFIG|tojson }};
+  window.APP_CONFIG = {{ APP_CONFIG|tojson }};
 </script>
 {% end_require_js %}
 

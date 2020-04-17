@@ -6,6 +6,13 @@ const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
 const BASE_URL = `https://api.hubspot.com`;
 
 exports.main = ({ body, accountId, secrets }, sendResponse) => {
+  if (!secrets.APIKEY) {
+    sendResponse({
+      statusCode: 403,
+      body: { message: 'API key not present' },
+    });
+  }
+
   const {
     form_guid,
     email,

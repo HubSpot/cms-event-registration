@@ -9,7 +9,7 @@
     "deploy": "hs upload dist event-registration",
     "lint": "eslint src && prettier --check 'src/**/*.js' 'src/**/*.json'",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'",
-    "create-table": "hs hubdb create ./resources/events.hubdb.json"
+    "create-table": "node ./scripts/createHubDB.js create --table_path ./resources/events.hubdb.json"
   },
   "author": "",
   "license": "ISC",
@@ -43,6 +43,7 @@
     "yargs": "^14.2.0"
   },
   "dependencies": {
+    "@hubspot/cms-lib": "^1.1.1-beta.0",
     "core-js": "^3.2.1",
     "dayjs": "^1.8.16",
     "js-cookie": "^2.2.1",

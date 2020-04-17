@@ -6,15 +6,7 @@ const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
 const BASE_URL = `https://api.hubspot.com`;
 
 exports.main = ({ body, accountId, secrets }, sendResponse) => {
-  const {
-    email,
-    firstName,
-    lastName,
-    rowId,
-    pageName,
-    pageUri,
-    utk,
-  } = body;
+  const { email, firstName, lastName, rowId, pageName, pageUri, utk } = body;
 
   const defaultParams = {
     portalId: accountId,

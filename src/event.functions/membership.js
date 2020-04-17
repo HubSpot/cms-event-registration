@@ -28,10 +28,12 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
   })
     .then(response => {
       const contactFormSubmissions = response.body['form-submissions'];
-      const eventFormSubmissions= contactFormSubmissions.filter(submission => submission['form-id'] === secrets.EVENTS_FORM_GUID);
+      const eventFormSubmissions = contactFormSubmissions.filter(
+        submission => submission['form-id'] === secrets.EVENTS_FORM_GUID,
+      );
 
       const slugs = eventFormSubmissions.map(submission =>
-        submission['page-url'].split('/').pop()
+        submission['page-url'].split('/').pop(),
       );
 
       sendResponse({

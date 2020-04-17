@@ -9,7 +9,9 @@ function RegisteredEventListings() {
   // const [submissions, setSubmissions] = useState([]);
   // const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
   const [registeredEventSlugs, setRegisteredEventSlugs] = useState([]);
-  const [registeredEventSlugsLoaded, setRegisteredEventSlugsLoaded] = useState(false);
+  const [registeredEventSlugsLoaded, setRegisteredEventSlugsLoaded] = useState(
+    false,
+  );
 
   const getRegisteredEvents = async () => {
     // This function POSTs in order to pass cookies to the API and recieves a formSubmissions object

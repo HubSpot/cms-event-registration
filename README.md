@@ -17,7 +17,7 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 0. Make sure that you're set up for [local development](https://designers.hubspot.com/tutorials/getting-started) with the [HubSpot CMS CLI](https://designers.hubspot.com/docs/developer-reference/local-development-cms-cli).
 1. Clone this repo to your machine
 2. Install dependencies by running `yarn install`
-3. Run `yarn create-table` to create the HubDB table where you will manage your events
+3. Run `yarn create-table --portal <portalId>` to create the HubDB table where you will manage your events
 4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
 5. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
 6. Create a page in your portal that:

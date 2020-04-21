@@ -2,15 +2,26 @@ import React, { useState, useContext } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import EventListings from './components/EventListings';
 import EventCalendar from './components/EventCalendar';
+import EventFilterType from './components/EventFilterType';
 import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import down from './images/left.svg';
 import './scss/App.scss';
+import _ from 'lodash/collection';
 
 function App() {
   const [state] = useContext(AppContext);
   const [currentSearch, setCurrentSearch] = useState('');
   const events = state.events;
+  const [filteredEventProperties, setEventProperties] = useState([]);
+
+  function addEventFilter(type, property) {
+    setEventProperties(filteredEventProperties.concat([{type: type, property: property}]));
+  }
+
+  function removeEventFilter(type, property) {
+      setEventProperties(_.filter(filteredEventProperties, function(i) { return !(i.type == type && i.property == property) }));
+  }
 
   return (
     <ErrorBoundary>
@@ -18,8 +29,22 @@ function App() {
         <div className="filter-bar">
           <div className="filter-bar__wrapper">
             <div className="filter-bar__browse">
-              Browse By
-              <img src={down} alt="" className="filter-bar__browse--arrow" />
+              <div className="filter-bar__browse--dropdown hsg-nav__group-item--has-dropdown">
+                <div className="filter-bar__browse--link-wrapper hsg-nav__link-wrapper">
+                  <a href="#" className="hsg-nav__link">
+                     <span className="hsg-nav__link-label">Browse By</span>
+                     <img src={down} alt="" className="filter-bar__browse--arrow" />
+                  </a>
+                </div>
+                <ul className="filter-bar__browse--dropdown-list hsg-nav__dropdown-list">
+                  <li className="filter-bar__browse--dropdown-list-title hsg-nav__dropdown-list-title"> Browse By 2 </li>
+                  < EventFilterType
+                    events={state.events}
+                    addEventFilter={addEventFilter}
+                    removeEventFilter={removeEventFilter}
+                  />
+                </ul>
+              </div>
               <span className="filter-bar__browse--event-filter">
                 All Events
               </span>
@@ -45,7 +70,10 @@ function App() {
           <div className="event-description"></div>
         </header>
         <div className="event-listings__wrapper">
-          <EventListings events={events} currentSearch={currentSearch} />
+          <EventListings
+           events={events}
+           currentSearch={currentSearch}
+           filteredEventProperties={filteredEventProperties} />
           <div>
             <EventCalendar />
             {state.contact.isLoggedIn ? (

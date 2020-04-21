@@ -74,7 +74,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
     if (statusCode != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message},
+        body: { message: body.message },
       });
     }
 
@@ -96,7 +96,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
     if (statusCode != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message},
+        body: { message: body.message },
       });
     }
 
@@ -137,7 +137,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
     if (statusCode != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message},
+        body: { message: body.message },
       });
     }
 

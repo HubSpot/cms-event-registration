@@ -10,6 +10,13 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
     hapikey: secrets.APIKEY,
   };
 
+  if (!secrets.APIKEY) {
+    sendResponse({
+      statusCode: 403,
+      body: { message: 'API key not present' },
+    });
+  }
+
   if (!contact || !contact.isLoggedIn) {
     sendResponse({
       statusCode: 403,
@@ -20,38 +27,47 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
     return;
   }
 
-  if (secrets.APIKEY) {
-    request({
+  const getContact = async vid => {
+    const { statusCode, body } = await request({
       baseUrl: BASE_URL,
       json: true,
-      uri: `${CONTACTS_API}/${contact.vid}/profile`,
+      uri: `${CONTACTS_API}/${vid}/profile`,
       qs: defaultParams,
-    })
-      .then(response => {
-        const contactFormSubmissions = response.body['form-submissions'];
-
-        const submittedForms = contactFormSubmissions.map(submission => {
-          return submission['form-id'];
-        });
-
-        sendResponse({
-          statusCode: 200,
-          body: {
-            formSubmissions: submittedForms,
-            contact,
-          },
-        });
-      })
-      .catch(error => {
-        sendResponse({
-          statusCode: 500,
-          body: { error },
-        });
-      });
-  } else {
-    sendResponse({
-      statusCode: 403,
-      body: { message: 'API key not present' },
     });
-  }
+
+    if (statusCode != 200) {
+      sendResponse({
+        statusCode: 500,
+        body: { message: body.message },
+      });
+    }
+
+    return body['form-submissions'];
+  };
+
+  (async () => {
+    try {
+      const formSubmissions = await getContact(contact.vid);
+
+      const submittedFormsIds = formSubmissions.map(submission => {
+        return submission['form-id'];
+      });
+
+      sendResponse({
+        statusCode: 200,
+        body: {
+          formSubmissions: submittedFormsIds,
+          contact,
+        },
+      });
+    } catch (e) {
+      sendResponse({
+        statusCode: 500,
+        body: {
+          message: 'There was a problem updating this registration',
+          error: e.message,
+        },
+      });
+    }
+  })();
 };

@@ -13,7 +13,7 @@ function UpcomingEvents() {
   return (
     <div className="event-card__wrapper">
       {upcomingEvents.length === 0 ? (
-        <h3 class="no-event-message">You have no upcoming events</h3>
+        <h3 class="no-event-message">There are no upcoming events.</h3>
       ) : (
         upcomingEvents.map(function(obj, i) {
           return (

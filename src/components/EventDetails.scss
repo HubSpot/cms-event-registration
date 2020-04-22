@@ -13,9 +13,11 @@
 .event-details__column {
   flex: 1;
 }
-.event-details__column--sidebar {
-  flex: 0 0 360px;
-  margin-left: 40px;
+@media screen and (min-width: 1000px) {
+  .event-details__column--sidebar {
+    flex: 0 0 360px;
+    margin-left: 40px;
+  }
 }
 .event-details__image {
   overflow: hidden;
@@ -92,6 +94,9 @@
   margin-top: 15px;
   margin-bottom: 50px;
 }
+.event-details__pagination {
+  margin-bottom: 20px;
+}
 .event-details__nextLink {
   display: inline-block;
   float: left;
@@ -100,7 +105,6 @@
   display: inline-block;
   float: right;
 }
-
 
 .share-icon {
   height: 25px;

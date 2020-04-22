@@ -874,6 +874,27 @@
     request-promise-native "^1.0.7"
     unixify "1.0.0"
 
+"@hubspot/cms-lib@^1.1.1-beta.0":
+  version "1.1.1-beta.0"
+  resolved "https://registry.yarnpkg.com/@hubspot/cms-lib/-/cms-lib-1.1.1-beta.0.tgz#c35cb937ce812a6133b869f3c6e54a3031a2b45b"
+  integrity sha512-CKg4/5YOUgpL/ES2K6i+cU4jgzVJiG1PmTUMIkqCRBzYMbkt4UTB8jAYdwC9lp02yvn+I1NlyKjE2K1PN6OdbA==
+  dependencies:
+    chalk "^2.4.2"
+    chokidar "^3.0.1"
+    content-disposition "^0.5.3"
+    debounce "^1.2.0"
+    extract-zip "^1.6.7"
+    findup-sync "^3.0.0"
+    fs-extra "^8.1.0"
+    ignore "^5.1.4"
+    js-yaml "^3.12.2"
+    moment "^2.24.0"
+    p-queue "^6.0.2"
+    prettier "^1.19.1"
+    request "^2.87.0"
+    request-promise-native "^1.0.7"
+    unixify "1.0.0"
+
 "@hubspot/webpack-cms-plugins@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@hubspot/webpack-cms-plugins/-/webpack-cms-plugins-1.1.0.tgz#20a23205a697553bc493d43d8b37cf258de8ad92"

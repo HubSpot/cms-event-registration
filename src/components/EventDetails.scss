@@ -49,18 +49,18 @@
     h3 {
       margin: 0;
     }
-    .time-icon,
-    .location-icon,
-    .people-icon {
-      height: 25px;
-      width: 25px;
-      margin-right: 10px;
-      overflow: visible;
-    }
     .event-details__meta-copy {
       display: inline-block;
     }
   }
+}
+.time-icon,
+.location-icon,
+.people-icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  overflow: visible;
 }
 .event-details__info {
   padding: 0 15%;

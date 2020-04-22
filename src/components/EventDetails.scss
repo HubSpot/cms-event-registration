@@ -14,8 +14,10 @@
   flex: 1;
 }
 .event-details__column--sidebar {
+  @media screen and (min-width: 500px) {
   flex: 0 0 360px;
   margin-left: 40px;
+  }
 }
 .event-details__image {
   overflow: hidden;
@@ -36,7 +38,7 @@
   }
   .column {
     white-space: nowrap;
-    padding: 0 0 50px 0;
+    padding: 0 0 20px 0;
     @media screen and (min-width: 600px) {
     padding: 0 50px 0 0;
     }
@@ -54,6 +56,9 @@
       width: 25px;
       margin-right: 10px;
       overflow: visible;
+    }
+    .event-details__meta-copy {
+      display: inline-block;
     }
   }
 }

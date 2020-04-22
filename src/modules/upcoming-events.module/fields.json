@@ -1,12 +1,12 @@
 [
   {
-    "label": "Page title",
-    "name": "page_title",
+    "label": "Heading",
+    "name": "heading",
     "type": "text",
     "required": false,
     "locked": false,
     "allow_new_line": false,
-    "show_emoji_picker": false,
+    "show_emoji_picker": true,
     "default": "Upcoming Events"
   },
   {

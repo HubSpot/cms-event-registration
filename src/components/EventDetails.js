@@ -16,14 +16,13 @@ const EventDetails = () => {
   const { slug } = useParams();
   const eventData = state.events;
 
-
   let event, prevEvent, nextEvent;
 
   eventData.forEach((e, i) => {
     if (e.path === slug) {
       event = e;
-      prevEvent = eventData[i-1];
-      nextEvent = eventData[i+1]
+      prevEvent = eventData[i - 1];
+      nextEvent = eventData[i + 1];
     }
   });
 
@@ -126,12 +125,16 @@ const EventDetails = () => {
                 </span>
               </div>
               <div className="event-details__pagination">
-              { prevEvent &&
-                <Link to={prevEvent.path} className="event-details__prevLink">&lt; Previous event</Link>
-                }
-                                { nextEvent &&
-                <Link to={nextEvent.path} className="event-details__nextLink">Next event &gt;</Link>
-                }
+                {prevEvent && (
+                  <Link to={prevEvent.path} className="event-details__prevLink">
+                    &lt; Previous event
+                  </Link>
+                )}
+                {nextEvent && (
+                  <Link to={nextEvent.path} className="event-details__nextLink">
+                    Next event &gt;
+                  </Link>
+                )}
               </div>
             </div>
           </div>

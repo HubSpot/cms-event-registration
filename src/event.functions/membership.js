@@ -4,10 +4,10 @@ const request = util.promisify(require('request'));
 const CONTACTS_API = '/contacts/v1/contact/vid';
 const BASE_URL = 'https://api.hubapi.com';
 
-exports.main = ({ accountId, secrets, contact }, sendResponse) => {
+exports.main = ({ accountId, contact }, sendResponse) => {
   const defaultParams = {
     portalId: accountId,
-    hapikey: secrets.APIKEY,
+    hapikey: process.env.APIKEY,
   };
 
   if (!contact || !contact.isLoggedIn) {

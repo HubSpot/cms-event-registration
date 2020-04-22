@@ -5,7 +5,7 @@ const HUBDB_API = '/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
 const BASE_URL = `https://api.hubspot.com`;
 
-exports.main = ({ body, accountId, secrets }, sendResponse) => {
+exports.main = ({ body, accountId }, sendResponse) => {
   const {
     form_guid,
     email,
@@ -19,7 +19,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
 
   const defaultParams = {
     portalId: accountId,
-    hapikey: secrets.APIKEY,
+    hapikey: process.env.APIKEY,
   };
 
   const fetchRowPromise = request({

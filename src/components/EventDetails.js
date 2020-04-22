@@ -127,10 +127,10 @@ const EventDetails = () => {
               </div>
               <div className="event-details__pagination">
               { prevEvent &&
-                <Link to={prevEvent.path} className="event-details__prevLink">Previous event</Link>
+                <Link to={prevEvent.path} className="event-details__prevLink">&lt; Previous event</Link>
                 }
                                 { nextEvent &&
-                <Link to={nextEvent.path} className="event-details__nextLink">Next event</Link>
+                <Link to={nextEvent.path} className="event-details__nextLink">Next event &gt;</Link>
                 }
               </div>
             </div>

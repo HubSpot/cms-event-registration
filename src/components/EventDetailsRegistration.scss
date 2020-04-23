@@ -48,7 +48,9 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   margin: 0 -30px;
-  border-radius: 5px 5px 0 0;
+  @media screen and (min-width: 500px) {
+    border-radius: 5px 5px 0 0;
+  }
 }
 .event-details__spaces-available {
   display: flex;

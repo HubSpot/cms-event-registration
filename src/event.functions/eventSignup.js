@@ -4,8 +4,8 @@ const request = util.promisify(require('request'));
 const HUBDB_API = 'https://api.hubspot.com/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
 
-exports.main = ({ body, accountId, secrets }, sendResponse) => {
-  if (!secrets.APIKEY) {
+exports.main = ({ body, accountId }, sendResponse) => {
+  if (!process.env.APIKEY) {
     sendResponse({
       statusCode: 403,
       body: { message: 'API key not present' },
@@ -13,7 +13,6 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
   }
 
   const {
-    form_guid,
     email,
     firstName,
     lastName,
@@ -25,7 +24,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
 
   const defaultParams = {
     portalId: accountId,
-    hapikey: secrets.APIKEY,
+    hapikey: process.env.APIKEY,
   };
 
   const getRow = async id => {
@@ -104,7 +103,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
   };
 
   const updateContact = async () => {
-    const formApiWithGuid = `${FORMS_API}/${accountId}/${form_guid}`;
+    const formApiWithGuid = `${FORMS_API}/${accountId}/${process.env.EVENTS_FORM_GUID}`;
 
     const { statusCode, body } = await request({
       method: 'POST',

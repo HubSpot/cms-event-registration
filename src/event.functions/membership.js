@@ -4,13 +4,13 @@ const request = util.promisify(require('request'));
 const CONTACTS_API = '/contacts/v1/contact/vid';
 const BASE_URL = 'https://api.hubapi.com';
 
-exports.main = ({ accountId, secrets, contact }, sendResponse) => {
+exports.main = ({ accountId, contact }, sendResponse) => {
   const defaultParams = {
     portalId: accountId,
-    hapikey: secrets.APIKEY,
+    hapikey: process.env.APIKEY,
   };
 
-  if (!secrets.APIKEY) {
+  if (!process.env.APIKEY) {
     sendResponse({
       statusCode: 403,
       body: { message: 'API key not present' },
@@ -48,9 +48,10 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
   (async () => {
     try {
       const formSubmissions = await getContact(contact.vid);
-      const slugs = formSubmissions.map(submission =>
-        submission['page-url'].split('/').pop(),
-      );
+      const slugs = formSubmissions
+        .filter(submission => submission['form-id'] === process.env.EVENTS_FORM_GUID)
+        .map(registration => registration['page-url'].split('/').pop());
+
       const submittedFormsIds = formSubmissions.map(submission => {
         return submission['form-id'];
       });

@@ -29,9 +29,9 @@ function UpcomingEvents() {
         })
       )}
     </div>
-   ) : (
-     <LoadingSpinner />
-   );
+  ) : (
+    <LoadingSpinner />
+  );
 }
 const root = document.getElementById('upcoming-events__module');
 const portalId = Number(root.dataset.portalId);

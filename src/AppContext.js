@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 const AppContext = React.createContext([{}, () => {}]);
 
 const AppProvider = props => {
-  const [state, setState] = useState({ contact: {}, events: [], eventsLoaded: false });
+  const [state, setState] = useState({
+    contact: {},
+    events: [],
+    eventsLoaded: false,
+  });
 
   const getEvents = async () => {
     let response = await fetch(

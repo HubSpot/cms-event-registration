@@ -12,15 +12,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
     });
   }
 
-  const {
-    email,
-    firstName,
-    lastName,
-    rowId,
-    pageName,
-    pageUri,
-    utk,
-  } = body;
+  const { email, firstName, lastName, rowId, pageName, pageUri, utk } = body;
 
   const defaultParams = {
     portalId: accountId,

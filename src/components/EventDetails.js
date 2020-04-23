@@ -39,7 +39,7 @@ const EventDetails = () => {
               <div className="event-details__table">
                 <div className="column">
                   <img className="time-icon" src={time} />
-                  <div>
+                  <div className="event-details__meta-copy">
                     <p> {dayjs(event.values.start).format('MMMM D, YYYY')} </p>
                     <p>
                       From {dayjs(event.values.start).format('hh:mm A')} to{' '}
@@ -49,7 +49,7 @@ const EventDetails = () => {
                 </div>
                 <div className="column">
                   <img className="location-icon" src={location} />
-                  <div>
+                  <div className="event-details__meta-copy">
                     <p> {event.values.location_address.split(',')[0]} </p>
                     <p>
                       {' '}

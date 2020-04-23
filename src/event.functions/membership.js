@@ -10,6 +10,13 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
     hapikey: secrets.APIKEY,
   };
 
+  if (!secrets.APIKEY) {
+    sendResponse({
+      statusCode: 403,
+      body: { message: 'API key not present' },
+    });
+  }
+
   if (!contact || !contact.isLoggedIn) {
     sendResponse({
       statusCode: 403,
@@ -20,35 +27,50 @@ exports.main = ({ accountId, secrets, contact }, sendResponse) => {
     return;
   }
 
-  request({
-    baseUrl: BASE_URL,
-    json: true,
-    uri: `${CONTACTS_API}/${contact.vid}/profile`,
-    qs: defaultParams,
-  })
-    .then(response => {
-      const contactFormSubmissions = response.body['form-submissions'];
-      const eventFormSubmissions = contactFormSubmissions.filter(
-        submission => submission['form-id'] === secrets.EVENTS_FORM_GUID,
-      );
+  const getContact = async vid => {
+    const { statusCode, body } = await request({
+      baseUrl: BASE_URL,
+      json: true,
+      uri: `${CONTACTS_API}/${vid}/profile`,
+      qs: defaultParams,
+    });
 
-      const slugs = eventFormSubmissions.map(submission =>
+    if (statusCode != 200) {
+      sendResponse({
+        statusCode: 500,
+        body: { message: body.message },
+      });
+    }
+
+    return body['form-submissions'];
+  };
+
+  (async () => {
+    try {
+      const formSubmissions = await getContact(contact.vid);
+      const slugs = formSubmissions.map(submission =>
         submission['page-url'].split('/').pop(),
       );
+      const submittedFormsIds = formSubmissions.map(submission => {
+        return submission['form-id'];
+      });
 
       sendResponse({
         statusCode: 200,
         body: {
-          eventFormSubmissions,
+          formSubmissions: submittedFormsIds,
           contact,
           slugs,
         },
       });
-    })
-    .catch(error => {
+    } catch (e) {
       sendResponse({
         statusCode: 500,
-        body: { error },
+        body: {
+          message: 'There was a problem updating this registration',
+          error: e.message,
+        },
       });
-    });
+    }
+  })();
 };

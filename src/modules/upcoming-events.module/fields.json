@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "label": "Background color",
+    "name": "background_color",
+    "type": "color",
+    "required": false,
+    "locked": false,
+    "default": {}
+  },
+  {
+    "label": "Event card color",
+    "name": "event_card_color",
+    "type": "color",
+    "required": false,
+    "locked": false,
+    "default": {}
+  },
+  {
+    "label": "Text color",
+    "name": "text_color",
+    "type": "color",
+    "required": false,
+    "locked": false,
+    "default": {}
+  },
+  {
+    "label": "Title color",
+    "name": "title_color",
+    "type": "color",
+    "required": false,
+    "locked": false,
+    "default": {}
+  },
+  {
+    "label": "Event title color",
+    "name": "event_title_color",
+    "type": "color",
+    "required": false,
+    "locked": false,
+    "default": {}
+  }
+]

@@ -1,7 +1,34 @@
 {{ require_css(get_asset_url('../../upcoming-events.css')) }}
 {{ require_js(get_asset_url('../../upcoming-events.js'), 'footer') }}
 
-<div class="upcoming-events">
-    <h2>Upcoming Events</h2>
-    <div id="upcoming-events__module" data-portal-id="{{ portal_id }}"></div>
+{%- macro outputColorIfSet(color) -%}
+  {%- if color.color -%}
+    rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
+  {%- else -%}
+    inherit
+  {%- endif -%}
+{%- endmacro -%}
+
+<div class="upcoming-events"
+     style="background-color:{{outputColorIfSet(module.background_color)}};
+            color:{{outputColorIfSet(module.text_color)}};">
+  {% require_css %}
+  <style>
+
+    #hs_cos_wrapper_{{ name }} .event-card {
+      background-color: {{outputColorIfSet(module.event_card_color)}};
+    }
+
+    #hs_cos_wrapper_{{ name }} .event-card__title {
+      color: {{outputColorIfSet(module.event_title_color)}};
+    }
+
+    #hs_cos_wrapper_{{ name }} .event-header {
+      color: {{outputColorIfSet(module.title_color)}};
+    }
+    
+  </style>
+  {% end_require_css %}
+  <h2 class="event-header">Upcoming Events</h2>
+  <div id="upcoming-events__module" data-portal-id="{{ portal_id }}"></div>
 </div>

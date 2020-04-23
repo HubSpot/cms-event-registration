@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const AppContext = React.createContext([{}, () => {}]);
 
 const AppProvider = props => {
-  const [state, setState] = useState({ contact: {}, events: [] });
+  const [state, setState] = useState({ contact: {}, events: [], eventsLoaded: false });
 
   const getEvents = async () => {
     let response = await fetch(
@@ -11,6 +11,7 @@ const AppProvider = props => {
     );
     response = await response.json();
     setState(state => ({ ...state, events: response.results }));
+    setState(state => ({ ...state, eventsLoaded: true }));
   };
 
   const getUserDetails = async () => {

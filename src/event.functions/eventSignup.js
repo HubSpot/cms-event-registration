@@ -5,9 +5,6 @@ const HUBDB_API = 'https://api.hubspot.com/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
 
 exports.main = ({ body, accountId, secrets }, sendResponse) => {
-<<<<<<< HEAD
-  const { email, firstName, lastName, rowId, pageName, pageUri, utk } = body;
-=======
   if (!secrets.APIKEY) {
     sendResponse({
       statusCode: 403,
@@ -25,42 +22,12 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
     pageUri,
     utk,
   } = body;
->>>>>>> master
 
   const defaultParams = {
     portalId: accountId,
     hapikey: secrets.APIKEY,
   };
 
-<<<<<<< HEAD
-  const fetchRowPromise = request({
-    baseUrl: BASE_URL,
-    json: true,
-    uri: `${HUBDB_API}/tables/events/rows/${rowId}`,
-    qs: defaultParams,
-  });
-  fetchRowPromise
-    .then(response => {
-      const updatedRowCell = {
-        registered_attendee_count:
-          response.body.values.registered_attendee_count + 1,
-      };
-
-      const updateRowPromise = request({
-        baseUrl: BASE_URL,
-        method: 'PATCH',
-        json: true,
-        uri: `${HUBDB_API}/tables/events/rows/${rowId}/draft`,
-        qs: defaultParams,
-        body: { values: updatedRowCell },
-      });
-      const formApiWithGuid = `${FORMS_API}/${accountId}/${secrets.EVENTS_FORM_GUID}`;
-      const updateContactPromise = request({
-        method: 'POST',
-        json: true,
-        simple: true,
-        uri: formApiWithGuid,
-=======
   const getRow = async id => {
     const { statusCode, body } = await request({
       baseUrl: HUBDB_API,
@@ -72,7 +39,6 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
     if (statusCode != 200) {
       sendResponse({
         statusCode: 500,
->>>>>>> master
         body: {
           message: body.message,
         },

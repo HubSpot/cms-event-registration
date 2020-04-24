@@ -2,8 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 const AppContext = React.createContext([{}, () => {}]);
 
+const eventLoadingStatus = {
+  UNINITIALIZED: 'uninitialized',
+  FETCHING: 'fetching',
+  SUCCEEDED: 'succeeded',
+  FAILED: 'failed',
+};
+
 const AppProvider = props => {
-  const [state, setState] = useState({ contact: {}, events: [] });
+  const [state, setState] = useState({
+    contact: {},
+    events: [],
+    eventsLoaded: eventLoadingStatus.UNINITIALIZED,
+  });
 
   const getEvents = async () => {
     let response = await fetch(
@@ -11,6 +22,10 @@ const AppProvider = props => {
     );
     response = await response.json();
     setState(state => ({ ...state, events: response.results }));
+    setState(state => ({
+      ...state,
+      eventsLoaded: eventLoadingStatus.SUCCEEDED,
+    }));
   };
 
   const getUserDetails = async () => {
@@ -42,4 +57,4 @@ const AppProvider = props => {
   );
 };
 
-export { AppContext, AppProvider };
+export { AppContext, AppProvider, eventLoadingStatus };

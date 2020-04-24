@@ -3,9 +3,10 @@ const request = util.promisify(require('request'));
 
 const HUBDB_API = 'https://api.hubspot.com/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
+const APIKEY = process.env.APIKEY;
 
-exports.main = ({ body, accountId, secrets }, sendResponse) => {
-  if (!secrets.APIKEY) {
+exports.main = ({ body, accountId }, sendResponse) => {
+  if (!APIKEY) {
     sendResponse({
       statusCode: 403,
       body: { message: 'API key not present' },
@@ -25,7 +26,7 @@ exports.main = ({ body, accountId, secrets }, sendResponse) => {
 
   const defaultParams = {
     portalId: accountId,
-    hapikey: secrets.APIKEY,
+    hapikey: APIKEY,
   };
 
   const getRow = async id => {

@@ -1,32 +1,22 @@
 {{ require_css(get_asset_url('../../upcoming-events.css')) }}
 {{ require_js(get_asset_url('../../upcoming-events.js'), 'footer') }}
 
-{%- macro outputColorIfSet(color) -%}
+{%- macro outputColorIfSet(property, color, css_selector) -%}
   {%- if color.color -%}
-    rgba({{color.color|convert_rgb}}, {{color.opacity/100}})
-  {%- else -%}
-    inherit
+    #hs_cos_wrapper_{{ name }} {{css_selector}} {
+      {{property}}: rgba({{color.color|convert_rgb}}, {{color.opacity/100}});
+    }
   {%- endif -%}
 {%- endmacro -%}
 
-<div class="upcoming-events"
-     style="background-color:{{outputColorIfSet(module.background_color)}};
-            color:{{outputColorIfSet(module.text_color)}};">
+<div class="upcoming-events">
   {% require_css %}
   <style>
-
-    #hs_cos_wrapper_{{ name }} .event-card {
-      background-color: {{outputColorIfSet(module.event_card_color)}};
-    }
-
-    #hs_cos_wrapper_{{ name }} .event-card__title {
-      color: {{outputColorIfSet(module.event_title_color)}};
-    }
-
-    #hs_cos_wrapper_{{ name }} .event-header {
-      color: {{outputColorIfSet(module.title_color)}};
-    }
-    
+    {{outputColorIfSet('background-color', module.background_color, '.upcoming-events')}}
+    {{outputColorIfSet('color', module.text_color, '.upcoming-events')}}
+    {{outputColorIfSet('background-color', module.event_card_color, '.event-card')}}
+    {{outputColorIfSet('color', module.title_color, '.event-header')}}
+    {{outputColorIfSet('color', module.event_title_color, '.event-card__title')}}
   </style>
   {% end_require_css %}
   <h2 class="event-header">Upcoming Events</h2>

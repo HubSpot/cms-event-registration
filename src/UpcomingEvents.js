@@ -2,7 +2,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { AppContext, AppProvider } from './AppContext';
+import { AppContext, AppProvider, eventLoadingStatus } from './AppContext';
 import EventCard from './components/EventCard';
 import LoadingSpinner from './components/LoadingSpinner';
 import './scss/upcoming-events.scss';
@@ -12,7 +12,7 @@ function UpcomingEvents() {
   const upcomingEvents = state.events.reverse().slice(0, 3);
   const eventsLoaded = state.eventsLoaded;
 
-  return eventsLoaded ? (
+  return eventsLoaded === eventLoadingStatus.SUCCEEDED ? (
     <div className="event-card__wrapper">
       {upcomingEvents.length === 0 ? (
         <h3 class="no-event-message">There are no upcoming events.</h3>

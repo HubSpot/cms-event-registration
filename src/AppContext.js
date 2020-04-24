@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 const AppContext = React.createContext([{}, () => {}]);
 
 const eventLoadingStatus = {
-    UNINITIALIZED: 'uninitialized',
-    FETCHING: 'fetching',
-    SUCCEEDED: 'succeeded',
-    FAILED: 'failed'
-}
+  UNINITIALIZED: 'uninitialized',
+  FETCHING: 'fetching',
+  SUCCEEDED: 'succeeded',
+  FAILED: 'failed',
+};
 
 const AppProvider = props => {
   const [state, setState] = useState({
@@ -22,7 +22,10 @@ const AppProvider = props => {
     );
     response = await response.json();
     setState(state => ({ ...state, events: response.results }));
-    setState(state => ({ ...state, eventsLoaded: eventLoadingStatus.SUCCEEDED }));
+    setState(state => ({
+      ...state,
+      eventsLoaded: eventLoadingStatus.SUCCEEDED,
+    }));
   };
 
   const getUserDetails = async () => {

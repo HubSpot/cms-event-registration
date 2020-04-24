@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './EventFilterCheckBox.scss';
 
 const EventFilterCheckBox = ({ property, propertyType, addEventFilter, removeEventFilter }) => {
   const [check, setCheck] = useState(false);

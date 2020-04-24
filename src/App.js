@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import EventListings from './components/EventListings';
 import EventCalendar from './components/EventCalendar';
-import EventFilterType from './components/EventFilterType';
+import EventFilterColumn from './components/EventFilterColumn';
 import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import down from './images/left.svg';
@@ -38,7 +38,7 @@ function App() {
                 </div>
                 <ul className="filter-bar__browse--dropdown-list hsg-nav__dropdown-list">
                   <li className="filter-bar__browse--dropdown-list-title hsg-nav__dropdown-list-title"> Browse By 2 </li>
-                  < EventFilterType
+                  < EventFilterColumn
                     events={state.events}
                     addEventFilter={addEventFilter}
                     removeEventFilter={removeEventFilter}

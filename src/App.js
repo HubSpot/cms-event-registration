@@ -16,11 +16,17 @@ function App() {
   const [filteredEventProperties, setEventProperties] = useState([]);
 
   function addEventFilter(type, property) {
-    setEventProperties(filteredEventProperties.concat([{type: type, property: property}]));
+    setEventProperties(
+      filteredEventProperties.concat([{ type: type, property: property }]),
+    );
   }
 
   function removeEventFilter(type, property) {
-      setEventProperties(_.filter(filteredEventProperties, function(i) { return !(i.type == type && i.property == property) }));
+    setEventProperties(
+      _.filter(filteredEventProperties, function(i) {
+        return !(i.type == type && i.property == property);
+      }),
+    );
   }
 
   return (
@@ -32,12 +38,16 @@ function App() {
               <div className="filter-bar__browse--menu-wrapper">
                 <div className="filter-bar__browse--menu">
                   <div className="filter-bar__browse--title-wrapper">
-                     <span className="filter-bar__browse--title">Browse By</span>
-                     <img src={down} alt="" className="filter-bar__browse--arrow" />
+                    <span className="filter-bar__browse--title">Browse By</span>
+                    <img
+                      src={down}
+                      alt=""
+                      className="filter-bar__browse--arrow"
+                    />
                   </div>
                 </div>
                 <ul className="filter-bar__browse--dropdown">
-                  < EventFilterColumn
+                  <EventFilterColumn
                     events={state.events}
                     addEventFilter={addEventFilter}
                     removeEventFilter={removeEventFilter}
@@ -70,9 +80,10 @@ function App() {
         </header>
         <div className="event-listings__wrapper">
           <EventListings
-           events={events}
-           currentSearch={currentSearch}
-           filteredEventProperties={filteredEventProperties} />
+            events={events}
+            currentSearch={currentSearch}
+            filteredEventProperties={filteredEventProperties}
+          />
           <div>
             <EventCalendar />
             {state.contact.isLoggedIn ? (

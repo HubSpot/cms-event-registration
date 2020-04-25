@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 import './EventListings.scss';
+
 import _a from 'lodash/array';
 import _c from 'lodash/collection';
 import _l from 'lodash/lang';

@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import './EventFilterCheckBox.scss';
 
-const EventFilterCheckBox = ({ property, propertyType, addEventFilter, removeEventFilter }) => {
+const EventFilterCheckBox = ({
+  property,
+  propertyType,
+  addEventFilter,
+  removeEventFilter,
+}) => {
   const [check, setCheck] = useState(false);
 
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  const handleClick = (property) => {
+  const handleClick = property => {
     setCheck(!check);
 
     if (check) {
-      removeEventFilter(propertyType, property)
+      removeEventFilter(propertyType, property);
     } else {
-      addEventFilter(propertyType, property)
+      addEventFilter(propertyType, property);
     }
-  }
+  };
 
   return (
     <li className="filter-bar__browse--dropdown-list-item">
@@ -26,10 +31,9 @@ const EventFilterCheckBox = ({ property, propertyType, addEventFilter, removeEve
         checked={check}
         onClick={() => handleClick(property)}
       />
-      <label for={property} data-content={capitalize(property)}>
-      </label>
+      <label for={property} data-content={capitalize(property)}></label>
     </li>
-  )
-}
+  );
+};
 
 export default EventFilterCheckBox;

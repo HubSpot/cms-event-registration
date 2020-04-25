@@ -46,11 +46,7 @@ const EventFilterColumn = ({ events, addEventFilter, removeEventFilter }) => {
     </div>
   ));
 
-  return (
-    <li className="filter-bar__browse--dropdown-row">
-      {propertyList}
-    </li>
-  );
+  return <li className="filter-bar__browse--dropdown-row">{propertyList}</li>;
 };
 
 export default EventFilterColumn;

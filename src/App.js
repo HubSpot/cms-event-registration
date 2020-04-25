@@ -29,14 +29,14 @@ function App() {
         <div className="filter-bar">
           <div className="filter-bar__wrapper">
             <div className="filter-bar__browse">
-              <div className="filter-bar__browse--dropdown hsg-nav__group-item--has-dropdown">
-                <div className="filter-bar__browse--link-wrapper hsg-nav__link-wrapper">
-                  <div className="hsg-nav__link">
-                     <span className="hsg-nav__link-label">Browse By</span>
+              <div className="filter-bar__browse--menu-wrapper">
+                <div className="filter-bar__browse--menu">
+                  <div className="filter-bar__browse--title-wrapper">
+                     <span className="filter-bar__browse--title">Browse By</span>
                      <img src={down} alt="" className="filter-bar__browse--arrow" />
                   </div>
                 </div>
-                <ul className="filter-bar__browse--dropdown-list hsg-nav__dropdown-list">
+                <ul className="filter-bar__browse--dropdown">
                   < EventFilterColumn
                     events={state.events}
                     addEventFilter={addEventFilter}

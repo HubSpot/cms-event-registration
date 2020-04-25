@@ -1,5 +1,5 @@
 @media (min-width:851px) {
-  .hsg-nav__dropdown-row {
+  .filter-bar__browse--dropdown-row {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
@@ -8,7 +8,7 @@
 }
 
 @media (min-width:851px) {
-  .hsg-nav__dropdown-column {
+  .filter-bar__browse--dropdown-column {
     -webkit-box-flex: 1;
     flex: 1;
     padding-top: 0.5rem;
@@ -16,12 +16,12 @@
 }
 
 @media (min-width:851px) {
-  .hsg-nav__dropdown-column:not(:last-child) {
+  .filter-bar__browse--dropdown-column:not(:last-child) {
     margin-right: 1rem;
   }
 }
 
-.hsg-nav__header {
+.filter-bar__browse--dropdown-column-header {
   position: relative;
   font-size: 1rem;
   font-weight: 800;

@@ -14,7 +14,7 @@ const EventFilterCategories = ({ properties, propertyType, addEventFilter, remov
   )
 
   return (
-    <ul class="filter-bar__browse--dropdown-list-group hsg-nav__link-group">
+    <ul class="filter-bar__browse--dropdown-list-group">
       {propertyList}
     </ul>
   );

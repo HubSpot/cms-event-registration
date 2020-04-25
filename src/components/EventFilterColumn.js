@@ -32,8 +32,8 @@ const EventFilterColumn = ({ events, addEventFilter, removeEventFilter }) => {
   }
 
   const propertyList = eventProperties.map(property => (
-    <div class="filter-bar__browse--dropdown-column hsg-nav__dropdown-column">
-      <h4 className="hsg-nav__header hsg-nav__header-subheader">
+    <div class="filter-bar__browse--dropdown-column">
+      <h4 className="filter-bar__browse--dropdown-column-header">
         {capitalize(property)}
       </h4>
       <EventFilterCategories
@@ -47,7 +47,7 @@ const EventFilterColumn = ({ events, addEventFilter, removeEventFilter }) => {
   ));
 
   return (
-    <li className="filter-bar__browse--dropdown-row hsg-nav__dropdown-row">
+    <li className="filter-bar__browse--dropdown-row">
       {propertyList}
     </li>
   );

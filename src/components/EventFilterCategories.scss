@@ -1,10 +1,10 @@
-.hsg-nav__link-group {
+.filter-bar__browse--dropdown-list-group {
   position: relative;
   padding: 0;
 }
 
 @media (min-width:851px) {
-  .hsg-nav__link-group {
+  .filter-bar__browse--dropdown-list-group {
     left: -1rem;
     width: calc(100% + 5rem);
   }

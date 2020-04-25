@@ -31,13 +31,12 @@ function App() {
             <div className="filter-bar__browse">
               <div className="filter-bar__browse--dropdown hsg-nav__group-item--has-dropdown">
                 <div className="filter-bar__browse--link-wrapper hsg-nav__link-wrapper">
-                  <a href="#" className="hsg-nav__link">
+                  <div className="hsg-nav__link">
                      <span className="hsg-nav__link-label">Browse By</span>
                      <img src={down} alt="" className="filter-bar__browse--arrow" />
-                  </a>
+                  </div>
                 </div>
                 <ul className="filter-bar__browse--dropdown-list hsg-nav__dropdown-list">
-                  <li className="filter-bar__browse--dropdown-list-title hsg-nav__dropdown-list-title"> Browse By 2 </li>
                   < EventFilterColumn
                     events={state.events}
                     addEventFilter={addEventFilter}

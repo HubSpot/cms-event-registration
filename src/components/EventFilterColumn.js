@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import EventFilterCategories from './EventFilterCategories';
 import './EventFilterColumn.scss';
 import _ from 'lodash/array';

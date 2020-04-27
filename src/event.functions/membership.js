@@ -49,6 +49,11 @@ exports.main = ({ accountId, contact }, sendResponse) => {
   (async () => {
     try {
       const formSubmissions = await getContact(contact.vid);
+      const slugs = formSubmissions
+        .filter(
+          submission => submission['form-id'] === process.env.EVENTS_FORM_GUID,
+        )
+        .map(registration => registration['page-url'].split('/').pop());
 
       const submittedFormsIds = formSubmissions.map(submission => {
         return submission['form-id'];
@@ -59,6 +64,7 @@ exports.main = ({ accountId, contact }, sendResponse) => {
         body: {
           formSubmissions: submittedFormsIds,
           contact,
+          slugs,
         },
       });
     } catch (e) {

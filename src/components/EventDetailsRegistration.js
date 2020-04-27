@@ -35,7 +35,6 @@ const RegistrationForm = ({
     event.preventDefault();
 
     const params = {
-      form_guid: currentEvent.values.form_guid,
       rowId: currentEvent.id,
       pageUri: window.location.href,
       pageName: currentEvent.name,

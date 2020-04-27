@@ -1,7 +1,7 @@
 {
   "runtime": "nodejs10.x",
   "version": "1.0",
-  "secrets": ["APIKEY"],
+  "secrets": ["APIKEY", "EVENTS_FORM_GUID"],
   "endpoints": {
     "registration": {
       "method": "POST",

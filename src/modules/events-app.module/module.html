@@ -4,11 +4,28 @@
 {% set IMAGES = {
   'close': get_asset_url('../../images/close.png'),
   'map': get_asset_url('../../images/map.png'),
-  'city': get_asset_url('../../images/city.jpg'),
-  }
-%}
+  'city': get_asset_url('../../images/city.jpg'), } %}
+
+{%- macro outputColorIfSet(property, color, css_selector) -%}
+  {%- if color.color -%}
+    #hs_cos_wrapper_{{ name }} {{css_selector}} {
+      {{property}}: rgba({{color.color|convert_rgb}}, {{color.opacity/100}});
+    }
+  {%- endif -%}
+{%- endmacro -%}
 
 <div class="event-registration">
+  {% require_css %}
+  <style>
+    {{outputColorIfSet('background-color', module.background_color, '.event-registration')}}
+    {{outputColorIfSet('color', module.text_color, '.event-registration')}}
+    {{outputColorIfSet('color', module.title_color, '.event-header')}}
+    {{outputColorIfSet('color', module.event_title_color, '.event-card__title')}}
+    {{outputColorIfSet('background-color', module.event_card_color, '.event-card')}}
+    {{outputColorIfSet('background-color', module.calendar_color, 'div .eventCalendar .DayPicker .DayPicker-wrapper')}}
+    {{outputColorIfSet('background-color', module.calendar_highlight_color, 'div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today')}}
+  </style>
+  {% end_require_css %}
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root" data-portal-id="{{ portal_id }}"></div>
   {% require_js %}

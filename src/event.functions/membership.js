@@ -3,14 +3,15 @@ const request = util.promisify(require('request'));
 
 const CONTACTS_API = '/contacts/v1/contact/vid';
 const BASE_URL = 'https://api.hubapi.com';
+const APIKEY = process.env.APIKEY;
 
 exports.main = ({ accountId, contact }, sendResponse) => {
   const defaultParams = {
     portalId: accountId,
-    hapikey: process.env.APIKEY,
+    hapikey: APIKEY,
   };
 
-  if (!process.env.APIKEY) {
+  if (!APIKEY) {
     sendResponse({
       statusCode: 403,
       body: { message: 'API key not present' },

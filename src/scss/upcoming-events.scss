@@ -63,7 +63,6 @@
     padding-bottom: 42%;
     background-size: cover;
     background-position: center;
-    border-bottom: 2px solid #e71315;
   }
   .event-card__column {
     flex: 1;
@@ -86,6 +85,10 @@
   }
   .event-card__capacity {
     line-height: 2;
+  }
+
+  .no-event-message {
+    text-align: center;
   }
 
   .time-icon,

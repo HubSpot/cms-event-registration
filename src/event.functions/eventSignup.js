@@ -3,7 +3,7 @@ const request = util.promisify(require('request'));
 
 const HUBDB_API = 'https://api.hubspot.com/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
-const APIKEY = process.env.APIKEY;
+const { APIKEY, EVENTS_FORM_GUID } = process.env;
 
 exports.main = ({ body, accountId }, sendResponse) => {
   if (!APIKEY) {
@@ -96,7 +96,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
   };
 
   const updateContact = async () => {
-    const formApiWithGuid = `${FORMS_API}/${accountId}/${process.env.EVENTS_FORM_GUID}`;
+    const formApiWithGuid = `${FORMS_API}/${accountId}/${EVENTS_FORM_GUID}`;
 
     const { statusCode, body } = await request({
       method: 'POST',

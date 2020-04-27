@@ -7,7 +7,7 @@ import facebook from '../images/facebook.svg';
 import email from '../images/email.svg';
 import twitter from '../images/twitter.svg';
 import linkedin from '../images/linkedin.svg';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 import './EventDetails.scss';
 
@@ -16,7 +16,16 @@ const EventDetails = () => {
   const { slug } = useParams();
   const eventData = state.events;
 
-  const event = eventData.find(event => event.path === slug);
+  let event, prevEvent, nextEvent;
+
+  eventData.forEach((e, i) => {
+    if (e.path === slug) {
+      event = e;
+      prevEvent = eventData[i - 1];
+      nextEvent = eventData[i + 1];
+    }
+  });
+
   const eventImage =
     event && event.values.feature_image ? event.values.feature_image.url : '';
 
@@ -114,6 +123,18 @@ const EventDetails = () => {
                     </a>
                   </div>
                 </span>
+              </div>
+              <div className="event-details__pagination">
+                {prevEvent && (
+                  <Link to={prevEvent.path} className="event-details__prevLink">
+                    &lt; Previous event
+                  </Link>
+                )}
+                {nextEvent && (
+                  <Link to={nextEvent.path} className="event-details__nextLink">
+                    Next event &gt;
+                  </Link>
+                )}
               </div>
             </div>
           </div>

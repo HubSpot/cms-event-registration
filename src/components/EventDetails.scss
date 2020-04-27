@@ -13,8 +13,8 @@
 .event-details__column {
   flex: 1;
 }
-.event-details__column--sidebar {
-  @media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) {
+  .event-details__column--sidebar {
     flex: 0 0 360px;
     margin-left: 40px;
   }
@@ -98,6 +98,17 @@
   justify-content: center;
   margin-top: 15px;
   margin-bottom: 50px;
+}
+.event-details__pagination {
+  margin-bottom: 20px;
+}
+.event-details__nextLink {
+  display: inline-block;
+  float: left;
+}
+.event-details__nextLink {
+  display: inline-block;
+  float: right;
 }
 
 .share-icon {

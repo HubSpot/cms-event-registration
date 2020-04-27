@@ -41,7 +41,7 @@ function App() {
           ) : (
             ''
           )}
-          <div className="my-events-link" >
+          <div className="my-events-link">
             {state.contact.isLoggedIn ? (
               <Link to="/my-events" className="event-button">
                 View my Events

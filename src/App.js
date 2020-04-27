@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import EventListings from './components/EventListings';
-import EventCalendar from './components/EventCalendar';
 import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import down from './images/left.svg';
@@ -42,12 +41,7 @@ function App() {
           ) : (
             ''
           )}
-          <div className="event-description"></div>
-        </header>
-        <div className="event-listings__wrapper">
-          <EventListings events={events} currentSearch={currentSearch} />
-          <div>
-            <EventCalendar />
+          <div className="my-events-link" >
             {state.contact.isLoggedIn ? (
               <Link to="/my-events" className="event-button">
                 View my Events
@@ -61,6 +55,9 @@ function App() {
               </a>
             )}
           </div>
+        </header>
+        <div className="event-listings__wrapper">
+          <EventListings events={events} currentSearch={currentSearch} />
         </div>
       </div>
     </ErrorBoundary>

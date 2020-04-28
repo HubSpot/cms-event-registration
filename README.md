@@ -26,10 +26,12 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
    - Uses the `Events app` module in a page template
    - References the `Events` HubDB table, set up for dynamic pages
 
-7. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). For each event that you create, you'll need to create a form and add that form ID to the HubDB entry. The form fields needed are:
+7. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). You'll need to create a form and store its GUID in your portal's secrets so your functions have access to it. The form fields needed are:
    - First name
    - Last name
    - Email
+
+8. Use `yarn hs secrets add EVENTS_FORM_GUID <form-guid-goes-here>` to add the Event Registration form's id to your portal's secrets.
 
 ### Setting up membership
 

@@ -12,19 +12,20 @@ import _ from 'lodash/collection';
 function App() {
   const [state] = useContext(AppContext);
   const [currentSearch, setCurrentSearch] = useState('');
-  const events = state.events;
   const [filteredEventProperties, setEventProperties] = useState([]);
+  const [isToggle, setToggle] = useState(false);
+  const events = state.events;
 
-  function addEventFilter(type, property) {
+  function addEventFilter(property) {
     setEventProperties(
-      filteredEventProperties.concat([{ type: type, property: property }]),
+      filteredEventProperties.concat([{ type: 'type', property: property }]),
     );
   }
 
-  function removeEventFilter(type, property) {
+  function removeEventFilter(property) {
     setEventProperties(
       _.filter(filteredEventProperties, function(i) {
-        return !(i.type == type && i.property == property);
+        return !(i.type == 'type' && i.property == property);
       }),
     );
   }
@@ -35,7 +36,12 @@ function App() {
         <div className="filter-bar">
           <div className="filter-bar__wrapper">
             <div className="filter-bar__browse">
-              <div className="filter-bar__browse--menu-wrapper">
+              <div
+                className={
+                  'filter-bar__browse--menu-wrapper' +
+                  (isToggle ? ' filter-bar__browse--menu-wrapper-open' : '')
+                }
+              >
                 <div className="filter-bar__browse--menu">
                   <div className="filter-bar__browse--title-wrapper">
                     <span className="filter-bar__browse--title">Browse By</span>
@@ -43,12 +49,13 @@ function App() {
                       src={down}
                       alt=""
                       className="filter-bar__browse--arrow"
+                      onClick={() => setToggle(!isToggle)}
                     />
                   </div>
                 </div>
                 <ul className="filter-bar__browse--dropdown">
                   <EventFilterColumn
-                    events={state.events}
+                    columns={state.columns}
                     addEventFilter={addEventFilter}
                     removeEventFilter={removeEventFilter}
                   />

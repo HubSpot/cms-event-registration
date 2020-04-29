@@ -4,14 +4,12 @@ import './EventFilterCategories.scss';
 
 const EventFilterCategories = ({
   properties,
-  propertyType,
   addEventFilter,
   removeEventFilter,
 }) => {
   const propertyList = properties.map(property => (
     <EventFilterCheckBox
       property={property}
-      propertyType={propertyType}
       addEventFilter={addEventFilter}
       removeEventFilter={removeEventFilter}
       key={property}

@@ -3,7 +3,6 @@ import './EventFilterCheckBox.scss';
 
 const EventFilterCheckBox = ({
   property,
-  propertyType,
   addEventFilter,
   removeEventFilter,
 }) => {
@@ -17,9 +16,9 @@ const EventFilterCheckBox = ({
     setCheck(!check);
 
     if (check) {
-      removeEventFilter(propertyType, property);
+      removeEventFilter(property);
     } else {
-      addEventFilter(propertyType, property);
+      addEventFilter(property);
     }
   };
 

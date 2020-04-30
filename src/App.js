@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import down from './images/left.svg';
 import './scss/App.scss';
-import _ from 'lodash/collection';
+import _array from 'lodash/array';
+import _collection from 'lodash/collection';
 
 function App() {
   const [state] = useContext(AppContext);
@@ -24,10 +25,15 @@ function App() {
 
   function removeEventFilter(property) {
     setEventProperties(
-      _.filter(filteredEventProperties, function(i) {
+      _collection.filter(filteredEventProperties, function(i) {
         return !(i.type == 'type' && i.property == property);
       }),
     );
+  }
+
+  function renderFilterTitle() {
+    let properties = filteredEventProperties.map(property => property.property);
+    return _array.join(properties, ', ');
   }
 
   return (
@@ -62,7 +68,9 @@ function App() {
                 </ul>
               </div>
               <span className="filter-bar__browse--event-filter">
-                All Events
+                {filteredEventProperties.length > 0
+                  ? renderFilterTitle()
+                  : 'All Events'}
               </span>
             </div>
             <div className="filter-bar__search">

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 import './EventListings.scss';
 
-import _a from 'lodash/array';
-import _c from 'lodash/collection';
-import _l from 'lodash/lang';
+import _array from 'lodash/array';
+import _collection from 'lodash/collection';
+import _lang from 'lodash/lang';
 
 const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
   let filteredEvents = events;
@@ -19,12 +19,15 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
   if (filteredEventProperties.length > 0) {
     filteredEvents = filteredEvents.filter(
       e =>
-        _a.intersectionWith(
+        _array.intersectionWith(
           [{ type: 'location', property: e.values.location_address }].concat(
-            _c.map(e.values.type, t => ({ type: 'type', property: t.name })),
+            _collection.map(e.values.type, t => ({
+              type: 'type',
+              property: t.name,
+            })),
           ),
           filteredEventProperties,
-          _l.isEqual,
+          _lang.isEqual,
         ).length > 0,
     );
   }

@@ -33,14 +33,11 @@ function UpcomingEvents() {
     <LoadingSpinner />
   );
 }
-const __MODULE_DATA__ = JSON.parse(
-  document.querySelector('[type="application/json"]').textContent,
-);
 const root = document.getElementById('upcoming-events__module');
 const portalId = Number(root.dataset.portalId);
 
 ReactDOM.render(
-  <AppProvider portalId={portalId} moduleData={__MODULE_DATA__}>
+  <AppProvider portalId={portalId}>
     <UpcomingEvents />
   </AppProvider>,
   root,

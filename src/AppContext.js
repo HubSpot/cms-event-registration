@@ -38,9 +38,7 @@ const AppProvider = props => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        formGuid: state.moduleData.formGuid,
-      }),
+      body: JSON.stringify({}),
     });
     response = await response.json();
 

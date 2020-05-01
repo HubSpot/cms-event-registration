@@ -1,3 +1,11 @@
+  {% require_js %}
+  <script type="application/json" data-module-instance="{{ name }}"">
+      {
+        "formGuid": "{{ module.config.event_form.form_id }}"
+      }
+  </script>
+  {% end_require_js %}
+
 {{ require_css(get_asset_url('../../upcoming-events.css')) }}
 {{ require_js(get_asset_url('../../upcoming-events.js'), 'footer') }}
 

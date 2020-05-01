@@ -1,7 +1,7 @@
   {% require_js %}
-  <script id="__MODULE_DATA__" type="application/json">
+  <script type="application/json" data-module-instance="{{ name }}">
       {
-        "form_guid": "{{ module.config.event_form.form_id }}"
+        "formGuid": "{{ module.config.event_form.form_id }}"
       }
   </script>
   {% end_require_js %}

@@ -1,58 +1,89 @@
 [
   {
-    "label": "Background color",
-    "name": "background_color",
-    "type": "color",
+    "label": "Customize styles",
+    "name": "customize_styles",
+    "type": "boolean",
     "required": false,
     "locked": false,
-    "default": {}
+    "default": false
   },
   {
-    "label": "Event card color",
-    "name": "event_card_color",
-    "type": "color",
+    "label": "Filter menu styles",
+    "name": "filter_menu_styles",
     "required": false,
     "locked": false,
-    "default": {}
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Background color",
+        "name": "background_color_filter_bar",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Font color",
+        "name": "font_color_filter_bar",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group",
+    "default": {
+      "background_color_filter_bar": {},
+      "font_color_filter_bar": {}
+    }
   },
   {
-    "label": "Calendar color",
-    "name": "calendar_color",
-    "type": "color",
+    "label": "Card styles",
+    "name": "card_styles",
     "required": false,
     "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Calendar highlight color",
-    "name": "calendar_highlight_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Text color",
-    "name": "text_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Title color",
-    "name": "title_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Event title color",
-    "name": "event_title_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Card color",
+        "name": "card_color",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Font color",
+        "name": "font_color_card",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Icon color",
+        "name": "icon_color_card",
+        "required": false,
+        "locked": false,
+        "type": "color",
+        "default": {}
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group",
+    "default": {
+      "card_color": {},
+      "font_color_card": {},
+      "icon_color_card": {}
+    }
   }
 ]

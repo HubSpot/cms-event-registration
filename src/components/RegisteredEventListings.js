@@ -22,7 +22,9 @@ function RegisteredEventListings() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        formGuid: state.moduleData.formGuid,
+      }),
     });
     response = await response.json();
     // setSubmissionsLoaded(true);

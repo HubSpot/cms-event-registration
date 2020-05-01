@@ -18,7 +18,7 @@ const ScrollToTop = () => {
   return null;
 };
 const __MODULE_DATA__ = JSON.parse(
-  document.getElementById('__MODULE_DATA__').textContent,
+  document.querySelector('[type="application/json"]').textContent,
 );
 
 const root = document.getElementById('root');

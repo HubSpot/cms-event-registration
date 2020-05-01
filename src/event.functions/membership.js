@@ -5,11 +5,13 @@ const CONTACTS_API = '/contacts/v1/contact/vid';
 const BASE_URL = 'https://api.hubapi.com';
 const APIKEY = process.env.APIKEY;
 
-exports.main = ({ accountId, contact }, sendResponse) => {
+exports.main = ({ accountId, body, contact }, sendResponse) => {
   const defaultParams = {
     portalId: accountId,
     hapikey: APIKEY,
   };
+
+  const { formGuid } = body;
 
   if (!APIKEY) {
     sendResponse({
@@ -50,9 +52,7 @@ exports.main = ({ accountId, contact }, sendResponse) => {
     try {
       const formSubmissions = await getContact(contact.vid);
       const slugs = formSubmissions
-        .filter(
-          submission => submission['form-id'] === process.env.EVENTS_FORM_GUID,
-        )
+        .filter(submission => submission['form-id'] === formGuid)
         .map(registration => registration['page-url'].split('/').pop());
 
       const submittedFormsIds = formSubmissions.map(submission => {

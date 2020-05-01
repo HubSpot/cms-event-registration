@@ -14,7 +14,7 @@ const AppProvider = props => {
     contact: {},
     events: [],
     eventsLoaded: eventLoadingStatus.UNINITIALIZED,
-    moduleData: props.__MODULE_DATA__
+    moduleData: props.moduleData,
   });
 
   const getEvents = async () => {
@@ -38,7 +38,9 @@ const AppProvider = props => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        formGuid: state.moduleData.formGuid,
+      }),
     });
     response = await response.json();
 

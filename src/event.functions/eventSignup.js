@@ -13,7 +13,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
     });
   }
 
-  const { email, firstName, lastName, rowId, pageName, pageUri, utk } = body;
+  const { email, firstName, lastName, rowId, pageName, pageUri, formGuid, utk } = body;
 
   const defaultParams = {
     portalId: accountId,
@@ -96,7 +96,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
   };
 
   const updateContact = async () => {
-    const formApiWithGuid = `${FORMS_API}/${accountId}/${EVENTS_FORM_GUID}`;
+    const formApiWithGuid = `${FORMS_API}/${accountId}/${formGuid}`;
 
     const { statusCode, body } = await request({
       method: 'POST',

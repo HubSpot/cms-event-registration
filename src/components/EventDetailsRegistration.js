@@ -32,12 +32,14 @@ const RegistrationForm = ({
   };
 
   const handleFormSubmit = async event => {
+    console.log('eventDetailsReg', state);
     event.preventDefault();
 
     const params = {
       rowId: currentEvent.id,
       pageUri: window.location.href,
       pageName: currentEvent.name,
+      formGuid: state.moduleData.form_guid,
       utk: Cookies.get('hubspotutk'),
       ...formData,
     };

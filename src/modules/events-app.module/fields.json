@@ -1,5 +1,28 @@
 [
   {
+    "label": "Set a form",
+    "name": "config",
+    "id": "config",
+    "type": "group",
+    "children": [
+      {
+        "label": "Event form",
+        "name": "event_form",
+        "id": "event_form",
+        "type": "form",
+        "required": true,
+        "default": {},
+        "visibility": {
+          "hidden_subfields": {
+            "redirect_url": true,
+            "response_type": true,
+            "message": true
+          }
+        }
+      }
+    ]
+  },
+  {
     "label": "Background color",
     "name": "background_color",
     "type": "color",

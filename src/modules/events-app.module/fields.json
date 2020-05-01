@@ -55,7 +55,7 @@
     "children": [
       {
         "label": "Card color",
-        "name": "card_color",
+        "name": "background_color_card",
         "type": "color",
         "required": false,
         "locked": false,
@@ -85,5 +85,123 @@
       "font_color_card": {},
       "icon_color_card": {}
     }
+  },
+  {
+  "label" : "Form",
+  "name" : "event_form",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "customize_styles",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL"
+  },
+  "children" : [ {
+    "label" : "Title",
+    "name" : "form_title",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "label" : "Background color",
+      "name" : "background_color_form_title",
+      "type" : "color",
+      "required" : false,
+      "locked" : false,
+      "default" : {}
+    }, {
+      "label" : "Font color",
+      "name" : "font_color_form_title",
+      "type" : "color",
+      "required" : false,
+      "locked" : false,
+      "default" : {}
+    } ],
+    "tab" : "CONTENT",
+    "type" : "group",
+    "default" : {
+      "background_color_form_title" : {},
+      "font_color_form_title" : {}
+    }
+  }, {
+    "label" : "Fields",
+    "name" : "form_fields",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "label" : "Background color",
+      "name" : "background_color_form_fields",
+      "type" : "color",
+      "required" : false,
+      "locked" : false,
+      "default" : {}
+    }, {
+      "label" : "Border color",
+      "name" : "border_color_form_fields",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {}
+    } ],
+    "tab" : "CONTENT",
+    "type" : "group",
+    "default" : {
+      "background_color_form_fields" : {},
+      "border_color_form_fields" : {}
+    }
+  }, {
+    "label" : "Submit",
+    "name" : "form_submit_button",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "label" : "Button color",
+      "name" : "background_color_form_button",
+      "required" : false,
+      "type" : "color",
+      "locked" : false,
+      "default" : {}
+    } ],
+    "tab" : "CONTENT",
+    "type" : "group",
+    "default" : {
+      "background_color_form_button" : {}
+    }
+  }, {
+    "label" : "Background",
+    "name" : "form_background",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "label" : "Form background color",
+      "name" : "background_color_form",
+      "type" : "color",
+      "required" : false,
+      "locked" : false,
+      "default" : {}
+    } ],
+    "tab" : "CONTENT",
+    "type" : "group",
+    "default" : {
+      "background_color_form" : {}
+    }
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : {
+    "form_title" : {
+      "background_color_form_title" : {},
+      "font_color_form_title" : {}
+    },
+    "form_fields" : {
+      "background_color_form_fields" : {},
+      "border_color_form_fields" : {}
+    },
+    "form_submit_button" : {
+      "background_color_form_button" : {}
+    },
+    "form_background" : {
+      "background_color_form" : {}
+    }
   }
+} ]
 ]

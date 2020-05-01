@@ -17,13 +17,14 @@
 <div class="event-registration">
   {% require_css %}
   <style>
-    {{outputColorIfSet('background-color', module.background_color, '.event-registration')}}
-    {{outputColorIfSet('color', module.text_color, '.event-registration')}}
-    {{outputColorIfSet('color', module.title_color, '.event-header')}}
-    {{outputColorIfSet('color', module.event_title_color, '.event-card__title')}}
-    {{outputColorIfSet('background-color', module.event_card_color, '.event-card')}}
-    {{outputColorIfSet('background-color', module.calendar_color, 'div .eventCalendar .DayPicker .DayPicker-wrapper')}}
-    {{outputColorIfSet('background-color', module.calendar_highlight_color, 'div .eventCalendar .DayPicker .DayPicker-wrapper .DayPicker-Day--today')}}
+    {{outputColorIfSet('background-color', module.filter_menu_styles.background_color_filter_bar, '.filter-bar')}}
+    {{outputColorIfSet('color', module.filter_menu_styles.font_color_filter_bar, '.filter-bar')}}
+
+    {{outputColorIfSet('background-color', module.card_styles.background_color_card, '.event-card')}}
+    {{outputColorIfSet('color', module.card_styles.font_color_card, '.event-card__title')}}
+    {{outputColorIfSet('color', module.card_styles.font_color_card, '.event-registration')}}
+
+    
   </style>
   {% end_require_css %}
   <noscript>You need to enable JavaScript to run this app.</noscript>

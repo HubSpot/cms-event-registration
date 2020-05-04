@@ -24,13 +24,15 @@ const EventFilterCheckBox = ({
 
   return (
     <li className="filter-bar__browse--dropdown-list-item">
-      <input
-        type="checkbox"
-        id={property}
-        checked={check}
-        onClick={() => handleClick(property)}
-      />
-      <label for={property} data-content={capitalize(property)}></label>
+        <input
+          type="checkbox"
+          id={property}
+          checked={check}
+          onClick={() => handleClick(property)}
+          className="filter-bar__browse--dropdown-list-checkbox"
+        />
+        <label for={property} data-content={capitalize(property)} className="filter-bar__browse--dropdown-list-label">
+        </label>
     </li>
   );
 };

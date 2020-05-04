@@ -1,3 +1,31 @@
 .filter-bar__browse--dropdown-list-item {
+  clear: both;
+  float: none;
+  line-height: 1.75;
+  list-style-type: none;
+  margin: 0.5em 0.5em 0.5px 0px; 
+  position: relative;
   white-space: nowrap;
+}
+
+.filter-bar__browse--dropdown-list-checkbox {
+  position: relative;
+  transform: scale(1.25);
+  border-color: black;
+  &:checked {
+    border-color: #363839;
+    background: #363839;
+  }
+}
+
+.filter-bar__browse--dropdown-list-label {
+  padding: 0.5rem 0 0.7rem 0.65em;
+  position: relative;
+  &::before {
+    color: black;
+    content: attr(data-content);
+    position: relative;
+    text-transform: none;
+    white-space: nowrap;
+  }
 }

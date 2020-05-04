@@ -2,8 +2,8 @@
   .filter-bar__browse--dropdown-row {
     display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
+    -webkit-box-pack: justify;
   }
 }
 
@@ -22,8 +22,9 @@
 }
 
 .filter-bar__browse--dropdown-column-header {
-  position: relative;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.8rem;
+  position: relative;
+  text-align: left;
 }

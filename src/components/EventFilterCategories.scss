@@ -1,11 +1,11 @@
 .filter-bar__browse--dropdown-list-group {
-  position: relative;
+  margin: 0px;
   padding: 0;
+  position: relative;
 }
 
 @media (min-width:851px) {
   .filter-bar__browse--dropdown-list-group {
-    left: -1rem;
     width: calc(100% + 5rem);
   }
 }

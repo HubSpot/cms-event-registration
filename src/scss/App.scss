@@ -172,28 +172,28 @@ a.event-button:focus {
 }
 
 .filter-bar__browse--menu-wrapper .filter-bar__browse--menu::after {
-  right: calc(1.1rem + 1px);
   bottom: calc(-0.25rem - 1px);
   background-color: #fff;
+  right: calc(1.1rem + 1px);
   z-index: 100;
 }
 
 .filter-bar__browse--menu-wrapper .filter-bar__browse--menu::before {
-  right: 1.1rem;
-  bottom: calc(-0.25rem - 2px);
   background-color: #cbd6e2;
   border: 1px solid #cbd6e2;
+  bottom: calc(-0.25rem - 2px);
+  right: 1.1rem;
 }
 
 .filter-bar__browse--menu-wrapper .filter-bar__browse--menu::before,
 .filter-bar__browse--menu-wrapper .filter-bar__browse--menu::after {
   display: inline-block;
-  position: absolute;
   border-radius: .1875rem 0 0;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  width: 1rem;
   height: 1rem;
+  transform: rotate(45deg);
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  width: 1rem;
 }
 
 @media (min-width:851px) {
@@ -219,21 +219,21 @@ a.event-button:focus {
 }
 
 .filter-bar__browse--dropdown {
+  background-color: #fff;
+  border-radius: 6px;
   cursor: auto;
   font-size: 0.875rem;
-  margin: 0 auto;
-  padding: 0 1rem 0 1rem;
-  position: absolute;
-  background-color: #fff;
-  z-index: 95;
   left: 3em;
+  margin: 0 auto;
+  padding: 0 1rem 1.75rem 1rem;
+  position: absolute;
   top: 3.55em;
+  z-index: 95;
 }
 
 @media (min-width:768px) {
   .filter-bar__browse--dropdown {
     border: 1px solid #cbd6e2;
-    border-radius: .1875rem;
     box-shadow: 0 1px 24px rgba(45,62,80,0.12);
   }
 }
@@ -241,31 +241,5 @@ a.event-button:focus {
 @media (min-width:851px) {
   .filter-bar__browse--dropdown {
     display: none;
-  }
-}
-
-input[type="checkbox"] {
-  transform: scale(1.25);
-  position: relative;
-  color: #363839;
-  outline: 1.5px solid black;
-  border-radius: 4px;
-  appearance: none;
-  outline: 0;
-  &:checked {
-    border-color: #363839;
-    background: #363839;
-  }
-}
-
-label {
-  position: relative;
-  padding: 0.5rem 0 0.7rem 1em;
-  &::before {
-    color: black;
-    content: attr(data-content);
-    position: relative;
-    text-transform: none;
-    white-space: nowrap;
   }
 }

@@ -49,8 +49,9 @@ exports.main = ({ accountId, contact }, sendResponse) => {
   (async () => {
     try {
       const formSubmissions = await getContact(contact.vid);
-      const slugs = formSubmissions.map(registration =>
-        registration['page-url'].split('/').pop(),
+      const slugs = formSubmissions.map(registration => {
+        return registration['page-url'].split('/').pop();
+      }
       );
 
       const submittedFormsIds = formSubmissions.map(submission => {

@@ -1,8 +1,6 @@
   {% require_js %}
   <script type="application/json" data-module-instance="{{ name }}">
-      {
-        "formGuid": "{{ module.config.event_form.form_id }}"
-      }
+    {{ module|tojson }}
   </script>
   {% end_require_js %}
 {{ require_css(get_asset_url('../../event-registration.css')) }}

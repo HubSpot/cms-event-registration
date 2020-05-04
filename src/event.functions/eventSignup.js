@@ -20,7 +20,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
     rowId,
     pageName,
     pageUri,
-    formGuid,
+    formId,
     utk,
   } = body;
 
@@ -105,7 +105,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
   };
 
   const updateContact = async () => {
-    const formApiWithGuid = `${FORMS_API}/${accountId}/${formGuid}`;
+    const formApiWithGuid = `${FORMS_API}/${accountId}/${formId}`;
 
     const { statusCode, body } = await request({
       method: 'POST',

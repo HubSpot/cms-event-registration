@@ -26,6 +26,7 @@ const RegistrationForm = ({
   const { slug } = useParams();
   const eventData = state.events;
   const currentEvent = eventData.find(event => event.path === slug);
+  const formId = state.moduleData.config.event_form.form_id;
 
   const handleFormValidation = () => {
     return formData.firstName && formData.lastName && formData.email;
@@ -38,7 +39,7 @@ const RegistrationForm = ({
       rowId: currentEvent.id,
       pageUri: window.location.href,
       pageName: currentEvent.name,
-      formGuid: state.moduleData.formGuid,
+      formId,
       utk: Cookies.get('hubspotutk'),
       ...formData,
     };

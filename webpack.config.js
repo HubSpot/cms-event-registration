@@ -28,8 +28,10 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
         {
           test: /\.s[ac]ss$/i,
           use: [
+            "style-loader",
             MiniCssExtractPlugin.loader,
             { loader: 'css-loader', options: { url: false } },
+            "postcss-loader",
             'sass-loader',
           ],
         },

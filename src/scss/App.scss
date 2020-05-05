@@ -1,11 +1,14 @@
 @import './_tokens';
 
 .App-header {
-  margin: 75px 0;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1em auto;
   padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .App-hero {
@@ -82,13 +85,9 @@
 
 .event-header {
   letter-spacing: 2px;
+  margin-bottom: 0;
 }
-.event-description {
-  margin-bottom: 35px;
-}
-.event-description > p {
-  line-height: 1.5;
-}
+
 .back-banner {
   background-color: $color-primary;
   font-size: 1.25em;

@@ -186,7 +186,7 @@ const RegistrationForm = ({
           className={`event-button ${isClosed || isFull ? 'disabled' : ''}`}
           onClick={handleFormSubmit}
         >
-          {isFull ? 'Join Waitlist' : 'Register'}
+          {isFull ? '(At capacity)' : 'Register'}
         </button>
       </div>
     </>

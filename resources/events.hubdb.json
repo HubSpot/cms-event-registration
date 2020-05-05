@@ -28,7 +28,19 @@
       "name": "registered_attendee_count",
       "label": "Registered Attendee Count",
       "type": "NUMBER"
-    }
+    },
+    {
+     "name": "type",
+     "label": "Type",
+     "options": [
+       { "id": 1, "name": "class", "type": "option", "order": null },
+       { "id": 2, "name": "conference", "type": "option", "order": null },
+       { "id": 3, "name": "webinar", "type": "option", "order": null },
+       { "id": 4, "name": "workshop", "type": "option","order": null }
+     ],
+     "type": "MULTISELECT",
+     "optionCount": 4
+   }
   ],
   "rows": [
     {
@@ -49,7 +61,8 @@
           "type": "image"
         },
         "event_capacity": 40,
-        "registered_attendee_count": 0
+        "registered_attendee_count": 0,
+        "type": [{ "id": 1, "name": "class", "type": "option", "order": 1 }]
       }
     },
     {
@@ -70,7 +83,8 @@
           "type": "image"
         },
         "event_capacity": 40,
-        "registered_attendee_count": 0
+        "registered_attendee_count": 0,
+        "type": [{ "id": 2, "name": "conference", "type": "option", "order": 2 }]
       }
     },
     {
@@ -91,7 +105,11 @@
           "type": "image"
         },
         "event_capacity": 40,
-        "registered_attendee_count": 0
+        "registered_attendee_count": 0,
+        "type": [
+          { "id": 3, "name": "webinar", "type": "option", "order": 1 },
+          { "id": 4, "name": "workshop", "type": "option", "order": 2 }
+        ]
       }
     }
   ]

@@ -51,7 +51,7 @@
 .filter-bar__browse--arrow {
   transform: rotate(-90deg);
   width: 30px;
-  margin: -5px 10px 0 40px;
+  margin: 0px 10px 0 40px;
 }
 .filter-bar__browse--event-filter {
   text-transform: capitalize;
@@ -157,4 +157,89 @@ a.event-button:focus {
   color: gray;
   background-color: white;
   cursor: not-allowed;
+}
+
+// Event Filtering
+
+.filter-bar__browse--menu-wrapper {
+  position: relative;
+}
+
+@media (min-width:851px) {
+  .filter-bar__browse--menu-wrapper-open .filter-bar__browse--dropdown {
+    display: block;
+  }
+}
+
+.filter-bar__browse--menu-wrapper .filter-bar__browse--menu::after {
+  bottom: calc(-0.25rem - 1px);
+  background-color: #fff;
+  right: calc(1.1rem + 1px);
+  z-index: 100;
+}
+
+.filter-bar__browse--menu-wrapper .filter-bar__browse--menu::before {
+  background-color: #cbd6e2;
+  border: 1px solid #cbd6e2;
+  bottom: calc(-0.25rem - 2px);
+  right: 1.1rem;
+}
+
+.filter-bar__browse--menu-wrapper .filter-bar__browse--menu::before,
+.filter-bar__browse--menu-wrapper .filter-bar__browse--menu::after {
+  display: inline-block;
+  border-radius: .1875rem 0 0;
+  height: 1rem;
+  transform: rotate(45deg);
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  width: 1rem;
+}
+
+@media (min-width:851px) {
+  .filter-bar__browse--menu-wrapper-open .filter-bar__browse--menu::before,
+  .filter-bar__browse--menu-wrapper-open .filter-bar__browse--menu::after {
+    content: '';
+  }
+}
+
+.filter-bar__browse--menu {
+  position: relative;
+}
+
+@media (min-width:851px) {
+  .filter-bar__browse--title-wrapper {
+    display: inline-block;
+    padding: 0.6rem 0;
+  }
+}
+
+.filter-bar__browse--title {
+  vertical-align: 0.5em;
+}
+
+.filter-bar__browse--dropdown {
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: auto;
+  font-size: 0.875rem;
+  left: 3em;
+  margin: 0 auto;
+  padding: 0 1rem 1.75rem 1rem;
+  position: absolute;
+  top: 3.55em;
+  z-index: 95;
+}
+
+@media (min-width:768px) {
+  .filter-bar__browse--dropdown {
+    border: 1px solid #cbd6e2;
+    box-shadow: 0 1px 24px rgba(45,62,80,0.12);
+  }
+}
+
+@media (min-width:851px) {
+  .filter-bar__browse--dropdown {
+    display: none;
+  }
 }

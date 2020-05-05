@@ -45,9 +45,18 @@ const AppProvider = props => {
     setState(state => ({ ...state, contact: contact }));
   };
 
+  const getEventColumns = async () => {
+    let response = await fetch(
+      `https://api.hubspot.com/cms/v3/hubdb/tables/events?portalId=${props.portalId}`,
+    );
+    response = await response.json();
+    setState(state => ({ ...state, columns: response.columns }));
+  };
+
   useEffect(() => {
     getEvents();
     getUserDetails();
+    getEventColumns();
   }, []);
 
   return (

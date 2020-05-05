@@ -19,7 +19,7 @@ function RegisteredEventListings() {
       cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     });
     response = await response.json();
     setRegisteredEventSlugsLoaded(true);

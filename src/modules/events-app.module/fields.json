@@ -1,58 +1,203 @@
 [
   {
-    "label": "Background color",
-    "name": "background_color",
-    "type": "color",
+    "label": "Customize styles",
+    "name": "customize_styles",
+    "type": "boolean",
     "required": false,
     "locked": false,
-    "default": {}
+    "default": false
   },
   {
-    "label": "Event card color",
-    "name": "event_card_color",
-    "type": "color",
+    "label": "Filter menu styles",
+    "name": "filter_menu_styles",
     "required": false,
     "locked": false,
-    "default": {}
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Background color",
+        "name": "background_color_filter_bar",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Font color",
+        "name": "font_color_filter_bar",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group",
+    "default": {
+      "background_color_filter_bar": {},
+      "font_color_filter_bar": {}
+    }
   },
   {
-    "label": "Calendar color",
-    "name": "calendar_color",
-    "type": "color",
+    "label": "Card styles",
+    "name": "card_styles",
     "required": false,
     "locked": false,
-    "default": {}
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Card color",
+        "name": "background_color_card",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Font color",
+        "name": "font_color_card",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group",
+    "default": {
+      "card_color": {},
+      "font_color_card": {}
+    }
   },
   {
-    "label": "Calendar highlight color",
-    "name": "calendar_highlight_color",
-    "type": "color",
+    "label": "Form",
+    "name": "event_form",
     "required": false,
     "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Text color",
-    "name": "text_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Title color",
-    "name": "title_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Event title color",
-    "name": "event_title_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Title",
+        "name": "form_title",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "label": "Background color",
+            "name": "background_color_form_title",
+            "type": "color",
+            "required": false,
+            "locked": false,
+            "default": {}
+          },
+          {
+            "label": "Font color",
+            "name": "font_color_form_title",
+            "type": "color",
+            "required": false,
+            "locked": false,
+            "default": {}
+          }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": {
+          "background_color_form_title": {},
+          "font_color_form_title": {}
+        }
+      },
+      {
+        "label": "Fields",
+        "name": "form_fields",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "label": "Background color",
+            "name": "background_color_form_fields",
+            "type": "color",
+            "required": false,
+            "locked": false,
+            "default": {}
+          }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": {
+          "background_color_form_fields": {}
+        }
+      },
+      {
+        "label": "Submit",
+        "name": "form_submit_button",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "label": "Button color",
+            "name": "background_color_form_button",
+            "required": false,
+            "type": "color",
+            "locked": false,
+            "default": {}
+          }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": {
+          "background_color_form_button": {}
+        }
+      },
+      {
+        "label": "Background",
+        "name": "form_background",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "label": "Form background color",
+            "name": "background_color_form",
+            "type": "color",
+            "required": false,
+            "locked": false,
+            "default": {}
+          }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": {
+          "background_color_form": {}
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group",
+    "default": {
+      "form_title": {
+        "background_color_form_title": {},
+        "font_color_form_title": {}
+      },
+      "form_fields": {
+        "background_color_form_fields": {}
+      },
+      "form_submit_button": {
+        "background_color_form_button": {}
+      },
+      "form_background": {
+        "background_color_form": {}
+      }
+    }
   }
 ]

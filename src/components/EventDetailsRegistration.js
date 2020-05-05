@@ -48,7 +48,7 @@ const RegistrationForm = ({
     if (handleFormValidation()) {
       handleLoadingState();
 
-      const response = await fetch(`/_hcms/api/registration/new`, {
+      const response = await fetch(`/_hcms/api/register`, {
         method: 'POST',
         mode: 'same-origin',
         cache: 'no-cache',

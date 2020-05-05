@@ -9,7 +9,7 @@ import './scss/upcoming-events.scss';
 
 function UpcomingEvents() {
   const [state] = useContext(AppContext);
-  const upcomingEvents = state.events.reverse().slice(0, 3);
+  const upcomingEvents = state.events.slice(0, 3);
   const eventsLoaded = state.eventsLoaded;
 
   return eventsLoaded === eventLoadingStatus.SUCCEEDED ? (

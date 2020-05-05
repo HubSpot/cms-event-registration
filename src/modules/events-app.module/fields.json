@@ -68,22 +68,13 @@
         "required": false,
         "locked": false,
         "default": {}
-      },
-      {
-        "label": "Icon color",
-        "name": "icon_color_card",
-        "required": false,
-        "locked": false,
-        "type": "color",
-        "default": {}
       }
     ],
     "tab": "CONTENT",
     "type": "group",
     "default": {
       "card_color": {},
-      "font_color_card": {},
-      "icon_color_card": {}
+      "font_color_card": {}
     }
   },
   {
@@ -140,21 +131,12 @@
             "required": false,
             "locked": false,
             "default": {}
-          },
-          {
-            "label": "Border color",
-            "name": "border_color_form_fields",
-            "required": false,
-            "locked": false,
-            "type": "color",
-            "default": {}
           }
         ],
         "tab": "CONTENT",
         "type": "group",
         "default": {
-          "background_color_form_fields": {},
-          "border_color_form_fields": {}
+          "background_color_form_fields": {}
         }
       },
       {
@@ -208,8 +190,7 @@
         "font_color_form_title": {}
       },
       "form_fields": {
-        "background_color_form_fields": {},
-        "border_color_form_fields": {}
+        "background_color_form_fields": {}
       },
       "form_submit_button": {
         "background_color_form_button": {}

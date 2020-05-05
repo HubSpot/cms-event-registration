@@ -8,7 +8,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 40px 0 0;
     font-size: 1rem;
   }
 }
@@ -27,6 +26,6 @@
 .event-card__link {
   display: block;
   color: inherit;
-  flex: 0 1 calc(50% - 20px);
+  flex: 0 1 30%;
   margin: 0 0 35px;
 }

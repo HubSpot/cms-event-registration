@@ -6,8 +6,6 @@ import LoadingSpinner from './LoadingSpinner';
 
 function RegisteredEventListings() {
   const [state] = useContext(AppContext);
-  // const [submissions, setSubmissions] = useState([]);
-  // const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
   const [registeredEventSlugs, setRegisteredEventSlugs] = useState([]);
   const [registeredEventSlugsLoaded, setRegisteredEventSlugsLoaded] = useState(
     false,
@@ -25,8 +23,6 @@ function RegisteredEventListings() {
       body: JSON.stringify({}),
     });
     response = await response.json();
-    // setSubmissionsLoaded(true);
-    // setSubmissions(response.formSubmissions);
     setRegisteredEventSlugsLoaded(true);
     setRegisteredEventSlugs(response.slugs);
   };

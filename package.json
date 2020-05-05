@@ -48,7 +48,6 @@
     "dayjs": "^1.8.16",
     "js-cookie": "^2.2.1",
     "react": "^16.9.0",
-    "react-day-picker": "^7.4.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.3",

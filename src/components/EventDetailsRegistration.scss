@@ -115,14 +115,15 @@
   margin-top: 80px;
 }
 .registered-events {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   text-align: left;
   @media screen and (max-width: 1000px) {
+    display: flex;
     flex-direction: column;
     flex-wrap: nowrap
   }

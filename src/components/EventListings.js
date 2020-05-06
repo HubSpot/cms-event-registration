@@ -45,11 +45,6 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
           );
         })
       )}
-      <>
-        {Array.from(Array(filteredEvents.length % 3)).forEach(() => (
-          <div className="event-card__link event-card__link--placeholder" />
-        ))}
-      </>
     </div>
   );
 };

@@ -5,9 +5,9 @@
   text-align: left;
   font-size: 0.875em;
   @media screen and (min-width: 1001px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
     font-size: 1rem;
   }
 }
@@ -26,7 +26,7 @@
 .event-card__link {
   display: block;
   color: inherit;
-  flex: 0 1 30%;
+  // flex: 0 1 30%;
   margin: 0 0 35px;
 }
 

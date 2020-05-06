@@ -46,7 +46,7 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
         })
       )}
       <>
-        {Array.from(Array(state.events.length % 3)).forEach(() => (
+        {Array.from(Array(filteredEvents.length % 3)).forEach(() => (
           <div className="event-card__link event-card__link--placeholder" />
         ))}
       </>

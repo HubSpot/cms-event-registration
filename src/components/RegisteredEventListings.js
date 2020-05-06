@@ -43,6 +43,9 @@ function RegisteredEventListings() {
                 </Link>
               ),
           )}
+      <div className="event-card__link event-card__link--placeholder"></div>
+      <div className="event-card__link event-card__link--placeholder"></div>
+      <div className="event-card__link event-card__link--placeholder"></div>
         </>
       ) : (
         <div className="registered-events__event--empty header">
@@ -50,6 +53,7 @@ function RegisteredEventListings() {
         </div>
       )}
     </div>
+
   ) : (
     <LoadingSpinner />
   );

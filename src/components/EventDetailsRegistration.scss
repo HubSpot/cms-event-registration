@@ -124,6 +124,7 @@
   text-align: left;
   @media screen and (max-width: 1000px) {
     flex-direction: column;
+    flex-wrap: nowrap
   }
 }
 .registered-events__event {

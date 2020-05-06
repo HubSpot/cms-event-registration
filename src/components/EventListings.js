@@ -45,6 +45,9 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
           );
         })
       )}
+      <div className="event-card__link event-card__link--placeholder"></div>
+      <div className="event-card__link event-card__link--placeholder"></div>
+      <div className="event-card__link event-card__link--placeholder"></div>
     </div>
   );
 };

@@ -43,7 +43,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
   const incrementAttendeeCount = async id => {
     const { registered_attendee_count } = await getRow(id);
 
-    if (!registered_attendee_count) {
+    if (registered_attendee_count == null || registered_attendee_count < 0) {
       sendResponse({
         statusCode: 500,
         body: { message: 'Invalid attendee count value' },

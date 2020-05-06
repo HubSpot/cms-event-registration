@@ -3,11 +3,11 @@
   "version": "1.0",
   "secrets": ["APIKEY", "EVENTS_FORM_GUID"],
   "endpoints": {
-    "registration": {
-      "method": "POST",
+    "authenticate": {
+      "method": "GET",
       "file": "membership.js"
     },
-    "registration/new": {
+    "register": {
       "method": "POST",
       "file": "eventSignup.js"
     }

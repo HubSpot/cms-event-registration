@@ -12,7 +12,7 @@ function RegisteredEventListings() {
   );
 
   const getRegisteredEvents = async () => {
-    // This function POSTs in order to pass cookies to the API and recieves a formSubmissions object
+    // This function fetchs same-origin in order to pass cookies to the API and recieves a formSubmissions object
     let response = await fetch(`/_hcms/api/authenticate`, {
       method: 'GET',
       mode: 'same-origin',

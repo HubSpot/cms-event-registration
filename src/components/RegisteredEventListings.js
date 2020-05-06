@@ -43,9 +43,11 @@ function RegisteredEventListings() {
                 </Link>
               ),
           )}
-      <div className="event-card__link event-card__link--placeholder"></div>
-      <div className="event-card__link event-card__link--placeholder"></div>
-      <div className="event-card__link event-card__link--placeholder"></div>
+          <>
+            {Array.from(Array(state.events.length % 3)).forEach(() => (
+              <div className="event-card__link event-card__link--placeholder" />
+            ))}
+          </>
         </>
       ) : (
         <div className="registered-events__event--empty header">
@@ -53,7 +55,6 @@ function RegisteredEventListings() {
         </div>
       )}
     </div>
-
   ) : (
     <LoadingSpinner />
   );

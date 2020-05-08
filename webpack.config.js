@@ -28,10 +28,15 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
         {
           test: /\.s[ac]ss$/i,
           use: [
-            "style-loader",
             MiniCssExtractPlugin.loader,
             { loader: 'css-loader', options: { url: false } },
-            "postcss-loader",
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [require('autoprefixer')]
+                ,
+              },
+            },
             'sass-loader',
           ],
         },

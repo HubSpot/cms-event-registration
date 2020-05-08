@@ -2,6 +2,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HubSpotAutoUploadPlugin = require('@hubspot/webpack-cms-plugins/HubSpotAutoUploadPlugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 const hubspotConfig = ({ portal, autoupload } = {}) => {
   return {
@@ -33,8 +34,7 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [require('autoprefixer')]
-                ,
+                plugins: () => [autoprefixer],
               },
             },
             'sass-loader',

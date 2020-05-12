@@ -20,7 +20,7 @@ exports.main = ({ accountId, contact }, sendResponse) => {
 
   if (!contact || !contact.isLoggedIn) {
     sendResponse({
-      statusCode: 403,
+      statusCode: 401,
       body: {
         message: 'User is not authenticated',
       },

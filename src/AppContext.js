@@ -30,14 +30,13 @@ const AppProvider = props => {
 
   const getUserDetails = async () => {
     // This function POSTs in order to pass cookies to the API and recieves a contact object
-    let response = await fetch(`/_hcms/api/registration`, {
-      method: 'POST',
+    let response = await fetch(`/_hcms/api/authenticate`, {
+      method: 'GET',
       mode: 'same-origin',
       cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}),
     });
     response = await response.json();
 

@@ -12,15 +12,14 @@ function RegisteredEventListings() {
   );
 
   const getRegisteredEvents = async () => {
-    // This function POSTs in order to pass cookies to the API and recieves a formSubmissions object
-    let response = await fetch(`/_hcms/api/registration`, {
-      method: 'POST',
+    // This function fetchs same-origin in order to pass cookies to the API and recieves a formSubmissions object
+    let response = await fetch(`/_hcms/api/authenticate`, {
+      method: 'GET',
       mode: 'same-origin',
       cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}),
     });
     response = await response.json();
     setRegisteredEventSlugsLoaded(true);

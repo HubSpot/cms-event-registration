@@ -9,7 +9,7 @@
     "deploy": "hs upload dist event-registration",
     "lint": "eslint src && prettier --check 'src/**/*.js' 'src/**/*.json'",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'",
-    "create-table": "node ./scripts/createHubDB.js create --table_path ./resources/events.hubdb.json"
+    "create-table": "node ./scripts/createHubDb.js create --table_path ./resources/events.hubdb.json"
   },
   "author": "",
   "license": "ISC",

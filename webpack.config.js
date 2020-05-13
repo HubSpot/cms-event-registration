@@ -34,7 +34,7 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [autoprefixer],
+                plugins: () => [autoprefixer({ grid: "autoplace" })],
               },
             },
             'sass-loader',

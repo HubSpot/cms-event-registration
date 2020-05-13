@@ -1,88 +1,26 @@
 import React, { useState, useContext } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import EventListings from './components/EventListings';
-import EventFilterColumn from './components/EventFilterColumn';
+import EventFilterBar from './components/EventFilterBar';
 import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
-import down from './images/left.svg';
 import './scss/App.scss';
-import _array from 'lodash/array';
-import _collection from 'lodash/collection';
 
 function App() {
   const [state] = useContext(AppContext);
   const [currentSearch, setCurrentSearch] = useState('');
   const [filteredEventProperties, setEventProperties] = useState([]);
-  const [isToggle, setToggle] = useState(false);
   const events = state.events;
-
-  function addEventFilter(property) {
-    setEventProperties(
-      filteredEventProperties.concat([{ type: 'type', property: property }]),
-    );
-  }
-
-  function removeEventFilter(property) {
-    setEventProperties(
-      _collection.filter(filteredEventProperties, function(i) {
-        return !(i.type == 'type' && i.property == property);
-      }),
-    );
-  }
-
-  function renderFilterTitle() {
-    let properties = filteredEventProperties.map(property => property.property);
-    return _array.join(properties, ', ');
-  }
 
   return (
     <ErrorBoundary>
       <div className="App">
-        <div className="filter-bar">
-          <div className="filter-bar__wrapper">
-            <div className="filter-bar__browse">
-              <div
-                className={
-                  'filter-bar__browse--menu-wrapper' +
-                  (isToggle ? ' filter-bar__browse--menu-wrapper-open' : '')
-                }
-              >
-                <div className="filter-bar__browse--menu">
-                  <div className="filter-bar__browse--title-wrapper">
-                    <span className="filter-bar__browse--title">Browse By</span>
-                    <img
-                      src={down}
-                      alt=""
-                      className="filter-bar__browse--arrow"
-                      onClick={() => setToggle(!isToggle)}
-                    />
-                  </div>
-                </div>
-                <ul className="filter-bar__browse--dropdown">
-                  <EventFilterColumn
-                    columns={state.columns}
-                    addEventFilter={addEventFilter}
-                    removeEventFilter={removeEventFilter}
-                  />
-                </ul>
-              </div>
-              <span className="filter-bar__browse--event-filter">
-                {filteredEventProperties.length > 0
-                  ? renderFilterTitle()
-                  : 'All Events'}
-              </span>
-            </div>
-            <div className="filter-bar__search">
-              <input
-                type="text"
-                className="filter-bar__search-input"
-                placeholder="Search Events"
-                value={currentSearch}
-                onChange={e => setCurrentSearch(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
+        <EventFilterBar
+          filteredEventProperties={filteredEventProperties}
+          setEventProperties={setEventProperties}
+          currentSearch={currentSearch}
+          setCurrentSearch={setCurrentSearch}
+        />
         <header className="App-header">
           <h1 className="event-header">Upcoming Events</h1>
           {currentSearch ? (

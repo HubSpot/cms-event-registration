@@ -1,15 +1,13 @@
 @media (min-width:851px) {
   .filter-bar__browse--dropdown-row {
-    display: -webkit-box;
     display: flex;
     justify-content: space-between;
-    -webkit-box-pack: justify;
+    box-pack: justify;
   }
 }
 
 @media (min-width:851px) {
   .filter-bar__browse--dropdown-column {
-    -webkit-box-flex: 1;
     flex: 1;
     padding-top: 0.5rem;
   }

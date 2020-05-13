@@ -7,8 +7,8 @@ const autoprefixer = require('autoprefixer');
 const hubspotConfig = ({ portal, autoupload } = {}) => {
   return {
     entry: {
-      'event-registration': './src/index.js',
-      'upcoming-events': './src/UpcomingEvents.js',
+      'event-registration': ['whatwg-fetch', './src/index.js'],
+      'upcoming-events': ['whatwg-fetch', './src/UpcomingEvents.js'],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -34,7 +34,7 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [autoprefixer({ grid: "autoplace" })],
+                plugins: () => [autoprefixer({ grid: 'autoplace' })],
               },
             },
             'sass-loader',

@@ -19,10 +19,7 @@ function UpcomingEvents() {
       ) : (
         upcomingEvents.map(function(obj, i) {
           return (
-            <a
-              href={`/events/${obj.path}`}
-              className="event-card__link"
-            >
+            <a href={`/events/${obj.path}`} className="event-card__link">
               <EventCard key={i} row={obj} />
             </a>
           );

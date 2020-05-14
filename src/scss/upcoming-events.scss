@@ -14,12 +14,14 @@
   @media screen and (max-width: 1000px) {
     flex-direction: column;
     padding-right: 0;
+    padding-left: 0;
   }
   .event-card__link {
     @media screen and (max-width: 1000px) {
       width: 100%;
     }
     width: 30%;
+    margin: 0 0 35px;
   }
 }
 .event-listings--upcoming a {

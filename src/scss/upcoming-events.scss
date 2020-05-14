@@ -16,10 +16,10 @@
     padding-right: 0;
   }
   .event-card__link {
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
     width: 30%;
-  }
-  .no-event-message {
-    text-align: center;
   }
 }
 .event-listings--upcoming a {
@@ -28,10 +28,8 @@
 .event-listings--upcoming a:hover {
   text-decoration: none;
 }
-@media screen and (max-width: 1000px) {
-  .event-card__link {
-    width: 100%;
-  }
+.no-event-message {
+  text-align: center;
 }
 
 .time-icon,

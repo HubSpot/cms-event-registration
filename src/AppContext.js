@@ -14,6 +14,7 @@ const AppProvider = props => {
     contact: {},
     events: [],
     eventsLoaded: eventLoadingStatus.UNINITIALIZED,
+    moduleData: props.moduleData,
   });
 
   const getEvents = async () => {

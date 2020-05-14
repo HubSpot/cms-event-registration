@@ -20,18 +20,15 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 3. Run `yarn create-table --portal <portalId>` to create the HubDB table where you will manage your events
 4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
 5. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
-6. Create a page in your portal that:
-
-   - Has the slug `/events/`
-   - Uses the `Events app` module in a page template
-   - References the `Events` HubDB table, set up for dynamic pages
-
-7. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). You'll need to create a form and store its GUID in your portal's secrets so your functions have access to it. The form fields needed are:
+6. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). You'll need to create a form with the fields:
    - First name
    - Last name
    - Email
+7. Create a page in your portal that:
 
-8. Use `yarn hs secrets add EVENTS_FORM_GUID <form-guid-goes-here>` to add the Event Registration form's id to your portal's secrets.
+   - Has the slug `/events/`
+   - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields.
+   - References the `Events` HubDB table, set up for dynamic pages
 
 ### Setting up membership
 
@@ -40,7 +37,7 @@ _Note: In order to set up membership, your account will need a [connected domain
 8. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
 9. Create a "My Events" page in your portal that:
    - Has the slug `/my-events/`
-   - Uses the `Events app` module in a page template; the page shouldn't be dynamic
+   - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields.; the page shouldn't be dynamic
    - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
 
 #### Usage

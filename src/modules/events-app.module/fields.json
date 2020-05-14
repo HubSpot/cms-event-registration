@@ -89,6 +89,21 @@
     },
     "children": [
       {
+        "label": "Event form",
+        "name": "event_form_field",
+        "id": "event_form_field",
+        "type": "form",
+        "required": true,
+        "default": {},
+        "visibility": {
+          "hidden_subfields": {
+            "redirect_url": true,
+            "response_type": true,
+            "message": true
+          }
+        }
+      },
+      {
         "label": "Title",
         "name": "form_title",
         "required": false,

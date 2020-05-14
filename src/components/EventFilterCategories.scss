@@ -1,10 +1,10 @@
-.filter-bar__browse--dropdown-list-group {
-  margin: 0px;
-  padding: 0;
-  position: relative;
-}
-
-@media (min-width:851px) {
+@media (min-width:1000px) {
+  .filter-bar__browse--dropdown-list-group {
+    margin: 0px;
+    padding: 0;
+    position: relative;
+  }
+  
   .filter-bar__browse--dropdown-list-group {
     width: calc(100% + 5rem);
   }

@@ -53,6 +53,11 @@ const EventFilterBar = ({
                   className="filter-bar__browse--arrow"
                   onClick={() => setToggle(!isToggle)}
                 />
+                <span className="filter-bar__browse--event-filter">
+                  {filteredEventProperties.length > 0
+                    ? renderFilterTitle()
+                    : 'All Events'}
+                </span>
               </div>
             </div>
             <ul className="filter-bar__browse--dropdown">
@@ -63,11 +68,6 @@ const EventFilterBar = ({
               />
             </ul>
           </div>
-          <span className="filter-bar__browse--event-filter">
-            {filteredEventProperties.length > 0
-              ? renderFilterTitle()
-              : 'All Events'}
-          </span>
         </div>
         <div className="filter-bar__search">
           <input

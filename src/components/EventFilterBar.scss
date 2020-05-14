@@ -4,17 +4,12 @@
 
 .filter-bar {
   color: white;
-  height: 75px;
   background-color: $color-primary;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   line-height: 18px;
   font-weight: bold;
   margin-bottom: 80px;
-
-  @media screen and (max-width: 1000px) {
-    display: none;
-  }
 }
 
 .filter-bar__wrapper {
@@ -27,7 +22,7 @@
   padding: 0 1em;
 
   @media screen and (max-width: 1000px) {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 
@@ -35,6 +30,18 @@
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.filter-bar__browse--dropdown {
+  display: none;
+}
+
+.filter-bar__browse--menu-wrapper-open .filter-bar__browse--dropdown {
+  display: block;
+}
+
+.filter-bar__browse--dropdown-row {
+  list-style-type: none;
 }
 
 .filter-bar__browse--arrow {
@@ -65,14 +72,54 @@
   text-transform: uppercase;
 }
 
+@media (max-width:1000px) {
+  .filter-bar__wrapper {
+    padding: 0;
+  }
+  .filter-bar__browse {
+    width: 100%;
+  }
+
+  .filter-bar__browse--dropdown {
+    background-color: #fff;
+    position: relative;
+    padding: 10px 0px 20px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .filter-bar__browse--menu {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 60px;
+  }
+
+  .filter-bar__browse--menu-wrapper,
+  .filter-bar__browse--menu-wrapper-open {
+    width: 100%;
+  }
+
+  .filter-bar__browse--arrow {
+    margin: 15px 10px 0px 40px;
+  }
+
+  .filter-bar__browse--title {
+    top: -0.5em;
+    position: relative;
+  }
+
+  .filter-bar__browse--event-filter {
+    top: -0.5em;
+    position: relative;
+  }
+
+}
+
 @media (min-width:1000px) {
 
   .filter-bar__browse--menu-wrapper {
     position: relative;
-  }
-
-  .filter-bar__browse--menu-wrapper-open .filter-bar__browse--dropdown {
-    display: block;
   }
 
   .filter-bar__browse--menu-wrapper .filter-bar__browse--menu::after {
@@ -128,14 +175,7 @@
     position: absolute;
     top: 3.55em;
     z-index: 95;
-  }
-
-  .filter-bar__browse--dropdown {
     border: 1px solid #cbd6e2;
     box-shadow: 0 1px 24px rgba(45,62,80,0.12);
-  }
-
-  .filter-bar__browse--dropdown {
-    display: none;
   }
 }

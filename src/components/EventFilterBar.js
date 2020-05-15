@@ -47,12 +47,14 @@ const EventFilterBar = ({
             <div className="filter-bar__browse--menu">
               <div className="filter-bar__browse--title-wrapper">
                 <span className="filter-bar__browse--title">Browse By</span>
-                <img
-                  src={down}
-                  alt=""
-                  className="filter-bar__browse--arrow"
-                  onClick={() => setToggle(!isToggle)}
-                />
+                <div className="filter-bar__browse--arrow-wrapper">
+                  <img
+                    src={down}
+                    alt=""
+                    className="filter-bar__browse--arrow"
+                    onClick={() => setToggle(!isToggle)}
+                  />
+                </div>
                 <span className="filter-bar__browse--event-filter">
                   {filteredEventProperties.length > 0
                     ? renderFilterTitle()

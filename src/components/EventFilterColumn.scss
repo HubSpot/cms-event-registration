@@ -1,8 +1,8 @@
 @media (min-width:1000px) {
   .filter-bar__browse--dropdown-row {
+    box-pack: justify;
     display: flex;
     justify-content: space-between;
-    box-pack: justify;
   }
 
   .filter-bar__browse--dropdown-column {
@@ -20,5 +20,5 @@
     margin: 0 0 0.8rem;
     position: relative;
     text-align: left;
-  }  
+  }
 }

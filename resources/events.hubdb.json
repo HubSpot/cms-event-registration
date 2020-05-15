@@ -1,5 +1,5 @@
 {
-  "name": "events",
+  "name": "events-2",
   "useForPages": true,
   "label": "Events",
   "allowChildTables": false,
@@ -12,6 +12,7 @@
     { "name": "end", "label": "End", "type": "DATETIME" },
     { "name": "location", "label": "Location", "type": "LOCATION" },
     { "name": "location_address", "label": "Location Address", "type": "TEXT" },
+    { "name": "link", "label": "Link", "type": "URL" },
     {
       "name": "event_description",
       "label": "Event Description",
@@ -30,17 +31,27 @@
       "type": "NUMBER"
     },
     {
-     "name": "type",
-     "label": "Type",
+     "name": "attendance_type",
+     "label": "Attendance Type",
      "options": [
-       { "id": 1, "name": "class", "type": "option", "order": null },
-       { "id": 2, "name": "conference", "type": "option", "order": null },
-       { "id": 3, "name": "webinar", "type": "option", "order": null },
-       { "id": 4, "name": "workshop", "type": "option","order": null }
+       { "id": 1, "name": "virtual", "type": "option", "order": null },
+       { "id": 2, "name": "in-person", "type": "option", "order": null }
      ],
      "type": "MULTISELECT",
-     "optionCount": 4
-   }
+     "optionCount": 2
+   },
+   {
+    "name": "type",
+    "label": "Type",
+    "options": [
+      { "id": 1, "name": "class", "type": "option", "order": null },
+      { "id": 2, "name": "conference", "type": "option", "order": null },
+      { "id": 3, "name": "webinar", "type": "option", "order": null },
+      { "id": 4, "name": "workshop", "type": "option","order": null }
+    ],
+    "type": "MULTISELECT",
+    "optionCount": 4
+  }
   ],
   "rows": [
     {

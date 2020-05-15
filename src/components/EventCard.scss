@@ -1,6 +1,8 @@
 @import '../scss/_tokens.scss';
 
 .event-card {
+  display: flex;
+  flex-direction: column;
   padding: 20px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -20,10 +22,6 @@
   transition-property: box-shadow, transform;
   transition-duration: 0.4s;
 }
-.event-card__row {
-  display: flex;
-  flex-direction: column;
-}
 .event-card__image {
   flex: 0 0 47%;
   height: 0;
@@ -34,7 +32,6 @@
   border-bottom: 4px solid $color-primary;
 }
 .event-card__column {
-  flex: 1;
   padding: 0 20px;
 }
 .event-card__title {

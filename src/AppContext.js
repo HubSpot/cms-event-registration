@@ -19,16 +19,8 @@ const AppProvider = props => {
   });
 
   const filterPastEvents = eventList => {
-    let eventArray = [];
     let currentDate = dayjs(new Date());
-
-    eventList.forEach(e => {
-      let eventDate = dayjs(e.values.start);
-      if (eventDate.isAfter(currentDate)) {
-        eventArray.push(e);
-      }
-    });
-    return eventArray;
+    return eventList.filter(e => dayjs(e.values.start).isAfter(currentDate));
   };
 
   const getEvents = async () => {

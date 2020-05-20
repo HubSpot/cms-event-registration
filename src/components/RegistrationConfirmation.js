@@ -3,7 +3,8 @@ import { AppContext } from '../AppContext';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import EventSpacesLeft from './EventSpacesLeft';
-import people from '../images/people.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const RegistrationConfirmation = ({ formData }) => {
   const [state] = useContext(AppContext);
@@ -15,7 +16,7 @@ const RegistrationConfirmation = ({ formData }) => {
     <div className="registration-confirmation">
       <div className="event-details__registration--title">Registered</div>
       <div className="event-details__spaces-available">
-        <img src={people} className="event-details__spaces-available-icon" />
+        <FontAwesomeIcon icon={faUsers} className="people-icon" className="event-details__spaces-available-icon" />
         <EventSpacesLeft
           space_available={
             currentEvent.values.event_capacity -

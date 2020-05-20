@@ -1,6 +1,7 @@
 import React from 'react';
-import left from '../images/left.svg';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const AppHero = () => {
   return (
@@ -11,7 +12,8 @@ const AppHero = () => {
       }}
     >
       <Link to="/events" className="back-banner">
-        <img src={left} className="back-banner__icon" /> Back to Events
+        <FontAwesomeIcon icon={faChevronLeft} className="back-banner__icon" />
+        Back to Events
       </Link>
     </header>
   );

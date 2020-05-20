@@ -1,10 +1,13 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import time from '../images/time.svg';
-import people from '../images/people.svg';
-import location from '../images/location.svg';
 import EventSpacesLeft from './EventSpacesLeft';
 import './EventCard.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faClock,
+  faMapMarkerAlt,
+  faUsers,
+} from '@fortawesome/free-solid-svg-icons';
 
 const EventCard = ({ row }) => {
   const featureImage = row.values.feature_image;
@@ -20,14 +23,14 @@ const EventCard = ({ row }) => {
         ></figure>
         <div className="event-card__column">
           <div className="event-card__date">
-            <img src={time} className="location-icon" />
+            <FontAwesomeIcon icon={faClock} className="location-icon" />
             <div>
               <div>{dayjs(row.values.start).format('dddd, MMMM D, YYYY')}</div>
               <div>{dayjs(row.values.start).format('h:mm A')}</div>
             </div>
           </div>
           <div className="event-card__address">
-            <img src={location} className="location-icon" />
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
             <div>
               <div> {row.values.location_address.split(',')[0]} </div>
               <div>
@@ -40,7 +43,7 @@ const EventCard = ({ row }) => {
             </div>
           </div>
           <div className="event-card__capacity">
-            <img src={people} className="people-icon" />
+            <FontAwesomeIcon icon={faUsers} className="people-icon" />
             <EventSpacesLeft
               space_available={
                 row.values.event_capacity - row.values.registered_attendee_count

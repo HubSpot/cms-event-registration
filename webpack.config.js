@@ -3,6 +3,7 @@ const HubSpotAutoUploadPlugin = require('@hubspot/webpack-cms-plugins/HubSpotAut
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const hubspotConfig = ({ portal, autoupload } = {}) => {
   return {
@@ -12,11 +13,25 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
+      filename: '[name].js'
     },
     optimization: {
-      minimize: false,
-    },
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          include: /vendor\.js$/
+        }),
+      ],
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendor",
+              chunks: "initial",
+            },
+          },
+        }
+      },
     module: {
       rules: [
         {

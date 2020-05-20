@@ -9,7 +9,6 @@ import {
   faClock,
   faEnvelope,
   faMapMarkerAlt,
-  faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebookF,
@@ -34,10 +33,6 @@ const EventDetails = () => {
 
   const eventImage =
     event && event.values.feature_image ? event.values.feature_image.url : '';
-
-  console.log('Envelope', faEnvelope);
-  console.log('Map', faMapMarkerAlt);
-
   return (
     typeof event !== 'undefined' && (
       <div className="event-details">

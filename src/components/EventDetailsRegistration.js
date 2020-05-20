@@ -28,7 +28,6 @@ const RegistrationForm = ({
   const eventData = state.events;
   const currentEvent = eventData.find(event => event.path === slug);
   const formId = state.moduleData.event_form.event_form_field.form_id;
-  console.log('Hi hi hi!!!')
 
   const handleFormValidation = () => {
     return formData.firstName && formData.lastName && formData.email;
@@ -110,7 +109,10 @@ const RegistrationForm = ({
       </div>
 
       <div className="event-details__spaces-available">
-        <FontAwesomeIcon icon={faUsers} className="people-icon event-details__spaces-available-icon" />
+        <FontAwesomeIcon
+          icon={faUsers}
+          className="people-icon event-details__spaces-available-icon"
+        />
         {isClosed ? (
           'Registration is closed.'
         ) : (

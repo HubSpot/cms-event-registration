@@ -16,7 +16,10 @@ const RegistrationConfirmation = ({ formData }) => {
     <div className="registration-confirmation">
       <div className="event-details__registration--title">Registered</div>
       <div className="event-details__spaces-available">
-        <FontAwesomeIcon icon={faUsers} className="people-icon" className="event-details__spaces-available-icon" />
+        <FontAwesomeIcon
+          icon={faUsers}
+          className="people-icon event-details__spaces-available-icon"
+        />
         <EventSpacesLeft
           space_available={
             currentEvent.values.event_capacity -

@@ -47,8 +47,9 @@
   }
 }
 .back-banner__icon {
-  height: 30px;
-  width: 30px;
+  height: 30px !important;
+  width: 30px !important;
+  margin-right: 10px;
 }
 
 .event-listings__wrapper {

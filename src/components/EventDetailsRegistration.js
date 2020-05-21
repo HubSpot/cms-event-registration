@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 import Cookies from 'js-cookie';
 import EventSpacesLeft from './EventSpacesLeft';
-import people from '../images/people.svg';
 import LoadingSpinner from './LoadingSpinner';
 import './EventDetailsRegistration.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const RegistrationForm = ({
   isFull,
@@ -26,6 +27,7 @@ const RegistrationForm = ({
   const { slug } = useParams();
   const eventData = state.events;
   const currentEvent = eventData.find(event => event.path === slug);
+  const formId = state.moduleData.event_form.event_form_field.form_id;
 
   const handleFormValidation = () => {
     return formData.firstName && formData.lastName && formData.email;
@@ -38,6 +40,7 @@ const RegistrationForm = ({
       rowId: currentEvent.id,
       pageUri: window.location.href,
       pageName: currentEvent.name,
+      formId,
       utk: Cookies.get('hubspotutk'),
       ...formData,
     };
@@ -106,7 +109,10 @@ const RegistrationForm = ({
       </div>
 
       <div className="event-details__spaces-available">
-        <img src={people} className="event-details__spaces-available-icon" />
+        <FontAwesomeIcon
+          icon={faUsers}
+          className="people-icon event-details__spaces-available-icon"
+        />
         {isClosed ? (
           'Registration is closed.'
         ) : (

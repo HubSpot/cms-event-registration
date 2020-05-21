@@ -54,7 +54,9 @@
 .filter-bar__browse--arrow {
   margin: 0px 10px 0 40px;
   transform: rotate(-90deg);
-  width: 30px;
+  height: 30px !important;
+  margin: 0px 10px 0 40px !important;
+  width: 30px !important;
 }
 
 .filter-bar__browse--event-filter {
@@ -113,6 +115,10 @@
 
   .filter-bar__browse--arrow {
     margin: 15px 10px 0px 40px;
+  }
+
+  .filter-bar__browse--title-wrapper {
+    top: 30%; 
   }
 
   .filter-bar__browse--title {
@@ -191,7 +197,7 @@
     margin: 0 auto;
     padding: 0 1rem 1.75rem 1rem;
     position: absolute;
-    top: 4.2em;
+    top: 4.3em;
     z-index: 95;
   }
 }

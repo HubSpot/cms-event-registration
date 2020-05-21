@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dayjs from 'dayjs';
 
 const AppContext = React.createContext([{}, () => {}]);
 
@@ -14,14 +15,23 @@ const AppProvider = props => {
     contact: {},
     events: [],
     eventsLoaded: eventLoadingStatus.UNINITIALIZED,
+    moduleData: props.moduleData,
   });
+
+  const filterPastEvents = eventList => {
+    let currentDate = dayjs(new Date());
+    return eventList.filter(e => dayjs(e.values.start).isAfter(currentDate));
+  };
 
   const getEvents = async () => {
     let response = await fetch(
       `https://api.hubspot.com/cms/v3/hubdb/tables/events/rows?sort=start&portalId=${props.portalId}`,
     );
     response = await response.json();
-    setState(state => ({ ...state, events: response.results }));
+    setState(state => ({
+      ...state,
+      events: filterPastEvents(response.results),
+    }));
     setState(state => ({
       ...state,
       eventsLoaded: eventLoadingStatus.SUCCEEDED,

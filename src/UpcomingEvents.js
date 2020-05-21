@@ -13,16 +13,13 @@ function UpcomingEvents() {
   const eventsLoaded = state.eventsLoaded;
 
   return eventsLoaded === eventLoadingStatus.SUCCEEDED ? (
-    <div className="event-card__wrapper">
+    <div className="event-listings--upcoming">
       {upcomingEvents.length === 0 ? (
         <h3 class="no-event-message">There are no upcoming events.</h3>
       ) : (
         upcomingEvents.map(function(obj, i) {
           return (
-            <a
-              href={`/events/${obj.path}`}
-              className="event-card__wrapper--link"
-            >
+            <a href={`/events/${obj.path}`} className="event-card__link">
               <EventCard key={i} row={obj} />
             </a>
           );

@@ -3,20 +3,35 @@ const HubSpotAutoUploadPlugin = require('@hubspot/webpack-cms-plugins/HubSpotAut
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const hubspotConfig = ({ portal, autoupload } = {}) => {
   return {
     entry: {
-      'event-registration': './src/index.js',
-      'upcoming-events': './src/UpcomingEvents.js',
+      'event-registration': ['whatwg-fetch', './src/index.js'],
+      'upcoming-events': ['whatwg-fetch', './src/UpcomingEvents.js'],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
+      filename: '[name].js'
     },
     optimization: {
-      minimize: false,
-    },
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          include: /vendor\.js$/
+        }),
+      ],
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendor",
+              chunks: "initial",
+            },
+          },
+        }
+      },
     module: {
       rules: [
         {
@@ -34,7 +49,7 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [autoprefixer],
+                plugins: () => [autoprefixer({ grid: 'autoplace' })],
               },
             },
             'sass-loader',

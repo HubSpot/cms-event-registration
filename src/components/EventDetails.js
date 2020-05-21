@@ -1,15 +1,20 @@
 import React, { useContext } from 'react';
 import EventDetailsRegistration from './EventDetailsRegistration';
 import dayjs from 'dayjs';
-import location from '../images/location.svg';
-import time from '../images/time.svg';
-import facebook from '../images/facebook.svg';
-import email from '../images/email.svg';
-import twitter from '../images/twitter.svg';
-import linkedin from '../images/linkedin.svg';
 import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 import './EventDetails.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faClock,
+  faEnvelope,
+  faMapMarkerAlt,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faFacebookF,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 const EventDetails = () => {
   const [state] = useContext(AppContext);
@@ -28,7 +33,6 @@ const EventDetails = () => {
 
   const eventImage =
     event && event.values.feature_image ? event.values.feature_image.url : '';
-
   return (
     typeof event !== 'undefined' && (
       <div className="event-details">
@@ -47,7 +51,7 @@ const EventDetails = () => {
             <div className="event-details__info">
               <div className="event-details__table">
                 <div className="column">
-                  <img className="time-icon" src={time} />
+                  <FontAwesomeIcon icon={faClock} className="time-icon" />
                   <div className="event-details__meta-copy">
                     <p> {dayjs(event.values.start).format('MMMM D, YYYY')} </p>
                     <p>
@@ -57,7 +61,10 @@ const EventDetails = () => {
                   </div>
                 </div>
                 <div className="column">
-                  <img className="location-icon" src={location} />
+                  <FontAwesomeIcon
+                    icon={faMapMarkerAlt}
+                    className="location-icon"
+                  />
                   <div className="event-details__meta-copy">
                     <p> {event.values.location_address.split(',')[0]} </p>
                     <p>
@@ -92,7 +99,10 @@ const EventDetails = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={facebook} className="share-icon" />
+                      <FontAwesomeIcon
+                        icon={faFacebookF}
+                        className="share-icon"
+                      />
                     </a>
                   </div>
                   <div>
@@ -101,7 +111,10 @@ const EventDetails = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={linkedin} className="share-icon" />
+                      <FontAwesomeIcon
+                        icon={faLinkedin}
+                        className="share-icon"
+                      />
                     </a>
                   </div>
                   <div>
@@ -110,7 +123,10 @@ const EventDetails = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={twitter} className="share-icon" />
+                      <FontAwesomeIcon
+                        icon={faTwitter}
+                        className="share-icon"
+                      />
                     </a>
                   </div>
                   <div>
@@ -119,7 +135,10 @@ const EventDetails = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={email} className="share-icon" />
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className="share-icon"
+                      />
                     </a>
                   </div>
                 </span>

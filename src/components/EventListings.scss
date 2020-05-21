@@ -1,14 +1,18 @@
 .event-listings {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  font-size: 1rem;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   text-align: left;
-  font-size: 0.875em;
-  @media screen and (min-width: 1001px) {
+  @media screen and (max-width: 1000px) {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 1rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    font-size: 0.875em;
   }
 }
 
@@ -26,6 +30,5 @@
 .event-card__link {
   display: block;
   color: inherit;
-  flex: 0 1 30%;
   margin: 0 0 35px;
 }

@@ -1,4 +1,10 @@
+  {% require_js %}
+  <script type="application/json" data-module-instance="{{ name }}">
+    {{ module|tojson }}
+  </script>
+  {% end_require_js %}
 {{ require_css(get_asset_url('../../event-registration.css')) }}
+{{ require_js(get_asset_url('../../vendor.js'), 'footer') }}
 {{ require_js(get_asset_url('../../event-registration.js'), 'footer') }}
 
 {% set IMAGES = {
@@ -38,9 +44,4 @@
   {% end_require_css %}
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root" data-portal-id="{{ portal_id }}"></div>
-  {% require_js %}
-  <script>
-    var IMAGES = {{ IMAGES|tojson }};
-  </script>
-  {% end_require_js %}
 </div>

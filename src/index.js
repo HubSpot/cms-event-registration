@@ -17,13 +17,16 @@ const ScrollToTop = () => {
 
   return null;
 };
+const __MODULE_DATA__ = JSON.parse(
+  document.querySelector('[type="application/json"]').textContent,
+);
 
 const root = document.getElementById('root');
 const portalId = Number(root.dataset.portalId);
 ReactDOM.render(
   <BrowserRouter>
     <ScrollToTop />
-    <AppProvider portalId={portalId}>
+    <AppProvider portalId={portalId} moduleData={__MODULE_DATA__}>
       <Switch>
         <Route exact path="/events" component={App} />
         <Route path="/events/:slug" component={EventDetailPage} />

@@ -55,7 +55,10 @@ const EventCard = ({ row }) => {
           )}
           {checkAttendanceType('in-person') && row.values.location_address && (
             <div className="event-card__address">
-              <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
+              <FontAwesomeIcon
+                icon={faMapMarkerAlt}
+                className="location-icon"
+              />
               <div>
                 <div> {row.values.location_address.split(',')[0]} </div>
                 <div>

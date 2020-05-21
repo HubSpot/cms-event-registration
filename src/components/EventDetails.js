@@ -68,9 +68,12 @@ const EventDetails = () => {
             ></div>
             <div className="event-details__info">
               <div className="event-details__table">
-                {event.values.attendance_type &&  (
+                {event.values.attendance_type && (
                   <div className="column">
-                    <FontAwesomeIcon icon={faCalendarAlt} className="event-icon" />
+                    <FontAwesomeIcon
+                      icon={faCalendarAlt}
+                      className="event-icon"
+                    />
                     <div className="event-details__meta-copy">
                       <p> {renderAttendanceType()} </p>
                     </div>

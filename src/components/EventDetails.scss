@@ -54,6 +54,7 @@
     }
   }
 }
+
 .time-icon,
 .location-icon,
 .people-icon,
@@ -62,7 +63,7 @@
   height: 25px;
   width: 25px;
   margin-right: 10px;
-  overflow: visible;
+  overflow: visible !important;
 }
 .event-details__info {
   padding: 0 15%;

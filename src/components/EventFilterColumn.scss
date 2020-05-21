@@ -1,28 +1,24 @@
-@media (min-width:851px) {
+@media (min-width:1000px) {
   .filter-bar__browse--dropdown-row {
+    box-pack: justify;
     display: flex;
     justify-content: space-between;
-    box-pack: justify;
   }
-}
 
-@media (min-width:851px) {
   .filter-bar__browse--dropdown-column {
     flex: 1;
     padding-top: 0.5rem;
   }
-}
 
-@media (min-width:851px) {
   .filter-bar__browse--dropdown-column:not(:last-child) {
     margin-right: 1rem;
   }
-}
 
-.filter-bar__browse--dropdown-column-header {
-  font-size: 1.15rem;
-  font-weight: 800;
-  margin: 0 0 0.8rem;
-  position: relative;
-  text-align: left;
+  .filter-bar__browse--dropdown-column-header {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0 0 0.8rem;
+    position: relative;
+    text-align: left;
+  }
 }

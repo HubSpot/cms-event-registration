@@ -55,7 +55,10 @@ const EventFilterBar = ({
                     onClick={() => setToggle(!isToggle)}
                   />
                 </div>
-                <span className="filter-bar__browse--event-filter">
+                <span
+                  className="filter-bar__browse--event-filter"
+                  onClick={() => setToggle(!isToggle)}
+                >
                   {filteredEventProperties.length > 0
                     ? renderFilterTitle()
                     : 'All Events'}

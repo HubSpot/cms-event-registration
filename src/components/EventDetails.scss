@@ -32,7 +32,7 @@
 }
 .event-details__table {
   text-align: left;
-  margin: 50px 0;
+  margin: 50px 0 50px -115px;
   @media screen and (min-width: 600px) {
     display: flex;
   }
@@ -55,15 +55,20 @@
   }
 }
 
-.time-icon,
+.column .event-icon,
+.column .link-icon {
+  margin-top: 12px;
+}
+
+.event-icon,
+.link-icon,
 .location-icon,
 .people-icon,
-.link-icon,
-.event-icon {
-  height: 25px;
-  width: 25px;
+.time-icon {
+  height: 25px !important;
   margin-right: 10px;
   overflow: visible !important;
+  width: 25px !important;
 }
 .event-details__info {
   padding: 0 15%;

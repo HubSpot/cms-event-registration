@@ -4,10 +4,13 @@ import dayjs from 'dayjs';
 import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 import './EventDetails.scss';
+import _array from 'lodash/array';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faCalendarAlt,
   faClock,
   faEnvelope,
+  faLink,
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -33,6 +36,21 @@ const EventDetails = () => {
 
   const eventImage =
     event && event.values.feature_image ? event.values.feature_image.url : '';
+
+  function checkAttendanceType(type) {
+    return event.values.attendance_type.some(o => o.name === type);
+  }
+
+  function renderAttendanceType() {
+    let label = [];
+    if (checkAttendanceType('virtual')) {
+      label.push('Virtual');
+    }
+    if (checkAttendanceType('in-person')) {
+      label.push('In-Person');
+    }
+    return _array.join(label, ' and ') + ' Event';
+  }
   return (
     typeof event !== 'undefined' && (
       <div className="event-details">
@@ -50,6 +68,14 @@ const EventDetails = () => {
             ></div>
             <div className="event-details__info">
               <div className="event-details__table">
+                {event.values.attendance_type &&  (
+                  <div className="column">
+                    <FontAwesomeIcon icon={faCalendarAlt} className="event-icon" />
+                    <div className="event-details__meta-copy">
+                      <p> {renderAttendanceType()} </p>
+                    </div>
+                  </div>
+                )}
                 <div className="column">
                   <FontAwesomeIcon icon={faClock} className="time-icon" />
                   <div className="event-details__meta-copy">
@@ -60,36 +86,49 @@ const EventDetails = () => {
                     </p>
                   </div>
                 </div>
-                <div className="column">
-                  <FontAwesomeIcon
-                    icon={faMapMarkerAlt}
-                    className="location-icon"
-                  />
-                  <div className="event-details__meta-copy">
-                    <p> {event.values.location_address.split(',')[0]} </p>
-                    <p>
-                      {' '}
-                      {event.values.location_address
-                        .split(',')
-                        .slice(1, 3)
-                        .join(', ')}{' '}
-                    </p>
+                {checkAttendanceType('in-person') &&
+                  event.values.location_address && (
+                    <div className="column">
+                      <FontAwesomeIcon
+                        icon={faMapMarkerAlt}
+                        className="location-icon"
+                      />
+                      <div className="event-details__meta-copy">
+                        <p> {event.values.location_address.split(',')[0]} </p>
+                        <p>
+                          {' '}
+                          {event.values.location_address
+                            .split(',')
+                            .slice(1, 3)
+                            .join(', ')}{' '}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                {checkAttendanceType('virtual') && event.values.link && (
+                  <div className="column">
+                    <FontAwesomeIcon icon={faLink} className="link-icon" />
+                    <div className="event-details__meta-copy">
+                      <p> {event.values.link} </p>
+                    </div>
                   </div>
+                )}
+              </div>
+              {checkAttendanceType('in-person') && event.values.location && (
+                <div className="event-details__map">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                    src={`https://www.google.com/maps/embed/v1/view?&zoom=18&center=${event
+                      .values.location.lat +
+                      ',' +
+                      event.values.location
+                        .long}&key=AIzaSyBAq5eYXUNe50Yu0reaOtqUi_u-C_yW-is`}
+                    allowfullscreen
+                  ></iframe>
                 </div>
-              </div>
-              <div className="event-details__map">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  frameborder="0"
-                  src={`https://www.google.com/maps/embed/v1/view?&zoom=18&center=${event
-                    .values.location.lat +
-                    ',' +
-                    event.values.location
-                      .long}&key=AIzaSyBAq5eYXUNe50Yu0reaOtqUi_u-C_yW-is`}
-                  allowfullscreen
-                ></iframe>
-              </div>
+              )}
               <div className="event-details__share">
                 Share this
                 <span className="event-details__share--table">

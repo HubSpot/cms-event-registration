@@ -39,8 +39,9 @@
 
 .filter-bar__browse--arrow {
   transform: rotate(-90deg);
-  width: 30px;
-  margin: 0px 10px 0 40px;
+  height: 30px !important;
+  margin: 0px 10px 0 40px !important;
+  width: 30px !important;
 }
 
 .filter-bar__browse--event-filter {
@@ -126,7 +127,7 @@
     margin: 0 auto;
     padding: 0 1rem 1.75rem 1rem;
     position: absolute;
-    top: 3.55em;
+    top: 3.36em;
     z-index: 95;
   }
 

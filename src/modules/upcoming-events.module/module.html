@@ -1,4 +1,5 @@
 {{ require_css(get_asset_url('../../upcoming-events.css')) }}
+{{ require_js(get_asset_url('../../vendor.js'), 'footer') }}
 {{ require_js(get_asset_url('../../upcoming-events.js'), 'footer') }}
 
 {%- macro outputColorIfSet(property, color, css_selector) -%}

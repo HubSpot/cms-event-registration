@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react';
 import { AppContext } from '../AppContext';
 import EventFilterColumn from './EventFilterColumn';
 import './EventFilterBar.scss';
-import down from '../images/left.svg';
 import _array from 'lodash/array';
 import _collection from 'lodash/collection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const EventFilterBar = ({
   filteredEventProperties,
@@ -47,9 +48,8 @@ const EventFilterBar = ({
             <div className="filter-bar__browse--menu">
               <div className="filter-bar__browse--title-wrapper">
                 <span className="filter-bar__browse--title">Browse By</span>
-                <img
-                  src={down}
-                  alt=""
+                <FontAwesomeIcon
+                  icon={faChevronLeft}
                   className="filter-bar__browse--arrow"
                   onClick={() => setToggle(!isToggle)}
                 />

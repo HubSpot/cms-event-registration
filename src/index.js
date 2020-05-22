@@ -17,23 +17,31 @@ const ScrollToTop = () => {
 
   return null;
 };
-const __MODULE_DATA__ = JSON.parse(
-  document.querySelector('[type="application/json"]').textContent,
+
+const preRenderedDataNodes = document.querySelectorAll(
+  '.event-registration > script[type="application/json"]',
 );
 
-const root = document.getElementById('root');
-const portalId = Number(root.dataset.portalId);
-ReactDOM.render(
-  <BrowserRouter>
-    <ScrollToTop />
-    <AppProvider portalId={portalId} moduleData={__MODULE_DATA__}>
-      <Switch>
-        <Route exact path="/events" component={App} />
-        <Route path="/events/:slug" component={EventDetailPage} />
-        <Route exact path="/my-events" component={RegisteredEventsPage} />
-        <Route component={App} />
-      </Switch>
-    </AppProvider>
-  </BrowserRouter>,
-  root,
-);
+preRenderedDataNodes.forEach(({ dataset, textContent }) => {
+  const root = document.getElementById(
+    `event-registration__module--${dataset.moduleInstance}`,
+  );
+  const __MODULE_DATA__ = JSON.parse(textContent);
+  ReactDOM.render(
+    <BrowserRouter>
+      <ScrollToTop />
+      <AppProvider
+        portalId={Number(dataset.portalId)}
+        moduleData={__MODULE_DATA__}
+      >
+        <Switch>
+          <Route exact path="/events" component={App} />
+          <Route path="/events/:slug" component={EventDetailPage} />
+          <Route exact path="/my-events" component={RegisteredEventsPage} />
+          <Route component={App} />
+        </Switch>
+      </AppProvider>
+    </BrowserRouter>,
+    root,
+  );
+});

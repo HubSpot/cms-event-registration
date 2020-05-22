@@ -40,10 +40,11 @@ preRenderedDataNodes.forEach(({ dataset, textContent }) => {
   const root = document.getElementById(
     `upcoming-events__module--${dataset.moduleInstance}`,
   );
+  const __MODULE_DATA__ = JSON.parse(textContent);
   return ReactDOM.render(
     <AppProvider
       portalId={Number(dataset.portalId)}
-      moduleData={JSON.parse(textContent)}
+      moduleData={__MODULE_DATA__}
     >
       <UpcomingEvents />
     </AppProvider>,

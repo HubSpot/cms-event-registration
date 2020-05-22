@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {AppContext} from '../AppContext'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const AppHero = () => {
+  const [state] = useContext(AppContext);
   return (
     <header
       className="App-hero"
@@ -11,7 +13,7 @@ const AppHero = () => {
         backgroundImage: `url("{{ get_asset_url('./images/grayscale-mountain-banner.png') }}")`,
       }}
     >
-      <Link to="/events" className="back-banner">
+      <Link to={`/${state.moduleData.event_page}`} className="back-banner">
         <FontAwesomeIcon icon={faChevronLeft} className="back-banner__icon" />
         Back to Events
       </Link>

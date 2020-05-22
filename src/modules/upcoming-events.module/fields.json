@@ -48,5 +48,13 @@
     "required": false,
     "locked": false,
     "default": {}
+  },
+  {
+    "default": null,
+    "label": "Event page",
+    "locked": false,
+    "name": "event_page",
+    "required": true,
+    "type": "page"
   }
 ]

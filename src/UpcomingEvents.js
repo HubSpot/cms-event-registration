@@ -9,6 +9,7 @@ import './scss/upcoming-events.scss';
 
 function UpcomingEvents() {
   const [state] = useContext(AppContext);
+  const appRoot = state.moduleData.event_page;
   const upcomingEvents = state.events.slice(0, 3);
   const eventsLoaded = state.eventsLoaded;
 
@@ -19,7 +20,7 @@ function UpcomingEvents() {
       ) : (
         upcomingEvents.map(function(obj, i) {
           return (
-            <a href={`/events/${obj.path}`} className="event-card__link">
+            <a href={`${appRoot}/${obj.path}`} className="event-card__link">
               <EventCard key={i} row={obj} />
             </a>
           );
@@ -30,12 +31,22 @@ function UpcomingEvents() {
     <LoadingSpinner />
   );
 }
-const root = document.getElementById('upcoming-events__module');
-const portalId = Number(root.dataset.portalId);
 
-ReactDOM.render(
-  <AppProvider portalId={portalId}>
-    <UpcomingEvents />
-  </AppProvider>,
-  root,
+const preRenderedDataNodes = document.querySelectorAll(
+  '.upcoming-events > script[type="application/json"]',
 );
+
+preRenderedDataNodes.forEach(({ dataset, textContent }) => {
+  const root = document.getElementById(
+    `upcoming-events__module--${dataset.moduleInstance}`,
+  );
+  return ReactDOM.render(
+    <AppProvider
+      portalId={Number(dataset.portalId)}
+      moduleData={JSON.parse(textContent)}
+    >
+      <UpcomingEvents />
+    </AppProvider>,
+    root,
+  );
+});

@@ -11,6 +11,14 @@
 {%- endmacro -%}
 
 <div class="upcoming-events">
+  <script type="application/json"
+    data-module-instance="{{ name }}"
+    data-portal-id="{{ portal_id }}">
+    {%- do module.update({
+      'event_page': content_by_id(module.event_page).absoluteUrl
+    })-%}
+    {{ module|tojson }}
+  </script>
   {% require_css %}
   <style>
     {{outputColorIfSet('background-color', module.background_color, '.upcoming-events')}}
@@ -21,5 +29,5 @@
   </style>
   {% end_require_css %}
   <h2 class="event-header">{{ module.heading }}</h2>
-  <div id="upcoming-events__module" data-portal-id="{{ portal_id }}"></div>
+  <div id="upcoming-events__module--{{ name }}"></div>
 </div>

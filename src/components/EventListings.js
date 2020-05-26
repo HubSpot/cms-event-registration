@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {AppContext} from '../AppContext';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
 import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 import './EventListings.scss';
@@ -41,7 +41,10 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
       ) : (
         filteredEvents.map(function(obj, i) {
           return (
-            <Link to={`${state.moduleData.event_page}/${obj.path}`} className="event-card__link">
+            <Link
+              to={`${state.moduleData.event_page}/${obj.path}`}
+              className="event-card__link"
+            >
               <EventCard key={i} row={obj} />
             </Link>
           );

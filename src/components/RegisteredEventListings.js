@@ -37,7 +37,10 @@ function RegisteredEventListings() {
           {state.events.map(
             (event, i) =>
               registeredEventSlugs.indexOf(event.path) != -1 && (
-                <Link to={`${state.moduleData.event_page}/${event.path}`} className="event-card__link">
+                <Link
+                  to={`${state.moduleData.event_page}/${event.path}`}
+                  className="event-card__link"
+                >
                   <EventCard key={i} row={event} />
                 </Link>
               ),

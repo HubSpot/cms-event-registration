@@ -214,5 +214,13 @@
         "background_color_form": {}
       }
     }
+  },
+  {
+    "default": null,
+    "label": "My Events page",
+    "locked": false,
+    "name": "my_events_page",
+    "required": true,
+    "type": "page"
   }
 ]

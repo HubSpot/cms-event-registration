@@ -31,27 +31,27 @@
       "type": "NUMBER"
     },
     {
-     "name": "attendance_type",
-     "label": "Attendance Type",
-     "options": [
-       { "id": 1, "name": "virtual", "type": "option", "order": null },
-       { "id": 2, "name": "in-person", "type": "option", "order": null }
-     ],
-     "type": "MULTISELECT",
-     "optionCount": 2
-   },
-   {
-    "name": "type",
-    "label": "Type",
-    "options": [
-      { "id": 1, "name": "class", "type": "option", "order": null },
-      { "id": 2, "name": "conference", "type": "option", "order": null },
-      { "id": 3, "name": "webinar", "type": "option", "order": null },
-      { "id": 4, "name": "workshop", "type": "option","order": null }
-    ],
-    "type": "MULTISELECT",
-    "optionCount": 4
-  }
+      "name": "attendance_type",
+      "label": "Attendance Type",
+      "options": [
+        { "id": 1, "name": "virtual", "type": "option", "order": null },
+        { "id": 2, "name": "in-person", "type": "option", "order": null }
+      ],
+      "type": "MULTISELECT",
+      "optionCount": 2
+    },
+    {
+      "name": "type",
+      "label": "Type",
+      "options": [
+        { "id": 1, "name": "class", "type": "option", "order": null },
+        { "id": 2, "name": "conference", "type": "option", "order": null },
+        { "id": 3, "name": "webinar", "type": "option", "order": null },
+        { "id": 4, "name": "workshop", "type": "option", "order": null }
+      ],
+      "type": "MULTISELECT",
+      "optionCount": 4
+    }
   ],
   "rows": [
     {
@@ -64,6 +64,7 @@
         "end": 1609549200000,
         "location": { "lat": 42.369724, "long": -71.07791, "type": "location" },
         "location_address": "25 First Street, Cambridge MA",
+        "link": "http://google.com",
         "event_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  faucibus elit nec velit tempor, sit amet consequat magna efficitur.  Donec aliquam urna a tortor pretium, ut tincidunt metus fringilla. Sed  maximus molestie tristique.</p>",
         "feature_image": {
           "url": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain.png",
@@ -73,7 +74,8 @@
         },
         "event_capacity": 40,
         "registered_attendee_count": 0,
-        "type": [{ "id": 1, "name": "class", "type": "option", "order": 1 }]
+        "attendance_type": [{ "id": 1, "name": "virtual", "type": "option" }],
+        "type": [{ "id": 1, "name": "class", "type": "option" }]
       }
     },
     {
@@ -86,6 +88,7 @@
         "end": 1612227600000,
         "location": { "lat": 42.369724, "long": -71.07791, "type": "location" },
         "location_address": "25 First Street, Cambridge MA",
+        "link": "http://google.com",
         "event_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  faucibus elit nec velit tempor, sit amet consequat magna efficitur.  Donec aliquam urna a tortor pretium, ut tincidunt metus fringilla. Sed  maximus molestie tristique.</p>",
         "feature_image": {
           "url": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain.png",
@@ -95,7 +98,8 @@
         },
         "event_capacity": 40,
         "registered_attendee_count": 0,
-        "type": [{ "id": 2, "name": "conference", "type": "option", "order": 2 }]
+        "attendance_type": [{ "id": 2, "name": "in-person", "type": "option" }],
+        "type": [{ "id": 2, "name": "conference", "type": "option" }]
       }
     },
     {
@@ -108,6 +112,7 @@
         "end": 1617319800000,
         "location": { "lat": 42.369724, "long": -71.07791, "type": "location" },
         "location_address": "25 First Street, Cambridge MA",
+        "link": "http://google.com",
         "event_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  faucibus elit nec velit tempor, sit amet consequat magna efficitur.  Donec aliquam urna a tortor pretium, ut tincidunt metus fringilla. Sed  maximus molestie tristique.</p>",
         "feature_image": {
           "url": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain.png",
@@ -117,6 +122,10 @@
         },
         "event_capacity": 40,
         "registered_attendee_count": 0,
+        "attendance_type": [
+          { "id": 1, "name": "virtual", "type": "option", "order": 1 },
+          { "id": 2, "name": "in-person", "type": "option", "order": 2 }
+        ],
         "type": [
           { "id": 3, "name": "webinar", "type": "option", "order": 1 },
           { "id": 4, "name": "workshop", "type": "option", "order": 2 }

@@ -73,6 +73,7 @@ const EventCard = ({ row }) => {
           <div className="event-card__capacity">
             <FontAwesomeIcon icon={faUsers} className="people-icon" />
             <EventSpacesLeft
+              isUnlimited={row.values.unlimited_event_capacity === 1}
               space_available={
                 row.values.event_capacity - row.values.registered_attendee_count
               }

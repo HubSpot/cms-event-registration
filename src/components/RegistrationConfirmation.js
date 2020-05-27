@@ -21,6 +21,7 @@ const RegistrationConfirmation = ({ formData }) => {
           className="people-icon event-details__spaces-available-icon"
         />
         <EventSpacesLeft
+          event_capacity_type={currentEvent.values.unlimited_event_capacity}
           space_available={
             currentEvent.values.event_capacity -
             currentEvent.values.registered_attendee_count

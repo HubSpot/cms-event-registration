@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCalendarAlt,
   faClock,
-  faLink,
   faMapMarkerAlt,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons';
@@ -47,12 +46,6 @@ const EventCard = ({ row }) => {
               <div>{dayjs(row.values.start).format('h:mm A')}</div>
             </div>
           </div>
-          {checkAttendanceType('virtual') && row.values.link && (
-            <div className="event-card__virtual-link">
-              <FontAwesomeIcon icon={faLink} className="link-icon" />
-              <div> {row.values.link}</div>
-            </div>
-          )}
           {checkAttendanceType('in-person') && row.values.location_address && (
             <div className="event-card__address">
               <FontAwesomeIcon

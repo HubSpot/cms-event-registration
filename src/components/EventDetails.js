@@ -10,7 +10,6 @@ import {
   faCalendarAlt,
   faClock,
   faEnvelope,
-  faLink,
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -108,14 +107,6 @@ const EventDetails = () => {
                       </div>
                     </div>
                   )}
-                {checkAttendanceType('virtual') && event.values.link && (
-                  <div className="column">
-                    <FontAwesomeIcon icon={faLink} className="link-icon" />
-                    <div className="event-details__meta-copy">
-                      <p> {event.values.link} </p>
-                    </div>
-                  </div>
-                )}
               </div>
               {checkAttendanceType('in-person') && event.values.location && (
                 <div className="event-details__map">

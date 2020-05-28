@@ -16,7 +16,9 @@ const EventCard = ({ row }) => {
   const eventImage = featureImage ? featureImage.url : '';
 
   function checkAttendanceType(type) {
-    return row.values.attendance_type.some(o => o.name === type);
+    if (row.values.attendance_type) {
+      return row.values.attendance_type.some(o => o.name === type);
+    }
   }
 
   function renderAttendanceType() {

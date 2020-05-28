@@ -37,7 +37,9 @@ const EventDetails = () => {
     event && event.values.feature_image ? event.values.feature_image.url : '';
 
   function checkAttendanceType(type) {
-    return event.values.attendance_type.some(o => o.name === type);
+    if (event.values.attendance_type) {
+      return event.values.attendance_type.some(o => o.name === type);
+    }
   }
 
   function renderAttendanceType() {

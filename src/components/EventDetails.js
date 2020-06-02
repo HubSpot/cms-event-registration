@@ -67,49 +67,49 @@ const EventDetails = () => {
                 __html: event.values.event_description,
               }}
             ></div>
-            <div className="event-details__info">
-              <div className="event-details__table">
-                {event.values.attendance_type && (
+            <div className="event-details__table">
+              {event.values.attendance_type && (
+                <div className="column">
+                  <FontAwesomeIcon
+                    icon={faCalendarAlt}
+                    className="event-icon"
+                  />
+                  <div className="event-details__meta-copy">
+                    <p> {renderAttendanceType()} </p>
+                  </div>
+                </div>
+              )}
+              <div className="column">
+                <FontAwesomeIcon icon={faClock} className="time-icon" />
+                <div className="event-details__meta-copy">
+                  <p> {dayjs(event.values.start).format('MMMM D, YYYY')} </p>
+                  <p>
+                    From {dayjs(event.values.start).format('hh:mm A')} to{' '}
+                    {dayjs(event.values.end).format('hh:mm A')}
+                  </p>
+                </div>
+              </div>
+              {checkAttendanceType('in-person') &&
+                event.values.location_address && (
                   <div className="column">
                     <FontAwesomeIcon
-                      icon={faCalendarAlt}
-                      className="event-icon"
+                      icon={faMapMarkerAlt}
+                      className="location-icon"
                     />
                     <div className="event-details__meta-copy">
-                      <p> {renderAttendanceType()} </p>
+                      <p> {event.values.location_address.split(',')[0]} </p>
+                      <p>
+                        {' '}
+                        {event.values.location_address
+                          .split(',')
+                          .slice(1, 3)
+                          .join(', ')}{' '}
+                      </p>
                     </div>
                   </div>
                 )}
-                <div className="column">
-                  <FontAwesomeIcon icon={faClock} className="time-icon" />
-                  <div className="event-details__meta-copy">
-                    <p> {dayjs(event.values.start).format('MMMM D, YYYY')} </p>
-                    <p>
-                      From {dayjs(event.values.start).format('hh:mm A')} to{' '}
-                      {dayjs(event.values.end).format('hh:mm A')}
-                    </p>
-                  </div>
-                </div>
-                {checkAttendanceType('in-person') &&
-                  event.values.location_address && (
-                    <div className="column">
-                      <FontAwesomeIcon
-                        icon={faMapMarkerAlt}
-                        className="location-icon"
-                      />
-                      <div className="event-details__meta-copy">
-                        <p> {event.values.location_address.split(',')[0]} </p>
-                        <p>
-                          {' '}
-                          {event.values.location_address
-                            .split(',')
-                            .slice(1, 3)
-                            .join(', ')}{' '}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-              </div>
+            </div>
+            <div className="event-details__map-wrapper">
               {checkAttendanceType('in-person') && event.values.location && (
                 <div className="event-details__map">
                   <iframe

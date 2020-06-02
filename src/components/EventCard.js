@@ -2,8 +2,10 @@ import React from 'react';
 import dayjs from 'dayjs';
 import EventSpacesLeft from './EventSpacesLeft';
 import './EventCard.scss';
+import _array from 'lodash/array';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faCalendarAlt,
   faClock,
   faMapMarkerAlt,
   faUsers,
@@ -12,6 +14,23 @@ import {
 const EventCard = ({ row }) => {
   const featureImage = row.values.feature_image;
   const eventImage = featureImage ? featureImage.url : '';
+
+  function checkAttendanceType(type) {
+    if (row.values.attendance_type) {
+      return row.values.attendance_type.some(o => o.name === type);
+    }
+  }
+
+  function renderAttendanceType() {
+    let label = [];
+    if (checkAttendanceType('virtual')) {
+      label.push('Virtual');
+    }
+    if (checkAttendanceType('in-person')) {
+      label.push('In-Person');
+    }
+    return _array.join(label, ' and ') + ' Event';
+  }
 
   return (
     <div className="event-card">
@@ -29,19 +48,30 @@ const EventCard = ({ row }) => {
               <div>{dayjs(row.values.start).format('h:mm A')}</div>
             </div>
           </div>
-          <div className="event-card__address">
-            <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
-            <div>
-              <div> {row.values.location_address.split(',')[0]} </div>
+          {checkAttendanceType('in-person') && row.values.location_address && (
+            <div className="event-card__address">
+              <FontAwesomeIcon
+                icon={faMapMarkerAlt}
+                className="location-icon"
+              />
               <div>
-                {' '}
-                {row.values.location_address
-                  .split(',')
-                  .slice(1, 3)
-                  .join(', ')}{' '}
+                <div> {row.values.location_address.split(',')[0]} </div>
+                <div>
+                  {' '}
+                  {row.values.location_address
+                    .split(',')
+                    .slice(1, 3)
+                    .join(', ')}{' '}
+                </div>
               </div>
             </div>
-          </div>
+          )}
+          {row.values.attendance_type && (
+            <div className="event-card__event-type">
+              <FontAwesomeIcon icon={faCalendarAlt} className="event-icon" />
+              <div>{renderAttendanceType()}</div>
+            </div>
+          )}
           <div className="event-card__capacity">
             <FontAwesomeIcon icon={faUsers} className="people-icon" />
             <EventSpacesLeft

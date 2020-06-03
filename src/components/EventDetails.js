@@ -195,9 +195,9 @@ const EventDetails = () => {
           <div className="event-details__column event-details__column--sidebar">
             <EventDetailsRegistration
               isFull={
-                event.values.event_capacity -
-                  event.values.registered_attendee_count <=
-                0
+                event.values.registered_attendee_count >=
+                  event.values.event_capacity &&
+                event.values.limited_event_capacity === 1
               }
               isClosed={event.values.start < Date.now()}
             />

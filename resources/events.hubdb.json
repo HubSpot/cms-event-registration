@@ -24,6 +24,11 @@
       "width": 206,
       "type": "IMAGE"
     },
+    {
+      "name": "limited_event_capacity",
+      "label": "Limited Event Capacity",
+      "type": "BOOLEAN"
+    },
     { "name": "event_capacity", "label": "Event Capacity", "type": "NUMBER" },
     {
       "name": "registered_attendee_count",
@@ -72,7 +77,8 @@
           "height": 745,
           "type": "image"
         },
-        "event_capacity": 40,
+        "limited_event_capacity": 0,
+        "event_capacity": 0,
         "registered_attendee_count": 0,
         "attendance_type": [{ "id": 1, "name": "virtual", "type": "option" }],
         "type": [{ "id": 1, "name": "class", "type": "option" }]
@@ -96,6 +102,7 @@
           "height": 745,
           "type": "image"
         },
+        "limited_event_capacity": 1,
         "event_capacity": 40,
         "registered_attendee_count": 0,
         "attendance_type": [{ "id": 2, "name": "in-person", "type": "option" }],
@@ -120,6 +127,7 @@
           "height": 745,
           "type": "image"
         },
+        "limited_event_capacity": 1,
         "event_capacity": 40,
         "registered_attendee_count": 0,
         "attendance_type": [

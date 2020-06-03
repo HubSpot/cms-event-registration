@@ -195,7 +195,7 @@ const EventDetails = () => {
               isFull={
                 event.values.registered_attendee_count >=
                   event.values.event_capacity &&
-                event.values.unlimited_event_capacity === 0
+                event.values.limited_event_capacity === 1
               }
               isClosed={event.values.start < Date.now()}
             />

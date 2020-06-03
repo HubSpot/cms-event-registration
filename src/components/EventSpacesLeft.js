@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const EventSpacesLeft = ({ isUnlimited, space_available }) => {
+const EventSpacesLeft = ({ isLimited, space_available }) => {
   const [state, setState] = useState('');
 
   useEffect(() => {
-    if (isUnlimited) {
-      setState(`Unlimited capacity`);
-    } else {
+    if (isLimited) {
       if (space_available <= 0) {
         setState(`This event is at capacity`);
       } else if (space_available === 1) {

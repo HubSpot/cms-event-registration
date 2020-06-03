@@ -109,15 +109,17 @@ const RegistrationForm = ({
       </div>
 
       <div className="event-details__spaces-available">
-        <FontAwesomeIcon
-          icon={faUsers}
-          className="people-icon event-details__spaces-available-icon"
-        />
+        {currentEvent.values.limited_event_capacity === 1 && (
+          <FontAwesomeIcon
+            icon={faUsers}
+            className="people-icon event-details__spaces-available-icon"
+          />
+        )}
         {isClosed ? (
           'Registration is closed.'
         ) : (
           <EventSpacesLeft
-            isUnlimited={currentEvent.values.unlimited_event_capacity === 1}
+            isLimited={currentEvent.values.limited_event_capacity === 1}
             space_available={
               currentEvent.values.event_capacity -
               currentEvent.values.registered_attendee_count

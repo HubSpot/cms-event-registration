@@ -16,12 +16,14 @@ const RegistrationConfirmation = ({ formData }) => {
     <div className="registration-confirmation">
       <div className="event-details__registration--title">Registered</div>
       <div className="event-details__spaces-available">
-        <FontAwesomeIcon
-          icon={faUsers}
-          className="people-icon event-details__spaces-available-icon"
-        />
+        {currentEvent.values.limited_event_capacity === 1 && (
+          <FontAwesomeIcon
+            icon={faUsers}
+            className="people-icon event-details__spaces-available-icon"
+          />
+        )}
         <EventSpacesLeft
-          event_capacity_type={currentEvent.values.unlimited_event_capacity}
+          isLimited={currentEvent.values.limited_event_capacity === 1}
           space_available={
             currentEvent.values.event_capacity -
             currentEvent.values.registered_attendee_count

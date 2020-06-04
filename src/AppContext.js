@@ -32,7 +32,9 @@ const AppProvider = props => {
         event_description: 'Missing event description',
         event_capacity: 25,
         registered_attendee_count: 0,
-        attendance_type: [{id: "1", name: "virtual", type: "option", order: 0}]
+        attendance_type: [
+          { id: '1', name: 'virtual', type: 'option', order: 0 },
+        ],
       });
       return e;
     });

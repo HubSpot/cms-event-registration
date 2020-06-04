@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
+import _object from 'lodash/object';
 
 const AppContext = React.createContext([{}, () => {}]);
 
@@ -23,6 +24,20 @@ const AppProvider = props => {
     return eventList.filter(e => dayjs(e.values.start).isAfter(currentDate));
   };
 
+  const setDefaultValues = eventList => {
+    let filteredEvents = filterPastEvents(eventList);
+    return filteredEvents.map(e => {
+      e.values = _object.defaults(e.values, {
+        name: 'Untitled event',
+        event_description: 'Missing event description',
+        event_capacity: 25,
+        registered_attendee_count: 0,
+        attendance_type: [{id: "1", name: "virtual", type: "option", order: 0}]
+      });
+      return e;
+    });
+  };
+
   const getEvents = async () => {
     let response = await fetch(
       `https://api.hubspot.com/cms/v3/hubdb/tables/events/rows?sort=start&portalId=${props.portalId}`,
@@ -30,7 +45,7 @@ const AppProvider = props => {
     response = await response.json();
     setState(state => ({
       ...state,
-      events: filterPastEvents(response.results),
+      events: setDefaultValues(response.results),
     }));
     setState(state => ({
       ...state,

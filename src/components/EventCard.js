@@ -16,9 +16,7 @@ const EventCard = ({ row }) => {
   const eventImage = featureImage ? featureImage.url : '';
 
   function checkAttendanceType(type) {
-    if (row.values.attendance_type) {
-      return row.values.attendance_type.some(o => o.name === type);
-    }
+    return row.values.attendance_type.some(o => o.name === type);
   }
 
   function renderAttendanceType() {
@@ -66,12 +64,10 @@ const EventCard = ({ row }) => {
               </div>
             </div>
           )}
-          {row.values.attendance_type && (
-            <div className="event-card__event-type">
-              <FontAwesomeIcon icon={faCalendarAlt} className="event-icon" />
-              <div>{renderAttendanceType()}</div>
-            </div>
-          )}
+          <div className="event-card__event-type">
+            <FontAwesomeIcon icon={faCalendarAlt} className="event-icon" />
+            <div>{renderAttendanceType()}</div>
+          </div>
           <div className="event-card__capacity">
             {row.values.limited_event_capacity === 1 && (
               <FontAwesomeIcon icon={faUsers} className="people-icon" />

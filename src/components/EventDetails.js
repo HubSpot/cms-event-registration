@@ -37,9 +37,7 @@ const EventDetails = () => {
     event && event.values.feature_image ? event.values.feature_image.url : '';
 
   function checkAttendanceType(type) {
-    if (event.values.attendance_type) {
-      return event.values.attendance_type.some(o => o.name === type);
-    }
+    return event.values.attendance_type.some(o => o.name === type);
   }
 
   function renderAttendanceType() {
@@ -68,17 +66,12 @@ const EventDetails = () => {
               }}
             ></div>
             <div className="event-details__table">
-              {event.values.attendance_type && (
-                <div className="column">
-                  <FontAwesomeIcon
-                    icon={faCalendarAlt}
-                    className="event-icon"
-                  />
-                  <div className="event-details__meta-copy">
-                    <p> {renderAttendanceType()} </p>
-                  </div>
+              <div className="column">
+                <FontAwesomeIcon icon={faCalendarAlt} className="event-icon" />
+                <div className="event-details__meta-copy">
+                  <p> {renderAttendanceType()} </p>
                 </div>
-              )}
+              </div>
               <div className="column">
                 <FontAwesomeIcon icon={faClock} className="time-icon" />
                 <div className="event-details__meta-copy">

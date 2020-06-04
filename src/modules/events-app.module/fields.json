@@ -1,5 +1,21 @@
 [
   {
+    "label": "Hero Banner Image",
+    "name": "hero_img",
+    "id": "hero_img",
+    "type": "image",
+    "visibility": {
+      "hidden_subfields": {
+        "alt": true,
+        "width": true,
+        "height": true
+      }
+    },
+    "default": {
+      "src": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain-banner.png"
+    }
+  },
+  {
     "label": "Customize styles",
     "name": "customize_styles",
     "type": "boolean",

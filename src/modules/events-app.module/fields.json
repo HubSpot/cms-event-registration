@@ -4,11 +4,10 @@
     "name": "hero_img",
     "id": "hero_img",
     "type": "image",
+    "resizable": false,
     "visibility": {
       "hidden_subfields": {
-        "alt": true,
-        "width": true,
-        "height": true
+        "alt": true
       }
     },
     "default": {

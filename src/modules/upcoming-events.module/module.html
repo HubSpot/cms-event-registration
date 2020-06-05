@@ -14,10 +14,11 @@
   <script type="application/json"
     data-module-instance="{{ name }}"
     data-portal-id="{{ portal_id }}">
-    {%- do module.update({
+    {%- set moduleData = module -%}
+    {%- do moduleData.update({
       'event_page': content_by_id(module.event_page).absoluteUrl
     })-%}
-    {{ module|tojson }}
+    {{ moduleData|tojson }}
   </script>
   {% require_css %}
   <style>

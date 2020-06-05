@@ -19,13 +19,17 @@ const AppProvider = props => {
     moduleData: props.moduleData,
   });
 
-  const filterPastEvents = eventList => {
+  const filterFutureEvents = eventList => {
     let currentDate = dayjs(new Date());
-    return eventList.filter(e => dayjs(e.values.start).isAfter(currentDate));
+    return eventList.filter(
+      e =>
+        undefined === e.values.start ||
+        dayjs(e.values.start).isAfter(currentDate),
+    );
   };
 
   const setDefaultValues = eventList => {
-    let filteredEvents = filterPastEvents(eventList);
+    let filteredEvents = filterFutureEvents(eventList);
     return filteredEvents.map(e => {
       e.values = _object.defaults(e.values, {
         name: 'Untitled event',
@@ -76,7 +80,12 @@ const AppProvider = props => {
       `https://api.hubspot.com/cms/v3/hubdb/tables/events?portalId=${props.portalId}`,
     );
     response = await response.json();
-    setState(state => ({ ...state, columns: response.columns }));
+    setState(state => ({
+      ...state,
+      columns: response.columns,
+      portalId: props.portalId,
+      tableId: response.id,
+    }));
   };
 
   useEffect(() => {

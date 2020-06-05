@@ -23,13 +23,12 @@ const preRenderedDataNodes = document.querySelectorAll(
 );
 
 preRenderedDataNodes.forEach(({ dataset, textContent }) => {
-  console.log(textContent);
   const root = document.getElementById(
     `event-registration__module--${dataset.moduleInstance}`,
   );
   const __MODULE_DATA__ = JSON.parse(textContent);
   const { events_root, my_events_page } = __MODULE_DATA__;
-    ReactDOM.render(
+  ReactDOM.render(
     <BrowserRouter>
       <ScrollToTop />
       <AppProvider
@@ -37,16 +36,12 @@ preRenderedDataNodes.forEach(({ dataset, textContent }) => {
         moduleData={__MODULE_DATA__}
       >
         <Switch>
-        <Route
+          <Route
             exact
             path={new URL(my_events_page).pathname}
             component={RegisteredEventsPage}
           />
-          <Route
-            exact
-            path={new URL(events_root).pathname}
-            component={App}
-          />
+          <Route exact path={new URL(events_root).pathname} component={App} />
           <Route
             path={`${new URL(events_root).pathname}/:slug`}
             component={EventDetailPage}

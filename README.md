@@ -24,9 +24,7 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
    - First name
    - Last name
    - Email
-7. Create a page in your portal that:
-
-   - Has the slug `/events/`
+7. Create an `events` page in your portal that:
    - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields.
    - References the `Events` HubDB table, set up for dynamic pages
 
@@ -35,10 +33,15 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 _Note: In order to set up membership, your account will need a [connected domain](https://knowledge.hubspot.com/cos-general/connect-a-domain-to-hubspot)_
 
 8. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
-9. Create a "My Events" page in your portal that:
-   - Has the slug `/my-events/`
-   - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields.; the page shouldn't be dynamic
+9. Create a `my events` page in your portal that:
+   - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields. Under the `my events` field, select the page you're currently editing.
+   - The page shouldn't be dynamic.
    - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
+10. In the `Events app` module on the 'events listing' page you created in step `7.`, select the `my events` page you just created.
+
+> _Note_: The `events` and the `my events` can be named, titled, and have any url you like, as long as they are selected in the appropriate page selector fields in both instances of the `Events app` module (on both `my events` and `events`).
+
+> _Note_: This app is configured to work on a single subdomain, so `my events` and `events` should be on the same subdomain
 
 #### Usage
 

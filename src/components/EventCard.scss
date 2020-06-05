@@ -42,9 +42,10 @@
 .event-card__title a {
   color: inherit;
 }
-.event-card__date,
 .event-card__address,
-.event-card__capacity {
+.event-card__capacity,
+.event-card__date,
+.event-card__event-type {
   display: flex;
   margin: 10px 0;
   line-height: 1.3;

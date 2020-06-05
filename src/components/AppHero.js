@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext.js';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import './AppHero.scss';
 
 const AppHero = () => {
+  const [state] = useContext(AppContext);
+  const heroImgSrc = state.moduleData.hero_img.src;
+
   return (
     <header
       className="App-hero"
       style={{
-        backgroundImage: `url("{{ get_asset_url('./images/grayscale-mountain-banner.png') }}")`,
+        backgroundImage: `url("${heroImgSrc}")`,
       }}
     >
       <Link to="/events" className="back-banner">

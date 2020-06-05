@@ -41,10 +41,16 @@ const EventCard = ({ row }) => {
         <div className="event-card__column">
           <div className="event-card__date">
             <FontAwesomeIcon icon={faClock} className="location-icon" />
-            <div>
-              <div>{dayjs(row.values.start).format('dddd, MMMM D, YYYY')}</div>
-              <div>{dayjs(row.values.start).format('h:mm A')}</div>
-            </div>
+            {row.values.start ? (
+              <div>
+                <div>
+                  {dayjs(row.values.start).format('dddd, MMMM D, YYYY')}
+                </div>
+                <div>{dayjs(row.values.start).format('h:mm A')}</div>
+              </div>
+            ) : (
+              <div> Time to be determined</div>
+            )}
           </div>
           {checkAttendanceType('in-person') && row.values.location_address && (
             <div className="event-card__address">
@@ -55,11 +61,10 @@ const EventCard = ({ row }) => {
               <div>
                 <div> {row.values.location_address.split(',')[0]} </div>
                 <div>
-                  {' '}
                   {row.values.location_address
                     .split(',')
                     .slice(1, 3)
-                    .join(', ')}{' '}
+                    .join(', ')}
                 </div>
               </div>
             </div>

@@ -73,12 +73,22 @@ const EventDetails = () => {
                 </div>
               </div>
               <div className="column">
-                <FontAwesomeIcon icon={faClock} className="time-icon" />
+                {event.values.start && (
+                  <FontAwesomeIcon icon={faClock} className="time-icon" />
+                )}
                 <div className="event-details__meta-copy">
-                  <p> {dayjs(event.values.start).format('MMMM D, YYYY')} </p>
                   <p>
-                    From {dayjs(event.values.start).format('hh:mm A')} to{' '}
-                    {dayjs(event.values.end).format('hh:mm A')}
+                    {event.values.start && (
+                      <>{dayjs(event.values.start).format('MMMM D, YYYY')}</>
+                    )}
+                  </p>
+                  <p>
+                    {event.values.start && (
+                      <> {dayjs(event.values.start).format('hh:mm A')} </>
+                    )}
+                    {event.values.start && event.values.end && (
+                      <> to {dayjs(event.values.end).format('hh:mm A')} </>
+                    )}
                   </p>
                 </div>
               </div>
@@ -92,11 +102,10 @@ const EventDetails = () => {
                     <div className="event-details__meta-copy">
                       <p> {event.values.location_address.split(',')[0]} </p>
                       <p>
-                        {' '}
                         {event.values.location_address
                           .split(',')
                           .slice(1, 3)
-                          .join(', ')}{' '}
+                          .join(', ')}
                       </p>
                     </div>
                   </div>

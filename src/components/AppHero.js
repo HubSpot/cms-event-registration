@@ -8,6 +8,7 @@ import './AppHero.scss';
 const AppHero = () => {
   const [state] = useContext(AppContext);
   const heroImgSrc = state.moduleData.hero_img.src;
+  const AppRoot = state.moduleData.event_page;
 
   return (
     <header
@@ -16,7 +17,7 @@ const AppHero = () => {
         backgroundImage: `url("${heroImgSrc}")`,
       }}
     >
-      <Link to={`/${state.moduleData.event_page}`} className="back-banner">
+      <Link to={AppRoot} className="back-banner">
         <FontAwesomeIcon icon={faChevronLeft} className="back-banner__icon" />
         Back to Events
       </Link>

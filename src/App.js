@@ -11,6 +11,7 @@ function App() {
   const [currentSearch, setCurrentSearch] = useState('');
   const [filteredEventProperties, setEventProperties] = useState([]);
   const events = state.events;
+  const { my_events_page } = state.moduleData;
 
   return (
     <ErrorBoundary>
@@ -30,13 +31,13 @@ function App() {
           )}
           <div className="my-events-link">
             {state.contact.isLoggedIn ? (
-              <Link to="/my-events" className="event-button">
+              <Link to={my_events_page} className="event-button">
                 View my Events
               </Link>
             ) : (
               <a
                 style={{ textDecoration: 'none' }}
-                href="/_hcms/mem/login?redirect_url=/my-events"
+                href={`/_hcms/mem/login?redirect_url=/${my_events_page}`}
               >
                 Log in to see your events
               </a>

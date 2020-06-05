@@ -27,7 +27,8 @@ preRenderedDataNodes.forEach(({ dataset, textContent }) => {
     `event-registration__module--${dataset.moduleInstance}`,
   );
   const __MODULE_DATA__ = JSON.parse(textContent);
-  const appBase = `${__MODULE_DATA__.event_page}`;
+  const AppRoot = `${__MODULE_DATA__.event_page}`;
+  const { my_events_page } = __MODULE_DATA__;
   ReactDOM.render(
     <BrowserRouter>
       <ScrollToTop />
@@ -36,9 +37,9 @@ preRenderedDataNodes.forEach(({ dataset, textContent }) => {
         moduleData={__MODULE_DATA__}
       >
         <Switch>
-          <Route exact path={appBase} component={App} />
-          <Route path={`/${appBase}/:slug`} component={EventDetailPage} />
-          <Route exact path="/my-events" component={RegisteredEventsPage} />
+          <Route exact path={AppRoot} component={App} />
+          <Route path={`${AppRoot}/:slug`} component={EventDetailPage} />
+          <Route exact path={my_events_page} component={RegisteredEventsPage} />
           <Route component={App} />
         </Switch>
       </AppProvider>

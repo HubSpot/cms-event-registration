@@ -6,6 +6,7 @@ import { AppContext } from './AppContext';
 
 function RegisteredEventsPage() {
   const [state] = useContext(AppContext);
+  const { my_events_page } = state.moduleData;
 
   return (
     <ErrorBoundary>
@@ -21,8 +22,10 @@ function RegisteredEventsPage() {
             ) : (
               <div className="login-message">
                 You must{' '}
-                <a href="/_hcms/mem/login?redirect_url=/my-events">log in</a> to
-                continue.
+                <a href={`/_hcms/mem/login?redirect_url=${my_events_page}`}>
+                  log in
+                </a>{' '}
+                to continue.
               </div>
             )}
           </div>

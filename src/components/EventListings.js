@@ -10,6 +10,7 @@ import _lang from 'lodash/lang';
 
 const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
   const [state] = useContext(AppContext);
+  const AppRoot = state.moduleData.event_page;
   let filteredEvents = events;
 
   if (currentSearch) {
@@ -42,7 +43,7 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
         filteredEvents.map(function(obj, i) {
           return (
             <Link
-              to={`${state.moduleData.event_page}/${obj.path}`}
+              to={`${AppRoot}/${obj.path}`}
               className="event-card__link"
             >
               <EventCard key={i} row={obj} />

@@ -53,7 +53,7 @@
     "default": null,
     "label": "Event page",
     "locked": false,
-    "name": "event_page",
+    "name": "events_root",
     "required": true,
     "type": "page"
   }

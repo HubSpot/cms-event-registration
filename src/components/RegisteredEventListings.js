@@ -10,6 +10,8 @@ function RegisteredEventListings() {
   const [registeredEventSlugsLoaded, setRegisteredEventSlugsLoaded] = useState(
     false,
   );
+  const { events_root } = state.moduleData;
+  const eventsRootPath = new URL(events_root).pathname;
 
   const getRegisteredEvents = async () => {
     // This function fetchs same-origin in order to pass cookies to the API and recieves a formSubmissions object
@@ -38,7 +40,7 @@ function RegisteredEventListings() {
             (event, i) =>
               registeredEventSlugs.indexOf(event.path) != -1 && (
                 <Link
-                  to={`${state.moduleData.event_page}/${event.path}`}
+                  to={`${eventsRootPath}/${event.path}`}
                   className="event-card__link"
                 >
                   <EventCard key={i} row={event} />

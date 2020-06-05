@@ -12,6 +12,7 @@ function App() {
   const [filteredEventProperties, setEventProperties] = useState([]);
   const events = state.events;
   const { my_events_page } = state.moduleData;
+  const myEventsPath = new URL(my_events_page).pathname;
 
   return (
     <ErrorBoundary>
@@ -31,7 +32,7 @@ function App() {
           )}
           <div className="my-events-link">
             {state.contact.isLoggedIn ? (
-              <Link to={my_events_page} className="event-button">
+              <Link to={myEventsPath} className="event-button">
                 View my Events
               </Link>
             ) : (

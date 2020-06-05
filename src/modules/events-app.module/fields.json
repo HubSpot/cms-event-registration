@@ -228,6 +228,14 @@
   },
   {
     "default": null,
+    "label": "Events page",
+    "locked": false,
+    "name": "events_root",
+    "required": true,
+    "type": "page"
+  },
+  {
+    "default": null,
     "label": "My Events page",
     "locked": false,
     "name": "my_events_page",

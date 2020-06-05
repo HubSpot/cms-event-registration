@@ -16,7 +16,7 @@
     data-portal-id="{{ portal_id }}">
     {%- set moduleData = module -%}
     {%- do moduleData.update({
-      'event_page': content_by_id(module.event_page).absoluteUrl
+      'events_root': content_by_id(moduleData.events_root).absoluteUrl
     })-%}
     {{ moduleData|tojson }}
   </script>

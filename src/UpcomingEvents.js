@@ -9,7 +9,7 @@ import './scss/upcoming-events.scss';
 
 function UpcomingEvents() {
   const [state] = useContext(AppContext);
-  const AppRoot = state.moduleData.event_page;
+  const { events_root } = state.moduleData;
   const upcomingEvents = state.events.slice(0, 3);
   const eventsLoaded = state.eventsLoaded;
 
@@ -20,7 +20,7 @@ function UpcomingEvents() {
       ) : (
         upcomingEvents.map(function(obj, i) {
           return (
-            <a href={`${AppRoot}/${obj.path}`} className="event-card__link">
+            <a href={`${events_root}/${obj.path}`} className="event-card__link">
               <EventCard key={i} row={obj} />
             </a>
           );

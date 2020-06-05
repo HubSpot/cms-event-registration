@@ -5,13 +5,9 @@
     "id": "hero_img",
     "type": "image",
     "resizable": false,
-    "visibility": {
-      "hidden_subfields": {
-        "alt": true
-      }
-    },
     "default": {
-      "src": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain-banner.png"
+      "src": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain-banner.png",
+      "alt": null
     }
   },
   {

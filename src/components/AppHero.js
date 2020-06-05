@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../AppContext.js';
+import { AppContext } from '../AppContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';

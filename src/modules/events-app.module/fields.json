@@ -44,50 +44,50 @@
     },
     "children": [
       {
-        "label": "Primary Color",
-        "name": "primary_color",
+        "label": "Light Color",
+        "name": "light_color",
         "type": "color",
         "required": false,
         "locked": false,
         "default": {}
       },
       {
-        "label": "Secondary Color",
-        "name": "secondary_color",
+        "label": "Dark Color",
+        "name": "dark_color",
         "type": "color",
         "required": false,
         "locked": false,
         "default": {}
       },
       {
-        "label": "Tertiary Color",
-        "name": "tertiary_color",
+        "label": "Link Color",
+        "name": "link_color",
         "type": "color",
         "required": false,
         "locked": false,
         "default": {}
+      },
+      {
+        "label": "Color Schemes",
+        "name": "color_schemes",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": "customize_styles",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "display": "select",
+        "placeholder": "Choose a theme",
+        "choices": [
+          ["light_theme", "Light theme"],
+          ["dark_theme", "Dark theme"]
+        ],
+        "type": "choice",
+        "default": null
       }
     ],
     "tab": "CONTENT",
     "type": "group"
-  },
-  {
-    "label": "Color Schemes",
-    "name": "color_schemes",
-    "required": false,
-    "locked": false,
-    "visibility": {
-      "controlling_field": "customize_styles",
-      "controlling_value_regex": "true",
-      "operator": "EQUAL"
-    },
-    "display": "select",
-    "placeholder": "Choose a theme",
-    "choices": [
-      ["light_theme", "Light theme"],
-      ["dark_theme", "Dark theme"]
-    ],
-    "type": "choice",
-    "default": null
   }
 ]

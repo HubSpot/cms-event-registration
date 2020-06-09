@@ -34,8 +34,8 @@ _Note: In order to set up membership, your account will need a [connected domain
 
 8. Create a [dynamic list](https://app.hubspot.com/l/contacts/lists) that includes contacts that have filled out any event form
 9. Create a `my events` page in your portal that:
-   - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields. Under the `my events` field, select the page you're currently editing.
-   - The page shouldn't be dynamic.
+   - Uses the `Events app` module in a page template and has the form you created in `6.` selected in the module fields.
+   - Unlike the `events` page we created in step `7.`, the `my events` page shouldn't be using HubDB dynamic pages.
    - Under "Control audience access for page", select "Private - Registration required" and select the list you made in the previous step
 10. In the `Events app` module on the 'events listing' page you created in step `7.`, select the `my events` page you just created.
 

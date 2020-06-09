@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
+import _object from 'lodash/object';
 
 const AppContext = React.createContext([{}, () => {}]);
 
@@ -18,9 +19,29 @@ const AppProvider = props => {
     moduleData: props.moduleData,
   });
 
-  const filterPastEvents = eventList => {
+  const filterFutureEvents = eventList => {
     let currentDate = dayjs(new Date());
-    return eventList.filter(e => dayjs(e.values.start).isAfter(currentDate));
+    return eventList.filter(
+      e =>
+        undefined === e.values.start ||
+        dayjs(e.values.start).isAfter(currentDate),
+    );
+  };
+
+  const setDefaultValues = eventList => {
+    let filteredEvents = filterFutureEvents(eventList);
+    return filteredEvents.map(e => {
+      e.values = _object.defaults(e.values, {
+        name: 'Untitled event',
+        event_description: 'Missing event description',
+        event_capacity: 25,
+        registered_attendee_count: 0,
+        attendance_type: [
+          { id: '1', name: 'virtual', type: 'option', order: 0 },
+        ],
+      });
+      return e;
+    });
   };
 
   const getEvents = async () => {
@@ -30,7 +51,7 @@ const AppProvider = props => {
     response = await response.json();
     setState(state => ({
       ...state,
-      events: filterPastEvents(response.results),
+      events: setDefaultValues(response.results),
     }));
     setState(state => ({
       ...state,
@@ -59,7 +80,12 @@ const AppProvider = props => {
       `https://api.hubspot.com/cms/v3/hubdb/tables/events?portalId=${props.portalId}`,
     );
     response = await response.json();
-    setState(state => ({ ...state, columns: response.columns }));
+    setState(state => ({
+      ...state,
+      columns: response.columns,
+      portalId: props.portalId,
+      tableId: response.id,
+    }));
   };
 
   useEffect(() => {

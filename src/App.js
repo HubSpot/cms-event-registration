@@ -38,7 +38,7 @@ function App() {
             ) : (
               <a
                 style={{ textDecoration: 'none' }}
-                href={`/_hcms/mem/login?redirect_url=/${my_events_page}`}
+                href={`/_hcms/mem/login?redirect_url=/${myEventsPath}`}
               >
                 Log in to see your events
               </a>

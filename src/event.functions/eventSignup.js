@@ -33,7 +33,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
     const { statusCode, body } = await request({
       baseUrl: HUBDB_API,
       json: true,
-      uri: `/tables/events/rows/${id}`,
+      uri: `/tables/events/rows/${id}/draft`,
       qs: defaultParams,
     });
 
@@ -50,15 +50,30 @@ exports.main = ({ body, accountId }, sendResponse) => {
   };
 
   const incrementAttendeeCount = async id => {
-    let { registered_attendee_count } = await getRow(id);
+    let {
+      event_capacity,
+      limited_event_capacity,
+      registered_attendee_count,
+    } = await getRow(id);
     if (registered_attendee_count == null) {
       registered_attendee_count = 0;
+    }
+
+    if (event_capacity == null && limited_event_capacity) {
+      event_capacity = 25;
     }
 
     if (registered_attendee_count < 0) {
       sendResponse({
         statusCode: 500,
         body: { message: 'Invalid attendee count value' },
+      });
+    }
+
+    if (registered_attendee_count >= event_capacity && limited_event_capacity) {
+      sendResponse({
+        statusCode: 403,
+        body: { message: 'Event has reached capacity' },
       });
     }
 

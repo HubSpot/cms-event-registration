@@ -1,5 +1,5 @@
 {
-  "name": "events",
+  "name": "hs_events",
   "useForPages": true,
   "label": "Events",
   "allowChildTables": false,

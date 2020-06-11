@@ -1,5 +1,30 @@
 [
   {
+    "label": "Form",
+    "name": "event_form",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "label": "Event form",
+        "name": "event_form_field",
+        "id": "event_form_field",
+        "type": "form",
+        "required": true,
+        "default": {},
+        "visibility": {
+          "hidden_subfields": {
+            "redirect_url": true,
+            "response_type": true,
+            "message": true
+          }
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group"
+  },
+  {
     "label": "Customize Styles",
     "name": "customize_styles",
     "type": "boolean",
@@ -60,31 +85,6 @@
         ],
         "type": "choice",
         "default": null
-      }
-    ],
-    "tab": "CONTENT",
-    "type": "group"
-  },
-  {
-    "label": "Form",
-    "name": "event_form",
-    "required": false,
-    "locked": false,
-    "children": [
-      {
-        "label": "Event form",
-        "name": "event_form_field",
-        "id": "event_form_field",
-        "type": "form",
-        "required": true,
-        "default": {},
-        "visibility": {
-          "hidden_subfields": {
-            "redirect_url": true,
-            "response_type": true,
-            "message": true
-          }
-        }
       }
     ],
     "tab": "CONTENT",

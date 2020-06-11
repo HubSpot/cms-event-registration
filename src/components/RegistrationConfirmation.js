@@ -11,6 +11,8 @@ const RegistrationConfirmation = ({ formData }) => {
   const { slug } = useParams();
   const eventData = state.events;
   const currentEvent = eventData.find(event => event.path === slug);
+  const { my_events_page } = state.moduleData;
+  const myEventsPath = new URL(my_events_page).pathname;
 
   return (
     <div className="registration-confirmation">
@@ -38,7 +40,7 @@ const RegistrationConfirmation = ({ formData }) => {
       <p className="registration-confirmation__info">{formData.email}</p>
       <div className="event-details__registration--info">
         {state.contact.isLoggedIn ? (
-          <Link to="/my-events" className="event-button">
+          <Link to={myEventsPath} className="event-button">
             View All My Events
           </Link>
         ) : (

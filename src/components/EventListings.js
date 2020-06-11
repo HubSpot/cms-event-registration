@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
 import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 import './EventListings.scss';
@@ -8,6 +9,9 @@ import _collection from 'lodash/collection';
 import _lang from 'lodash/lang';
 
 const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
+  const [state] = useContext(AppContext);
+  const { events_root } = state.moduleData;
+  const eventsRootPath = new URL(events_root).pathname;
   let filteredEvents = events;
 
   if (currentSearch) {
@@ -39,7 +43,10 @@ const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
       ) : (
         filteredEvents.map(function(obj, i) {
           return (
-            <Link to={`/events/${obj.path}`} className="event-card__link">
+            <Link
+              to={`${eventsRootPath}/${obj.path}`}
+              className="event-card__link"
+            >
               <EventCard key={i} row={obj} />
             </Link>
           );

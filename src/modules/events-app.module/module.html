@@ -1,8 +1,3 @@
-  {% require_js %}
-  <script type="application/json" data-module-instance="{{ name }}">
-    {{ module|tojson }}
-  </script>
-  {% end_require_js %}
 {{ require_css(get_asset_url('../../event-registration.css')) }}
 {{ require_js(get_asset_url('../../vendor.js'), 'footer') }}
 {{ require_js(get_asset_url('../../event-registration.js'), 'footer') }}
@@ -16,6 +11,16 @@
 {%- endmacro -%}
 
 <div class="event-registration">
+  <script type="application/json"
+    data-module-instance="{{ name }}"
+    data-portal-id="{{ portal_id }}">
+    {%- set moduleData = module -%}
+    {%- do moduleData.update({
+      'events_root': content_by_id(moduleData.events_root).absoluteUrl,
+      'my_events_page': content_by_id(moduleData.my_events_page).absoluteUrl
+    })-%}
+    {{ moduleData|tojson }}
+  </script>
   {% require_css %}
   <style>
     {% if module.customize_styles %}
@@ -38,5 +43,5 @@
   </style>
   {% end_require_css %}
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root" data-portal-id="{{ portal_id }}"></div>
+  <div id="event-registration__module--{{ name }}"></div>
 </div>

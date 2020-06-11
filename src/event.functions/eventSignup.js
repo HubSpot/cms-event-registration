@@ -59,7 +59,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
       registered_attendee_count = 0;
     }
 
-    if (event_capacity == null && limited_event_capacity) {
+    if (event_capacity == null && limited_event_capacity === 1) {
       event_capacity = 25;
     }
 
@@ -70,7 +70,10 @@ exports.main = ({ body, accountId }, sendResponse) => {
       });
     }
 
-    if (registered_attendee_count >= event_capacity && limited_event_capacity) {
+    if (
+      registered_attendee_count >= event_capacity &&
+      limited_event_capacity === 1
+    ) {
       sendResponse({
         statusCode: 403,
         body: { message: 'Event has reached capacity' },

@@ -1,103 +1,9 @@
 [
   {
-    "label": "Hero Banner Image",
-    "name": "hero_img",
-    "id": "hero_img",
-    "type": "image",
-    "resizable": false,
-    "default": {
-      "src": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain-banner.png",
-      "alt": null
-    }
-  },
-  {
-    "label": "Customize styles",
-    "name": "customize_styles",
-    "type": "boolean",
-    "required": false,
-    "locked": false,
-    "default": false
-  },
-  {
-    "label": "Filter menu styles",
-    "name": "filter_menu_styles",
-    "required": false,
-    "locked": false,
-    "visibility": {
-      "controlling_field": "customize_styles",
-      "controlling_value_regex": "true",
-      "operator": "EQUAL"
-    },
-    "children": [
-      {
-        "label": "Background color",
-        "name": "background_color_filter_bar",
-        "type": "color",
-        "required": false,
-        "locked": false,
-        "default": {}
-      },
-      {
-        "label": "Font color",
-        "name": "font_color_filter_bar",
-        "type": "color",
-        "required": false,
-        "locked": false,
-        "default": {}
-      }
-    ],
-    "tab": "CONTENT",
-    "type": "group",
-    "default": {
-      "background_color_filter_bar": {},
-      "font_color_filter_bar": {}
-    }
-  },
-  {
-    "label": "Card styles",
-    "name": "card_styles",
-    "required": false,
-    "locked": false,
-    "visibility": {
-      "controlling_field": "customize_styles",
-      "controlling_value_regex": "true",
-      "operator": "EQUAL"
-    },
-    "children": [
-      {
-        "label": "Card color",
-        "name": "background_color_card",
-        "type": "color",
-        "required": false,
-        "locked": false,
-        "default": {}
-      },
-      {
-        "label": "Font color",
-        "name": "font_color_card",
-        "type": "color",
-        "required": false,
-        "locked": false,
-        "default": {}
-      }
-    ],
-    "tab": "CONTENT",
-    "type": "group",
-    "default": {
-      "card_color": {},
-      "font_color_card": {}
-    }
-  },
-  {
     "label": "Form",
     "name": "event_form",
     "required": false,
     "locked": false,
-    "visibility": {
-      "controlling_field": "customize_styles",
-      "controlling_value_regex": "true",
-      "operator": "EQUAL"
-    },
     "children": [
       {
         "label": "Event form",
@@ -113,117 +19,86 @@
             "message": true
           }
         }
-      },
-      {
-        "label": "Title",
-        "name": "form_title",
-        "required": false,
-        "locked": false,
-        "children": [
-          {
-            "label": "Background color",
-            "name": "background_color_form_title",
-            "type": "color",
-            "required": false,
-            "locked": false,
-            "default": {}
-          },
-          {
-            "label": "Font color",
-            "name": "font_color_form_title",
-            "type": "color",
-            "required": false,
-            "locked": false,
-            "default": {}
-          }
-        ],
-        "tab": "CONTENT",
-        "type": "group",
-        "default": {
-          "background_color_form_title": {},
-          "font_color_form_title": {}
-        }
-      },
-      {
-        "label": "Fields",
-        "name": "form_fields",
-        "required": false,
-        "locked": false,
-        "children": [
-          {
-            "label": "Background color",
-            "name": "background_color_form_fields",
-            "type": "color",
-            "required": false,
-            "locked": false,
-            "default": {}
-          }
-        ],
-        "tab": "CONTENT",
-        "type": "group",
-        "default": {
-          "background_color_form_fields": {}
-        }
-      },
-      {
-        "label": "Submit",
-        "name": "form_submit_button",
-        "required": false,
-        "locked": false,
-        "children": [
-          {
-            "label": "Button color",
-            "name": "background_color_form_button",
-            "required": false,
-            "type": "color",
-            "locked": false,
-            "default": {}
-          }
-        ],
-        "tab": "CONTENT",
-        "type": "group",
-        "default": {
-          "background_color_form_button": {}
-        }
-      },
-      {
-        "label": "Background",
-        "name": "form_background",
-        "required": false,
-        "locked": false,
-        "children": [
-          {
-            "label": "Form background color",
-            "name": "background_color_form",
-            "type": "color",
-            "required": false,
-            "locked": false,
-            "default": {}
-          }
-        ],
-        "tab": "CONTENT",
-        "type": "group",
-        "default": {
-          "background_color_form": {}
-        }
       }
     ],
     "tab": "CONTENT",
-    "type": "group",
-    "default": {
-      "form_title": {
-        "background_color_form_title": {},
-        "font_color_form_title": {}
+    "type": "group"
+  },
+  {
+    "label": "Customize Styles",
+    "name": "customize_styles",
+    "type": "boolean",
+    "required": false,
+    "locked": false,
+    "default": false
+  },
+  {
+    "label": "Colors",
+    "name": "colors",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Light Color",
+        "name": "light_color",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
       },
-      "form_fields": {
-        "background_color_form_fields": {}
+      {
+        "label": "Dark Color",
+        "name": "dark_color",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
       },
-      "form_submit_button": {
-        "background_color_form_button": {}
+      {
+        "label": "Link Color",
+        "name": "link_color",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
       },
-      "form_background": {
-        "background_color_form": {}
+      {
+        "label": "Color Schemes",
+        "name": "color_schemes",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": "customize_styles",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "display": "select",
+        "placeholder": "Choose a theme",
+        "choices": [
+          ["light_theme", "Light theme"],
+          ["dark_theme", "Dark theme"]
+        ],
+        "type": "choice",
+        "default": null
       }
+    ],
+    "tab": "CONTENT",
+    "type": "group"
+  },
+  {
+    "label": "Hero Banner Image",
+    "name": "hero_img",
+    "id": "hero_img",
+    "type": "image",
+    "resizable": false,
+    "default": {
+      "src": "https://designers.hubspot.com/hubfs/event-registration/grayscale-mountain-banner.png",
+      "alt": null
     }
   },
   {

@@ -23,22 +23,45 @@
   </script>
   {% require_css %}
   <style>
-    {% if module.customize_styles %}
-      {{outputColorIfSet('background-color', module.filter_menu_styles.background_color_filter_bar, '.filter-bar')}}
-      {{outputColorIfSet('color', module.filter_menu_styles.font_color_filter_bar, '.filter-bar')}}
+    {{module.colors.dark_color}}
+    {% if module.customize_styles and module.colors.color_schemes %}
+      {% if module.colors.dark_color.color != null and module.colors.light_color.color != null and module.colors.link_color.color != null %}
+        {% if module.colors.color_schemes == 'dark_theme' %}
+          {{outputColorIfSet('background-color', module.colors.dark_color, '.event-registration .filter-bar')}}
+          {{outputColorIfSet('background-color', module.colors.dark_color, '.event-registration .back-banner')}}
+          {{outputColorIfSet('background-color', module.colors.dark_color, '.event-registration .event-card')}}
+          {{outputColorIfSet('background-color', module.colors.dark_color, '.event-registration .event-details .event-details__registration--title')}}
+          {{outputColorIfSet('background-color', module.colors.dark_color, '.event-registration .event-details .event-details__registration--info .event-button')}}
 
-      {{outputColorIfSet('background-color', module.card_styles.background_color_card, '.event-card')}}
-      {{outputColorIfSet('color', module.card_styles.font_color_card, '.event-card__title')}}
-      {{outputColorIfSet('color', module.card_styles.font_color_card, '.event-card__column')}}
+          {{outputColorIfSet('color', module.colors.light_color, '.event-registration .filter-bar')}}
+          {{outputColorIfSet('color', module.colors.light_color, '.event-registration .back-banner')}}
+          {{outputColorIfSet('color', module.colors.light_color, '.event-registration .event-card')}}
+          {{outputColorIfSet('color', module.colors.light_color, '.event-registration .event-card .event-card__title')}}
+          {{outputColorIfSet('color', module.colors.light_color, '.event-registration .event-details .event-details__registration--title')}}
+          {{outputColorIfSet('color', module.colors.light_color, '.event-registration .event-details .event-details__registration--info .event-button')}}
+        {% endif %}
 
-      {{outputColorIfSet('background-color', module.event_form.form_title.background_color_form_title, '.event-details__registration--title')}}
-      {{outputColorIfSet('color', module.event_form.form_title.font_color_form_title, '.event-details__registration--title')}}
+        {% if module.colors.color_schemes == 'light_theme' %}
+          {{outputColorIfSet('background-color', module.colors.light_color, '.event-registration .filter-bar')}}
+          {{outputColorIfSet('background-color', module.colors.light_color, '.event-registration .back-banner')}}
+          {{outputColorIfSet('background-color', module.colors.light_color, '.event-registration .event-card')}}
+          {{outputColorIfSet('background-color', module.colors.light_color, '.event-registration .event-details .event-details__registration--title')}}
+          {{outputColorIfSet('background-color', module.colors.light_color, '.event-registration .event-details .event-details__registration--info .event-button')}}
 
-      {{outputColorIfSet('background-color', module.event_form.form_fields.background_color_form_fields, '.event-  details__registration__input')}}
+          {{outputColorIfSet('color', module.colors.dark_color, '.event-registration .filter-bar')}}
+          {{outputColorIfSet('color', module.colors.dark_color, '.event-registration .back-banner')}}
+          {{outputColorIfSet('color', module.colors.dark_color, '.event-registration .event-card')}}
+          {{outputColorIfSet('color', module.colors.dark_color, '.event-registration .event-card .event-card__title')}}
+          {{outputColorIfSet('color', module.colors.dark_color, '.event-registration .event-details .event-details__registration--title')}}
+          {{outputColorIfSet('color', module.colors.dark_color, '.event-registration .event-details .event-details__registration--info .event-button')}}
+          {{outputColorIfSet('border-color', module.colors.dark_color, '.event-registration .event-details .event-details__registration--info .event-button')}}
+        {% endif %}
 
-      {{outputColorIfSet('background-color', module.event_form.form_submit_button.background_color_form_button, '.event-button')}}
-
-      {{outputColorIfSet('background-color', module.event_form.form_background.background_color_form, '.event-details__registration')}}
+        {{outputColorIfSet('color', module.colors.link_color, '.event-registration .my-events-link a')}}
+        {{outputColorIfSet('color', module.colors.link_color, '.event-registration .event-details__share--table a')}}
+        {{outputColorIfSet('color', module.colors.link_color, '.event-registration a.event-details__prevLink')}}
+        {{outputColorIfSet('color', module.colors.link_color, '.event-registration a.event-details__nextLink')}}
+      {% endif %}
     {% endif %}
   </style>
   {% end_require_css %}

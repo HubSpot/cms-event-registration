@@ -55,7 +55,10 @@
   padding: 20px 0;
 }
 .event-details__spaces-available-icon {
+  height: 25px;
   margin-right: 10px;
+  overflow: visible;
+  width: 25px;
 }
 .event-details__registration form {
   border: none;

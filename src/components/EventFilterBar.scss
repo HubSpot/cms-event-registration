@@ -51,12 +51,11 @@
   position: relative;
 }
 
-.filter-bar__browse--arrow {
+.filter-bar__browse--arrow-wrapper .filter-bar__browse--arrow {
+  height: 30px;
   margin: 0px 10px 0 40px;
   transform: rotate(-90deg);
-  height: 30px !important;
-  margin: 0px 10px 0 40px !important;
-  width: 30px !important;
+  width: 30px;
 }
 
 .filter-bar__browse--event-filter {

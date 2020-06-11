@@ -58,15 +58,23 @@
 .column .event-icon {
   margin-top: 12px;
 }
-
-.event-icon,
-.location-icon,
-.people-icon,
-.time-icon {
-  height: 25px !important;
+.column .event-icon,
+.column .location-icon,
+.column .people-icon,
+.column .time-icon {
+  height: 25px;
   margin-right: 10px;
-  overflow: visible !important;
-  width: 25px !important;
+  overflow: visible;
+  width: 25px;
+}
+.event-card__column .event-icon,
+.event-card__column .location-icon,
+.event-card__column .people-icon,
+.event-card__column .time-icon {
+  height: 25px;
+  margin-right: 10px;
+  overflow: visible;
+  width: 25px;
 }
 .event-details__description p {
   line-height: 1.3;

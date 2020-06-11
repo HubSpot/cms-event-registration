@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import EventListings from './components/EventListings';
 import EventFilterBar from './components/EventFilterBar';
+import ErrorPageEditor from './components/ErrorPageEditor';
 import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import './scss/App.scss';
@@ -15,6 +16,11 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="App">
+        <ErrorPageEditor
+          events={events}
+          portalId={state.portalId}
+          tableId={state.tableId}
+        />
         <EventFilterBar
           filteredEventProperties={filteredEventProperties}
           setEventProperties={setEventProperties}

@@ -10,7 +10,7 @@ import _lang from 'lodash/lang';
 
 const EventListings = ({ events, currentSearch, filteredEventProperties }) => {
   const [state] = useContext(AppContext);
-  const { events_root } = state.moduleData;
+  const { events_root } = state.moduleData.page_roots;
   const eventsRootPath = new URL(events_root).pathname;
   let filteredEvents = events;
 

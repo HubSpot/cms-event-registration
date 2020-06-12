@@ -11,7 +11,7 @@ const RegistrationConfirmation = ({ formData }) => {
   const { slug } = useParams();
   const eventData = state.events;
   const currentEvent = eventData.find(event => event.path === slug);
-  const { my_events_page } = state.moduleData;
+  const { my_events_page } = state.moduleData.page_roots;
   const myEventsPath = new URL(my_events_page).pathname;
 
   return (

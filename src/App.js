@@ -12,7 +12,7 @@ function App() {
   const [currentSearch, setCurrentSearch] = useState('');
   const [filteredEventProperties, setEventProperties] = useState([]);
   const events = state.events;
-  const { my_events_page } = state.moduleData;
+  const { my_events_page } = state.moduleData.page_roots;
   const myEventsPath = new URL(my_events_page).pathname;
 
   return (

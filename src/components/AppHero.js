@@ -7,7 +7,8 @@ import './AppHero.scss';
 
 const AppHero = () => {
   const [state] = useContext(AppContext);
-  const { events_root, hero_img } = state.moduleData;
+  const { hero_img } = state.moduleData.hero_image_group;
+  const { events_root } = state.moduleData.page_roots;
   const eventsRootPath = new URL(events_root).pathname;
 
   return (

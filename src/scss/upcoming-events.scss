@@ -34,9 +34,10 @@
   text-align: center;
 }
 
-.time-icon,
-.location-icon,
-.people-icon {
+.event-card__column .event-icon,
+.event-card__column .location-icon,
+.event-card__column .people-icon,
+.event-card__column .time-icon {
   height: 25px;
   width: 25px;
   margin-right: 10px;

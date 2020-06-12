@@ -10,7 +10,7 @@ function RegisteredEventListings() {
   const [registeredEventSlugsLoaded, setRegisteredEventSlugsLoaded] = useState(
     false,
   );
-  const { events_root } = state.moduleData;
+  const { events_root } = state.moduleData.page_roots;
   const eventsRootPath = new URL(events_root).pathname;
 
   const getRegisteredEvents = async () => {

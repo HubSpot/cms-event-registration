@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import _object from 'lodash/object';
 
+const TABLE_NAME = 'hs_events';
 const AppContext = React.createContext([{}, () => {}]);
 
 const eventLoadingStatus = {
@@ -46,7 +47,7 @@ const AppProvider = props => {
 
   const getEvents = async () => {
     let response = await fetch(
-      `https://api.hubspot.com/cms/v3/hubdb/tables/events/rows?sort=start&portalId=${props.portalId}`,
+      `https://api.hubspot.com/cms/v3/hubdb/tables/${TABLE_NAME}/rows?sort=start&portalId=${props.portalId}`,
     );
     response = await response.json();
     setState(state => ({
@@ -77,7 +78,7 @@ const AppProvider = props => {
 
   const getEventColumns = async () => {
     let response = await fetch(
-      `https://api.hubspot.com/cms/v3/hubdb/tables/events?portalId=${props.portalId}`,
+      `https://api.hubspot.com/cms/v3/hubdb/tables/${TABLE_NAME}?portalId=${props.portalId}`,
     );
     response = await response.json();
     setState(state => ({

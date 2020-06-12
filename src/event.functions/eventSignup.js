@@ -4,6 +4,7 @@ const request = util.promisify(require('request'));
 const HUBDB_API = 'https://api.hubspot.com/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
 const { APIKEY } = process.env;
+const TABLE_NAME = 'hs_events';
 
 exports.main = ({ body, accountId }, sendResponse) => {
   if (!APIKEY) {
@@ -33,7 +34,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
     const { statusCode, body } = await request({
       baseUrl: HUBDB_API,
       json: true,
-      uri: `/tables/events/rows/${id}/draft`,
+      uri: `/tables/${TABLE_NAME}/rows/${id}/draft`,
       qs: defaultParams,
     });
 
@@ -88,7 +89,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
       baseUrl: HUBDB_API,
       method: 'PATCH',
       json: true,
-      uri: `/tables/events/rows/${id}/draft`,
+      uri: `/tables/${TABLE_NAME}/rows/${id}/draft`,
       qs: defaultParams,
       body: { values: updatedRow },
     });
@@ -111,7 +112,7 @@ exports.main = ({ body, accountId }, sendResponse) => {
       method: 'POST',
       json: true,
       simple: true,
-      uri: `/tables/events/draft/push-live`,
+      uri: `/tables/${TABLE_NAME}/draft/push-live`,
       qs: defaultParams,
     });
 

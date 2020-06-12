@@ -51,7 +51,7 @@
     "type": "group"
   },
   {
-    "label": "Hero Image Banner",
+    "label": "Hero Banner",
     "name": "hero_image_group",
     "required": false,
     "locked": false,

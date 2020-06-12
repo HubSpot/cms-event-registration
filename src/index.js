@@ -27,7 +27,7 @@ preRenderedDataNodes.forEach(({ dataset, textContent }) => {
     `event-registration__module--${dataset.moduleInstance}`,
   );
   const __MODULE_DATA__ = JSON.parse(textContent);
-  const { events_root, my_events_page } = __MODULE_DATA__;
+  const { events_root, my_events_page } = __MODULE_DATA__.page_roots;
   ReactDOM.render(
     <BrowserRouter>
       <ScrollToTop />

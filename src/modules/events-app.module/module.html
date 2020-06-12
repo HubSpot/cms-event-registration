@@ -15,9 +15,9 @@
     data-module-instance="{{ name }}"
     data-portal-id="{{ portal_id }}">
     {%- set moduleData = module -%}
-    {%- do moduleData.update({
-      'events_root': content_by_id(moduleData.events_root).absoluteUrl,
-      'my_events_page': content_by_id(moduleData.my_events_page).absoluteUrl
+    {%- do moduleData.page_roots.update({
+      'events_root': content_by_id(moduleData.page_roots.events_root).absoluteUrl,
+      'my_events_page': content_by_id(moduleData.page_roots.my_events_page).absoluteUrl
     })-%}
     {{ moduleData|tojson }}
   </script>

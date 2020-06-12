@@ -1,60 +1,68 @@
 [
   {
-    "label": "Heading",
-    "name": "heading",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "show_emoji_picker": true,
-    "default": "Upcoming Events"
-  },
-  {
-    "label": "Background color",
-    "name": "background_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Event card color",
-    "name": "event_card_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Text color",
-    "name": "text_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Title color",
-    "name": "title_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
-    "label": "Event title color",
-    "name": "event_title_color",
-    "type": "color",
-    "required": false,
-    "locked": false,
-    "default": {}
-  },
-  {
     "default": null,
     "label": "Event page",
     "locked": false,
     "name": "events_root",
     "required": true,
     "type": "page"
+  },
+  {
+    "label": "Customize Styles",
+    "name": "customize_styles",
+    "type": "boolean",
+    "required": false,
+    "locked": false,
+    "default": false
+  },
+  {
+    "label": "Colors",
+    "name": "colors",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": "customize_styles",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Light Color",
+        "name": "light_color",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Dark Color",
+        "name": "dark_color",
+        "type": "color",
+        "required": false,
+        "locked": false,
+        "default": {}
+      },
+      {
+        "label": "Color Schemes",
+        "name": "color_schemes",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": "customize_styles",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "display": "select",
+        "placeholder": "Choose a theme",
+        "choices": [
+          ["light_theme", "Light theme"],
+          ["dark_theme", "Dark theme"]
+        ],
+        "type": "choice",
+        "default": null
+      }
+    ],
+    "tab": "CONTENT",
+    "type": "group"
   }
 ]

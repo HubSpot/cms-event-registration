@@ -18,7 +18,7 @@ Join [#events-app-beta](https://hubspotdev.slack.com/archives/C011GFF8KNZ) in th
 1. Clone this repo to your machine
 2. Install dependencies by running `yarn install`
 3. Run `yarn create-table --portal <portalId>` to create the HubDB table where you will manage your events
-4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY <api-key-goes-here>`. The API key is used by `eventSignup.js` to update the HubDB table
+4. Add your [HubSpot API key](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key) for the portal by running `yarn hs secrets add APIKEY` then paste in your API key when prompted. The API key is used by `eventSignup.js` to update the HubDB table
 5. Run `yarn start` which will build the javascript, auto-upload the files to your `defaultPortal`, and watch for changes
 6. Registrations are stored in the CRM using the [Forms API](https://developers.hubspot.com/docs/methods/forms/forms_overview). You'll need to create a form with the fields:
    - First name

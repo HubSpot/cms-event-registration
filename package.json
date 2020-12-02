@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch --env.autoupload --mode production",
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "deploy": "hs upload dist event-registration",
     "lint": "eslint src && prettier --check 'src/**/*.js' 'src/**/*.json'",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'",

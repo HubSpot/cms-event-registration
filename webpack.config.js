@@ -13,25 +13,21 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js'
+      filename: '[name].js',
     },
+    devtool: 'source-map',
     optimization: {
       minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          include: /vendor\.js$/
-        }),
-      ],
       splitChunks: {
         cacheGroups: {
           commons: {
-              test: /[\\/]node_modules[\\/]/,
-              name: "vendor",
-              chunks: "initial",
-            },
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'initial',
           },
-        }
+        },
       },
+    },
     module: {
       rules: [
         {

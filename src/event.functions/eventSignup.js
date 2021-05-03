@@ -98,16 +98,6 @@ exports.main = ({ body, accountId }, sendResponse) => {
 
   const publishTable = async id => {
     const updatedTable = await incrementAttendeeCount(id);
-
-    const { statusCode, body } = await request({
-      baseUrl: HUBDB_API,
-      method: 'POST',
-      json: true,
-      simple: true,
-      uri: `/tables/${TABLE_NAME}/draft/push-live`,
-      qs: defaultParams,
-    });
-
     const { status, data } = await axios.post(HUBDB_API + `/tables/${TABLE_NAME}/draft/push-live`, {
       qs: defaultParams,
     });

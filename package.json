@@ -51,14 +51,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@hubspot/cms-lib": "^2.2.2",
+    "axios": "^0.21.1",
     "core-js": "^3.2.1",
     "dayjs": "^1.8.16",
     "js-cookie": "^2.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",
-    "regenerator-runtime": "^0.13.3",
-    "request": "^2.88.0"
+    "regenerator-runtime": "^0.13.3"
   },
   "browserslist": {
     "production": [

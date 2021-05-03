@@ -1,5 +1,4 @@
-const util = require('util');
-const request = util.promisify(require('request'));
+const axios = require('axios').default;
 
 const HUBDB_API = 'https://api.hubspot.com/cms/v3/hubdb';
 const FORMS_API = `https://api.hsforms.com/submissions/v3/integration/submit`;
@@ -31,23 +30,20 @@ exports.main = ({ body, accountId }, sendResponse) => {
   };
 
   const getRow = async id => {
-    const { statusCode, body } = await request({
-      baseUrl: HUBDB_API,
-      json: true,
-      uri: `/tables/${TABLE_NAME}/rows/${id}/draft`,
-      qs: defaultParams,
+    const { status, data } = await axios.get(HUBDB_API + `/tables/${TABLE_NAME}/rows/${id}/draft`, {
+      params: defaultParams
     });
 
-    if (statusCode != 200) {
+    if (status != 200) {
       sendResponse({
         statusCode: 500,
         body: {
-          message: body.message,
+          message: data.message,
         },
       });
     }
 
-    return body.values;
+    return data.values;
   };
 
   const incrementAttendeeCount = async id => {
@@ -85,23 +81,19 @@ exports.main = ({ body, accountId }, sendResponse) => {
       registered_attendee_count: registered_attendee_count + 1,
     };
 
-    const { statusCode, body } = await request({
-      baseUrl: HUBDB_API,
-      method: 'PATCH',
-      json: true,
-      uri: `/tables/${TABLE_NAME}/rows/${id}/draft`,
-      qs: defaultParams,
+    const { status, data } = await axios.patch(HUBDB_API + `/tables/${TABLE_NAME}/rows/${id}/draft`, {
+      params: defaultParams,
       body: { values: updatedRow },
     });
 
-    if (statusCode != 200) {
+    if (status != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message },
+        body: { message: data.message },
       });
     }
 
-    return body;
+    return data;
   };
 
   const publishTable = async id => {
@@ -116,10 +108,14 @@ exports.main = ({ body, accountId }, sendResponse) => {
       qs: defaultParams,
     });
 
-    if (statusCode != 200) {
+    const { status, data } = await axios.post(HUBDB_API + `/tables/${TABLE_NAME}/draft/push-live`, {
+      qs: defaultParams,
+    });
+
+    if (status != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message },
+        body: { message: data.message },
       });
     }
 
@@ -128,26 +124,13 @@ exports.main = ({ body, accountId }, sendResponse) => {
 
   const updateContact = async () => {
     const formApiWithGuid = `${FORMS_API}/${accountId}/${formId}`;
-
-    const { statusCode, body } = await request({
-      method: 'POST',
-      json: true,
-      simple: true,
-      uri: formApiWithGuid,
+    
+    const { status, data } = await axios.post(formApiWithGuid, {
       body: {
         fields: [
-          {
-            name: 'firstname',
-            value: firstName,
-          },
-          {
-            name: 'lastname',
-            value: lastName,
-          },
-          {
-            name: 'email',
-            value: email,
-          },
+          firstName,
+          lastName,
+          email
         ],
         context: {
           pageUri: pageUri,
@@ -157,14 +140,14 @@ exports.main = ({ body, accountId }, sendResponse) => {
       },
     });
 
-    if (statusCode != 200) {
+    if (status != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message },
+        body: { message: data.message },
       });
     }
 
-    return body;
+    return data;
   };
 
   (async () => {

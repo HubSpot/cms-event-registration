@@ -1,5 +1,4 @@
-const util = require('util');
-const request = util.promisify(require('request'));
+const axios = require('axios').default
 
 const CONTACTS_API = '/contacts/v1/contact/vid';
 const BASE_URL = 'https://api.hubapi.com';
@@ -29,21 +28,18 @@ exports.main = ({ accountId, contact }, sendResponse) => {
   }
 
   const getContact = async vid => {
-    const { statusCode, body } = await request({
-      baseUrl: BASE_URL,
-      json: true,
-      uri: `${CONTACTS_API}/${vid}/profile`,
-      qs: defaultParams,
+    const { status, data } = await axios.get(BASE_URL + `${CONTACTS_API}/${vid}/profile`, {
+      params: defaultParams,
     });
 
-    if (statusCode != 200) {
+    if (status != 200) {
       sendResponse({
         statusCode: 500,
-        body: { message: body.message },
+        body: { message: data.message },
       });
     }
 
-    return body['form-submissions'];
+    return data['form-submissions'];
   };
 
   (async () => {

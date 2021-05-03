@@ -51,6 +51,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@hubspot/cms-lib": "^2.2.2",
+    "axios": "^0.21.1",
     "core-js": "^3.2.1",
     "dayjs": "^1.8.16",
     "js-cookie": "^2.2.1",

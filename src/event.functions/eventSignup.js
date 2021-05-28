@@ -118,9 +118,18 @@ exports.main = ({ body, accountId }, sendResponse) => {
     const { status, data } = await axios.post(formApiWithGuid, {
       body: {
         fields: [
-          firstName,
-          lastName,
-          email
+          {
+            name: 'firstname',
+            value: firstName,
+          },
+          {
+            name: 'lastname',
+            value: lastName,
+          },
+          {
+            name: 'email',
+            value: email,
+          },
         ],
         context: {
           pageUri: pageUri,

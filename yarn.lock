@@ -5227,6 +5227,11 @@ nan@^2.12.1, nan@^2.13.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
+nanocolors@^0.2.2:
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.2.12.tgz#4d05932e70116078673ea4cc6699a1c56cc77777"
+  integrity sha512-SFNdALvzW+rVlzqexid6epYdt8H9Zol7xDoQarioEFcFN0JHo4CYNztAxmtfgGTVRCmFlEOqqhBpoFGKqSAMug==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -6055,23 +6060,13 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.0.3:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.0.3.tgz#651ff4593aa9eda8d5d0d66593a2417aeaeb325d"
   integrity sha512-N7h4pG+Nnu5BEIzyeaaIYWs0LI5XC40OrRh5L60z0QjFsqGWcHcbkBvpe1WYpcIS9yQ8sOi/vIPt1ejQCrMVrg==
 
-postcss@^7.0.0:
-  version "7.0.29"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-7.0.29.tgz#d3a903872bd52280b83bce38cdc83ce55c06129e"
-  integrity sha512-ba0ApvR3LxGvRMMiUa9n0WR4HjzcYm7tS+ht4/2Nd0NLtHpPIH77fuB9Xh1/yJVz9O/E/95Y/dn8ygWsyffXtw==
+postcss@^7.0.0, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.27, postcss@^7.0.5, postcss@^7.0.6:
+  version "7.0.38"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.38.tgz#5365a9c5126643d977046ad239f60eadda2491d6"
+  integrity sha512-wNrSHWjHDQJR/IZL5IKGxRtFgrYNaAA/UrkW2WqbtZO6uxSLMxMN+s2iqUMwnAWm3fMROlDYZB41dr0Mt7vBwQ==
   dependencies:
-    chalk "^2.4.2"
+    nanocolors "^0.2.2"
     source-map "^0.6.1"
-    supports-color "^6.1.0"
-
-postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.27, postcss@^7.0.5, postcss@^7.0.6:
-  version "7.0.27"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.27.tgz#cc67cdc6b0daa375105b7c424a85567345fc54d9"
-  integrity sha512-WuQETPMcW9Uf1/22HWUWP9lgsIC+KEHg2kozMflKjbeUtw9ujvFX6QmIfozaErDkmLWS9WEnEdEe6Uo9/BNTdQ==
-  dependencies:
-    chalk "^2.4.2"
-    source-map "^0.6.1"
-    supports-color "^6.1.0"
 
 prelude-ls@~1.1.2:
   version "1.1.2"

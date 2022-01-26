@@ -1,5 +1,5 @@
 {
-  "runtime": "nodejs10.x",
+  "runtime": "nodejs12.x",
   "version": "1.0",
   "secrets": ["APIKEY"],
   "endpoints": {
